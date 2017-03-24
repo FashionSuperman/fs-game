@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans   
+    	http://www.springframework.org/schema/beans/spring-beans.xsd
+    	http://www.springframework.org/schema/tx
+        http://www.springframework.org/schema/tx/spring-tx.xsd
+		http://www.springframework.org/schema/context
+		http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/util 
+		http://www.springframework.org/schema/util/spring-util.xsd
+		http://activemq.apache.org/schema/core
+		http://activemq.apache.org/schema/core/activemq-core.xsd">
+
+	<!-- 配置JMS连接工厂 -->
+	<bean id="myConnectionFactory"
+		class="org.springframework.jms.connection.CachingConnectionFactory">
+		<!-- Session缓存数量 -->
+		<property name="sessionCacheSize" value="${sessionCacheSize}" />
+		<property name="targetConnectionFactory">
+			<bean class="org.apache.activemq.ActiveMQConnectionFactory">
+				<!-- MQ地址 -->
+				<property name="brokerURL" value="${brokerURL}" />
+				<!-- 是否异步发送 -->
+				<property name="useAsyncSend" value="${useAsyncSend}" />
+			</bean>
+		</property>
+	</bean>
+
+
+	<!-- 测试主题 -->
+	<bean id="myDestination_Test_Topic" class="org.apache.activemq.command.ActiveMQTopic">
+		<constructor-arg index="0" value="topic_test" />
+	</bean>
+	
+	<!-- 测试队列 -->
+	<bean id="myDestination_Test_Queue" class="org.apache.activemq.command.ActiveMQQueue">
+		<constructor-arg index="0" value="queue_test" />
+	</bean>
+
+	<!-- 主题模板 -->
+	<bean id="myJmsTemplate_Test_Topic" class="org.springframework.jms.core.JmsTemplate">
+		<property name="connectionFactory" ref="myConnectionFactory" />
+		<property name="defaultDestination" ref="myDestination_Test_Topic" />
+		<!-- 订阅发布模式 -->
+		<property name="pubSubDomain" value="true" />
+		<!-- <property name="receiveTimeout" value="${receiveTimeout}" /> -->
+		<property name="deliveryPersistent" value="true" />
+	</bean>
+	
+	<!-- 队列模板 -->
+	<bean id="myJmsTemplate_Test_Queue" class="org.springframework.jms.core.JmsTemplate">
+		<property name="connectionFactory" ref="myConnectionFactory" />
+		<property name="defaultDestination" ref="myDestination_Test_Queue" />
+		<!-- 订阅发布模式 -->
+		<property name="pubSubDomain" value="false" />
+		<!-- <property name="receiveTimeout" value="${receiveTimeout}" /> -->
+		<property name="deliveryPersistent" value="true" />
+	</bean>
+
+
+</beans>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.fashionsuperman.fs.game.dao.mapper.UserRelationshipMapper">
+
+	<resultMap id="BaseUserResultMap" type="com.fashionsuperman.fs.game.dao.entity.custom.UserCustom">
+		<id column="UserId" jdbcType="BIGINT" property="userid" />
+		<result column="AccountName" jdbcType="VARCHAR" property="accountname" />
+		<result column="NickName" jdbcType="VARCHAR" property="nickname" />
+		<result column="ForeighId" jdbcType="VARCHAR" property="foreighid" />
+		<result column="ForeighType" jdbcType="VARCHAR" property="foreightype" />
+		<result column="Funds" jdbcType="REAL" property="funds" />
+		<result column="CreateDate" jdbcType="DATE" property="createdate" />
+		<result column="Password" jdbcType="VARCHAR" property="password" />
+		<result column="Score" jdbcType="VARCHAR" property="score" />
+	</resultMap>
+	<select id="selectUserFriends" parameterType="java.lang.Long"
+		resultMap="BaseUserResultMap">
+		select 
+		t2.UserId,
+		t2.AccountName,
+		t2.NickName,
+		t2.ForeighId,
+		t2.ForeighType,
+		t2.Funds,
+		t2.CreateDate,
+		t2.Password,
+		ifnull(t3.Score , 0) as Score
+		
+		from 
+		UserRelationship t1 
+		left join User t2 left join Rank t3 on t2.UserId = t3.UserId
+		on t1.BUserId = t2.UserId
+		where 
+		t1.AUserId = #{value,jdbcType=BIGINT}
+
+	</select>
+	
+</mapper>

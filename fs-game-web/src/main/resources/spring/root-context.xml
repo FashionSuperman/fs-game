@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans   
+    	http://www.springframework.org/schema/beans/spring-beans.xsd
+    	http://www.springframework.org/schema/tx
+        http://www.springframework.org/schema/tx/spring-tx.xsd
+		http://www.springframework.org/schema/context
+		http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/util 
+		http://www.springframework.org/schema/util/spring-util.xsd">
+
+	<context:property-placeholder
+		location="classpath:jdbc.properties,classpath:public_system.properties,classpath:redis.properties,classpath:jms.properties"
+		ignore-unresolvable="true" />
+	<!-- 必须放到root-context,放到servlet-content事务无效 -->
+	<context:component-scan base-package="com.fashionsuperman.fs.game.dao" />
+	<!-- 服务扫描包 -->
+	<context:component-scan base-package="com.fashionsuperman.fs.game.service" />
+	<!-- core -->
+	<context:component-scan base-package="com.fashionsuperman.fs.core" />
+
+	<!-- aop -->
+	<bean id="logAspect" class="com.fashionSuperman.fs.core.aspect.LogAspect"></bean>
+	<bean id="JMSAspect" class="com.fashionSuperman.fs.core.aspect.JMSAspect"></bean>
+
+	<import resource="classpath:spring/data-access-context.xml" />
+	<import resource="classpath:spring/spring-jms-provider.xml" />
+	<!-- <import resource="classpath:spring/spring-redis.xml"/> -->
+	
+	<!-- <import resource="classpath:spring/dubbo-reference-book.xml" /> -->
+	
+
+</beans>

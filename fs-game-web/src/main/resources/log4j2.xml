@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configuration status="error">
+	<!-- 定义下面的引用名 -->
+
+	<Properties>
+		<property name="log_pattern">%d{yyyy-MM-ddHH:mm:ss z} %-5level %class{36}
+			%L %M - %msg%xEx%n</property>
+		<property name="basePath">/java/apache-tomcat-8.0.36/webapps</property>
+		<property name="file_name">${basePath}/log/yfz.log</property>
+		<property name="rolling_file_name">${basePath}/backup/yfz-%d{yyyy-MM-dd}-%i.log.gz
+		</property>
+		<property name="every_file_size">10M</property><!-- 日志切割的最小单位 -->
+		<!-- trace： 是追踪，就是程序推进以下，你就可以写个trace输出，所以trace应该会特别多，不过没关系，我们可以设置最低日志级别不让他输出。 
+			debug： 调试么，我一般就只用这个作为最低级别，trace压根不用。是在没办法就用eclipse或者idea的debug功能就好了么。 info： 
+			输出一下你感兴趣的或者重要的信息，这个用的最多了。 warn： 有些信息不是错误信息，但是也要给程序员的一些提示，类似于eclipse中代码的验证不是有error 
+			和warn（不算错误但是也请注意，比如以下depressed的方法）。 error： 错误信息。用的也比较多。 fatal： 级别比较高了。重大错误，这种级别你可以直接停止程序了。 -->
+		<property name="output_log_level">debug</property><!-- 日志输出级别 -->
+
+
+		<property name="error_log_pattern">%d{yyyy-MM-ddHH:mm:ss z} %-5level %class{36}
+			%L %M - %msg%xEx%n</property>
+		<property name="error_basePath">/java/apache-tomcat-8.0.36/webapps</property>
+		<property name="error_file_name">${error_basePath}/log/yfz-error.log</property>
+		<property name="error_rolling_file_name">${error_basePath}/backup/yfz-error-%d{yyyy-MM-dd}-%i.log.gz
+		</property>
+		<property name="error_every_file_size">10M</property><!-- 日志切割的最小单位 -->
+		<!-- trace： 是追踪，就是程序推进以下，你就可以写个trace输出，所以trace应该会特别多，不过没关系，我们可以设置最低日志级别不让他输出。 
+			debug： 调试么，我一般就只用这个作为最低级别，trace压根不用。是在没办法就用eclipse或者idea的debug功能就好了么。 info： 
+			输出一下你感兴趣的或者重要的信息，这个用的最多了。 warn： 有些信息不是错误信息，但是也要给程序员的一些提示，类似于eclipse中代码的验证不是有error 
+			和warn（不算错误但是也请注意，比如以下depressed的方法）。 error： 错误信息。用的也比较多。 fatal： 级别比较高了。重大错误，这种级别你可以直接停止程序了。 -->
+		<property name="error_output_log_level">error</property><!-- 日志输出级别 -->
+
+	</Properties>
+
+	<!--先定义所有的appender -->
+	<appenders>
+		<!--这个输出控制台的配置 -->
+		<Console name="Console" target="SYSTEM_OUT">
+			<!--控制台只输出level及以上级别的信息（onMatch），其他的直接拒绝（onMismatch） -->
+			<ThresholdFilter level="trace" onMatch="ACCEPT"
+				onMismatch="DENY" />
+			<!--这个都知道是输出日志的格式 -->
+			<PatternLayout charset="UTF-8" pattern="${log_pattern}" />
+		</Console>
+
+		<!--这个会打印出所有的信息，每次大小超过size，则这size大小的日志会自动存入按年份-月份建立的文件夹下面并进行压缩，作为存档 -->
+		<RollingFile name="RollingFile" fileName="${file_name}"
+			filePattern="${rolling_file_name}">
+			<PatternLayout charset="UTF-8" pattern="${log_pattern}" />
+			<SizeBasedTriggeringPolicy size="${every_file_size}" />
+		</RollingFile>
+
+		<RollingFile name="error_RollingFile" fileName="${error_file_name}"
+			filePattern="${error_rolling_file_name}">
+			<PatternLayout charset="UTF-8" pattern="${error_log_pattern}" />
+			<SizeBasedTriggeringPolicy size="${error_every_file_size}" />
+			<Filters>
+				<ThresholdFilter level="error" onMatch="ACCEPT"
+					onMismatch="DENY" />
+			</Filters>
+		</RollingFile>
+		
+		<!-- <Socket name="LOGSTASH" host="172.16.1.153" port="4560">
+	    	输出格式  序列布局
+	      <PatternLayout charset="UTF-8" pattern="%d %p [%t] %C{1} (%F:%L) [%marker] - %m%n" />
+	    </Socket> -->
+	    
+	     <!-- 输出错误日志到Kafka -->  
+        <Kafka name="KAFKA" topic="log-topic">  
+            <PatternLayout charset="UTF-8" pattern="${log_pattern}"/>
+            <Property name="bootstrap.servers">172.17.30.22:9092</Property>  
+        </Kafka> 
+	</appenders>
+	<!--然后定义logger，只有定义了logger并引入的appender，appender才会生效 -->
+	<loggers>
+		<!--建立一个默认的root的logger -->
+		<root level="${output_log_level}">
+			<appender-ref ref="RollingFile" />
+			<appender-ref ref="error_RollingFile" />
+			<appender-ref ref="Console" />
+			<!-- <appender-ref ref="LOGSTASH"/> -->
+			<!-- <appender-ref ref="KAFKA"/> -->
+		</root>
+
+	</loggers>
+</configuration>

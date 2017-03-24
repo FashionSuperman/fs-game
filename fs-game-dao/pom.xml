@@ -1,0 +1,70 @@
+<?xml version="1.0"?>
+<project
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.fashionsuperman</groupId>
+		<artifactId>fs.game</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+	<groupId>com.fashionsuperman</groupId>
+	<artifactId>fs-game-dao</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>fs-game-dao</name>
+	<url>http://maven.apache.org</url>
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+	<dependencies>
+		<!-- Mysql Driver -->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+		</dependency>
+		<!-- pagehelper -->
+		<dependency>
+			<groupId>com.github.pagehelper</groupId>
+			<artifactId>pagehelper</artifactId>
+		</dependency>
+	</dependencies>
+
+
+	<build>
+		<finalName>fs-game-dao</finalName>
+		<resources>
+			<resource>
+				<targetPath>${project.build.directory}/classes</targetPath>
+				<directory>src/main/resources</directory>
+				<filtering>true</filtering>
+				<includes>
+					<include>**/*.xml</include>
+					<include>**/*.properties</include>
+				</includes>
+			</resource>
+			<!-- <resource> <targetPath>${project.build.directory}/classes/META-INF/spring</targetPath> 
+				<directory>src/main/resources/spring</directory> <filtering>true</filtering> 
+				<includes> <include>spring-context.xml</include> </includes> </resource> -->
+		</resources>
+		<testResources>
+			<testResource>
+				<directory>src/main/resources</directory>
+				<includes>
+					<include>**/*.xml</include>
+					<include>**/*.properties</include>
+				</includes>
+			</testResource>
+			<testResource>
+				<directory>src/main/resources/test</directory>
+				<includes>
+					<include>config/**/*.properties</include>
+				</includes>
+			</testResource>
+		</testResources>
+		<plugins>
+
+
+
+		</plugins>
+	</build>
+</project>

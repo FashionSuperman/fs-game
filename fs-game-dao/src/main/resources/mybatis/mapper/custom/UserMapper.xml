@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.fashionsuperman.fs.game.dao.mapper.UserMapper" >
+  <select id="selectByParam" parameterType="java.util.Map" resultMap = "BaseResultMap">
+  	select 
+    <include refid="Base_Column_List" />
+    from user t
+    <where>
+    	<if test="accountname != null and accountname != ''">
+    		t.accountname = #{accountname , jdbcType = VARCHAR}
+    	</if>
+    	<if test="foreighid != null and foreighid != ''">
+    		and t.foreighid = #{foreighid , jdbcType = VARCHAR}
+    	</if>
+    	<if test="foreightype != null and foreightype != ''">
+    		and t.foreightype = #{foreightype , jdbcType = VARCHAR}
+    	</if>
+    </where>
+  </select>
+  
+  <insert id="insertIncrement" parameterType="com.fashionsuperman.fs.game.dao.entity.User">
+  	insert into user (AccountName, NickName, 
+      ForeighId, ForeighType, Funds, 
+      CreateDate, Password)
+    values (#{accountname,jdbcType=VARCHAR}, #{nickname,jdbcType=VARCHAR}, 
+      #{foreighid,jdbcType=VARCHAR}, #{foreightype,jdbcType=VARCHAR}, #{funds,jdbcType=REAL}, 
+      #{createdate,jdbcType=DATE}, #{password,jdbcType=VARCHAR})
+  </insert>
+</mapper>
