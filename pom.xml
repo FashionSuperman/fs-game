@@ -120,6 +120,8 @@
 
 		<geronimo-jms_1.1_spec.version>1.1.1</geronimo-jms_1.1_spec.version>
 
+		<jstl.version>1.2</jstl.version>
+
 
 	</properties>
 	<dependencies>
@@ -135,6 +137,12 @@
 
 	<dependencyManagement>
 		<dependencies>
+			<!-- jstl -->
+			<dependency>
+				<groupId>jstl</groupId>
+				<artifactId>jstl</artifactId>
+				<version>${jstl.version}</version>
+			</dependency>
 			<!-- commons -->
 			<dependency>
 				<groupId>commons-io</groupId>
@@ -374,8 +382,8 @@
 				<artifactId>jackson-databind</artifactId>
 				<version>${jackson.version}</version>
 			</dependency>
-			
-			
+
+
 			<dependency>
 				<groupId>com.fashionSuperman</groupId>
 				<artifactId>fs-core</artifactId>

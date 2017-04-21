@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.fashionsuperman.fs.game.dao.mapper.ShopMapper" >
+  <select id="selectByParam" parameterType="java.util.Map" 
+  			resultType="com.fashionsuperman.fs.game.dao.entity.custom.ShopCustom">
+  	select 
+  	
+  	t1.ShopItemId as shopitemid, 
+  	t1.CommodityId as commodityid, 
+  	t1.Number as number, 
+  	t1.Price as price, 
+  	t1.UserId as userid, 
+  	t1.Discount as discount, 
+  	t1.DiscountDes as discountdes,
+  	t2.CommodityName as commodityname,
+  	t3.CatagoryName as catagoryname,
+  	t2.CommodityDes as commoditydes
+  		
+  			
+  	from Shop t1 left join Commodity t2 join CommodityCatagory t3 on t2.CommodityCatagoryId = t3.CatagoryId
+  	on t1.CommodityId = t2.CommodityId
+  	<where>
+  		<if test="commodityname != null and commodityname !=''">
+    		t2.CommodityName like concat('%',#{commodityname,jdbcType=VARCHAR},'%')
+    	</if>
+    	<if test="catagoryname != null and catagoryname !=''">
+    		and t3.CatagoryName like concat('%',#{catagoryname,jdbcType=VARCHAR},'%')
+    	</if>
+  	</where>
+  </select>
+  
+  
+  <insert id="insertIncrement" parameterType="com.fashionsuperman.fs.game.dao.entity.Shop">
+  	insert into shop (CommodityId, Number, 
+      Price, UserId, Discount, DiscountDes
+      )
+    values (#{commodityid,jdbcType=BIGINT}, #{number,jdbcType=INTEGER}, 
+      #{price,jdbcType=REAL}, #{userid,jdbcType=BIGINT}, #{discount,jdbcType=REAL}, #{discountdes,jdbcType=VARCHAR}
+      )
+  </insert>
+</mapper>

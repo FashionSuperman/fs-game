@@ -1,5 +1,8 @@
 package com.fashionsuperman.fs.game.dao.mapper;
 
+import java.util.List;
+import java.util.Map;
+
 import com.fashionsuperman.fs.game.dao.entity.Commodity;
 
 public interface CommodityMapper {
@@ -64,4 +67,12 @@ public interface CommodityMapper {
 	 * @return
 	 */
 	Commodity selectByCommodityName(String commodityname);
+	/**
+	 * 根据参数查询
+	 * @param paramMap
+	 * @return
+	 */
+	List<Commodity> selectByParam(Map<String, Object> paramMap);
+
+	List<Commodity> queryFooCatagoryCommodities(Long catagoryid);
 }

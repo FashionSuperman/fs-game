@@ -12,4 +12,16 @@
   	insert into commoditycatagory (CatagoryName)
     values (#{catagoryname,jdbcType=VARCHAR})
   </insert>
+  
+  <select id="selectByParam" parameterType="java.util.Map" resultMap="BaseResultMap">
+  	select 
+    <include refid="Base_Column_List" />
+    from commoditycatagory t
+    <where>
+    	<if test="catagoryname != null and catagoryname != ''">
+    		t.CatagoryName like concat('%',#{catagoryname,jdbcType=VARCHAR},'%')
+    	</if>
+    </where>
+  </select>
+
 </mapper>

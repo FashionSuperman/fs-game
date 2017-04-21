@@ -14,6 +14,17 @@
     <mvc:annotation-driven />
     
     <context:component-scan base-package="com.fashionsuperman.fs.web" />
+    
+    <!-- 视图渲染 -->
+	<bean
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<!-- 视图前缀 -->
+		<property name="prefix" value="/WEB-INF/view/"></property>
+		<!-- 视图后缀 -->
+		<property name="suffix" value=".jsp"></property>
+		<property name="viewClass" value="org.springframework.web.servlet.view.InternalResourceView"/>
+        <property name="order" value="1"/>
+	</bean>
 		
 	<!-- json序列化去除null值，赋默认值-->
 	<mvc:annotation-driven>
@@ -56,5 +67,13 @@
 	<bean class="com.fashionSuperman.fs.core.mvc.RestfulHandlerMethodMapping">
 	    <property name="order" value="1" /> 
 	</bean>
+	
+	<!-- spring 文件上传 -->
+	<bean id="multipartResolver"  
+           class="org.springframework.web.multipart.commons.CommonsMultipartResolver">  
+           <property name="defaultEncoding" value="utf-8" />  
+           <property name="maxUploadSize" value="10485760000" />  
+           <property name="maxInMemorySize" value="40960" />  
+    </bean> 
 	
 </beans>

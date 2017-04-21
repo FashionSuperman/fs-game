@@ -14,4 +14,41 @@
     from commodity
     where CommodityName = #{value,jdbcType=VARCHAR}
   </select>
+  
+  <select id = "selectByParam" parameterType="java.util.Map" resultMap="BaseResultMap">
+   	select 
+   	
+    t1.CommodityId, 
+    t1.CommodityCatagoryId, 
+    t1.CommodityName, 
+    t1.CommodityDes
+    
+    from commodity t1
+    join CommodityCatagory t2
+    on t1.CommodityCatagoryId = t2.CatagoryId
+    <where>
+    	<if test="commodityname != null and commodityname !=''">
+    		t1.CommodityName like concat('%',#{commodityname,jdbcType=VARCHAR},'%')
+    	</if>
+    	<if test="catagoryname != null and catagoryname !=''">
+    		and t2.CatagoryName like concat('%',#{catagoryname,jdbcType=VARCHAR},'%')
+    	</if>
+    </where>
+  </select>
+  
+  
+  <select id="queryFooCatagoryCommodities" parameterType="java.lang.Long" 
+  			resultType="com.fashionsuperman.fs.game.dao.entity.Commodity">
+  	select
+  	
+  	t1.CommodityId as commodityid, 
+  	t1.CommodityCatagoryId as commoditycatagoryid, 
+  	t1.CommodityName as commodityname, 
+  	t1.CommodityDes as commoditydes
+  	
+    from commodity t1 join CommodityCatagory t2
+    on t1.CommodityCatagoryId = t2.CatagoryId
+    
+    where t2.CatagoryId = #{value,jdbcType=BIGINT} and t1.CommodityId not in (select CommodityId from Shop)
+  </select>
 </mapper>

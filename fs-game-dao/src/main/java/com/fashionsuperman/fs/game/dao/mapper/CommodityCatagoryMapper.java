@@ -1,5 +1,8 @@
 package com.fashionsuperman.fs.game.dao.mapper;
 
+import java.util.List;
+import java.util.Map;
+
 import com.fashionsuperman.fs.game.dao.entity.CommodityCatagory;
 
 public interface CommodityCatagoryMapper {
@@ -63,4 +66,11 @@ public interface CommodityCatagoryMapper {
 	 * @param commodityCatagory
 	 */
 	int insertIncrement(CommodityCatagory commodityCatagory);
+
+	/**
+	 * 根据参数查询商品分类列表
+	 * @param paramMap
+	 * @return
+	 */
+	List<CommodityCatagory> selectByParam(Map<String, Object> paramMap);
 }

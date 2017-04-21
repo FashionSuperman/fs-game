@@ -1,0 +1,5 @@
+请求:
+{
+	"commodityid":"1",//根据id删除
+	"commodityname":"红心"//根据商品名称删除
+}

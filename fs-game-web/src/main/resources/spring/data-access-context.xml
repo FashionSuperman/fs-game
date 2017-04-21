@@ -16,9 +16,9 @@
 		init-method="init" destroy-method="close">
 		<!-- 数据库基本信息配置 -->
 		<property name="driverClassName" value="${mysql.jdbc.driverClassName}" />
-		<property name="url" value="${common.jdbc.url}" />
-		<property name="username" value="${common.jdbc.username}" />
-		<property name="password" value="${common.jdbc.password}" />
+		<property name="url" value="${game.jdbc.url}" />
+		<property name="username" value="${game.jdbc.username}" />
+		<property name="password" value="${game.jdbc.password}" />
 		<!-- 初始化连接数量 -->
 		<property name="initialSize" value="${druid.initialSize}" />
 		<!-- 最大并发连接数 -->

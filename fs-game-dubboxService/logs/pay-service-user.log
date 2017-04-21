@@ -1,0 +1,652 @@
+[DEBUG][20170408 13:50:51,677][PathMatchingResourcePatternResolver:184] Found Equinox FileLocator for OSGi bundle URL resolution
+[DEBUG][20170408 13:50:51,836][MutablePropertySources:107] Adding [systemProperties] PropertySource with lowest search precedence
+[DEBUG][20170408 13:50:51,842][MutablePropertySources:107] Adding [systemEnvironment] PropertySource with lowest search precedence
+[DEBUG][20170408 13:50:51,843][AbstractEnvironment:126] Initialized StandardEnvironment with PropertySources [systemProperties,systemEnvironment]
+[INFO ][20170408 13:50:51,851][AbstractApplicationContext:510] Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@610694f1: startup date [Sat Apr 08 13:50:51 CST 2017]; root of context hierarchy
+[DEBUG][20170408 13:50:52,014][MutablePropertySources:107] Adding [systemProperties] PropertySource with lowest search precedence
+[DEBUG][20170408 13:50:52,014][MutablePropertySources:107] Adding [systemEnvironment] PropertySource with lowest search precedence
+[DEBUG][20170408 13:50:52,015][AbstractEnvironment:126] Initialized StandardEnvironment with PropertySources [systemProperties,systemEnvironment]
+[INFO ][20170408 13:50:52,077][XmlBeanDefinitionReader:315] Loading XML bean definitions from class path resource [spring/spring-context.xml]
+[DEBUG][20170408 13:50:52,133][DefaultDocumentLoader:72] Using JAXP provider [com.sun.org.apache.xerces.internal.jaxp.DocumentBuilderFactoryImpl]
+[DEBUG][20170408 13:50:52,720][PluggableSchemaResolver:140] Loading schema mappings from [META-INF/spring.schemas]
+[DEBUG][20170408 13:50:52,840][PluggableSchemaResolver:146] Loaded schema mappings: {http://mybatis.org/schema/mybatis-spring-1.2.xsd=org/mybatis/spring/config/mybatis-spring-1.2.xsd, http://code.alibabatech.com/schema/dubbo/dubbo.xsd=META-INF/dubbo.xsd, http://www.springframework.org/schema/util/spring-util.xsd=org/springframework/beans/factory/xml/spring-util-3.2.xsd, http://www.springframework.org/schema/jee/spring-jee-3.2.xsd=org/springframework/ejb/config/spring-jee-3.2.xsd, http://www.springframework.org/schema/jms/spring-jms-3.0.xsd=org/springframework/jms/config/spring-jms-3.0.xsd, http://www.springframework.org/schema/mvc/spring-mvc-3.1.xsd=org/springframework/web/servlet/config/spring-mvc-3.1.xsd, http://www.springframework.org/schema/beans/spring-beans-3.1.xsd=org/springframework/beans/factory/xml/spring-beans-3.1.xsd, http://www.springframework.org/schema/task/spring-task.xsd=org/springframework/scheduling/config/spring-task-3.2.xsd, http://www.springframework.org/schema/cache/spring-cache.xsd=org/springframework/cache/config/spring-cache-3.2.xsd, http://www.springframework.org/schema/aop/spring-aop-3.0.xsd=org/springframework/aop/config/spring-aop-3.0.xsd, http://www.springframework.org/schema/aop/spring-aop-2.0.xsd=org/springframework/aop/config/spring-aop-2.0.xsd, http://www.springframework.org/schema/task/spring-task-3.1.xsd=org/springframework/scheduling/config/spring-task-3.1.xsd, http://www.springframework.org/schema/tool/spring-tool-2.5.xsd=org/springframework/beans/factory/xml/spring-tool-2.5.xsd, http://www.springframework.org/schema/beans/spring-beans.xsd=org/springframework/beans/factory/xml/spring-beans-3.2.xsd, http://www.springframework.org/schema/jee/spring-jee-2.5.xsd=org/springframework/ejb/config/spring-jee-2.5.xsd, http://www.springframework.org/schema/jdbc/spring-jdbc-3.1.xsd=org/springframework/jdbc/config/spring-jdbc-3.1.xsd, http://www.springframework.org/schema/tool/spring-tool-3.1.xsd=org/springframework/beans/factory/xml/spring-tool-3.1.xsd, http://www.springframework.org/schema/aop/spring-aop.xsd=org/springframework/aop/config/spring-aop-3.2.xsd, http://www.springframework.org/schema/jee/spring-jee-3.1.xsd=org/springframework/ejb/config/spring-jee-3.1.xsd, http://www.springframework.org/schema/tx/spring-tx-3.2.xsd=org/springframework/transaction/config/spring-tx-3.2.xsd, http://www.springframework.org/schema/context/spring-context-3.2.xsd=org/springframework/context/config/spring-context-3.2.xsd, http://www.springframework.org/schema/util/spring-util-3.2.xsd=org/springframework/beans/factory/xml/spring-util-3.2.xsd, http://www.springframework.org/schema/beans/spring-beans-2.0.xsd=org/springframework/beans/factory/xml/spring-beans-2.0.xsd, http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd=org/springframework/web/servlet/config/spring-mvc-3.0.xsd, http://www.springframework.org/schema/lang/spring-lang-3.2.xsd=org/springframework/scripting/config/spring-lang-3.2.xsd, http://www.springframework.org/schema/beans/spring-beans-3.0.xsd=org/springframework/beans/factory/xml/spring-beans-3.0.xsd, http://www.springframework.org/schema/cache/spring-cache-3.2.xsd=org/springframework/cache/config/spring-cache-3.2.xsd, http://www.springframework.org/schema/task/spring-task-3.0.xsd=org/springframework/scheduling/config/spring-task-3.0.xsd, http://mybatis.org/schema/mybatis-spring.xsd=org/mybatis/spring/config/mybatis-spring-1.2.xsd, http://www.springframework.org/schema/tx/spring-tx-2.5.xsd=org/springframework/transaction/config/spring-tx-2.5.xsd, http://www.springframework.org/schema/context/spring-context-2.5.xsd=org/springframework/context/config/spring-context-2.5.xsd, http://www.springframework.org/schema/jdbc/spring-jdbc-3.0.xsd=org/springframework/jdbc/config/spring-jdbc-3.0.xsd, http://www.springframework.org/schema/jms/spring-jms-3.2.xsd=org/springframework/jms/config/spring-jms-3.2.xsd, http://www.springframework.org/schema/tool/spring-tool-3.0.xsd=org/springframework/beans/factory/xml/spring-tool-3.0.xsd, http://www.springframework.org/schema/tx/spring-tx.xsd=org/springframework/transaction/config/spring-tx-3.2.xsd, http://www.springframework.org/schema/util/spring-util-2.5.xsd=org/springframework/beans/factory/xml/spring-util-2.5.xsd, http://www.springframework.org/schema/tool/spring-tool-2.0.xsd=org/springframework/beans/factory/xml/spring-tool-2.0.xsd, http://www.springframework.org/schema/lang/spring-lang.xsd=org/springframework/scripting/config/spring-lang-3.2.xsd, http://www.springframework.org/schema/lang/spring-lang-2.5.xsd=org/springframework/scripting/config/spring-lang-2.5.xsd, http://www.springframework.org/schema/aop/spring-aop-3.2.xsd=org/springframework/aop/config/spring-aop-3.2.xsd, http://www.springframework.org/schema/jee/spring-jee-3.0.xsd=org/springframework/ejb/config/spring-jee-3.0.xsd, http://www.springframework.org/schema/tx/spring-tx-3.1.xsd=org/springframework/transaction/config/spring-tx-3.1.xsd, http://www.springframework.org/schema/jee/spring-jee-2.0.xsd=org/springframework/ejb/config/spring-jee-2.0.xsd, http://www.springframework.org/schema/context/spring-context-3.1.xsd=org/springframework/context/config/spring-context-3.1.xsd, http://www.springframework.org/schema/util/spring-util-3.1.xsd=org/springframework/beans/factory/xml/spring-util-3.1.xsd, http://www.springframework.org/schema/lang/spring-lang-3.1.xsd=org/springframework/scripting/config/spring-lang-3.1.xsd, http://www.springframework.org/schema/cache/spring-cache-3.1.xsd=org/springframework/cache/config/spring-cache-3.1.xsd, http://www.springframework.org/schema/context/spring-context.xsd=org/springframework/context/config/spring-context-3.2.xsd, http://www.springframework.org/schema/jee/spring-jee.xsd=org/springframework/ejb/config/spring-jee-3.2.xsd, http://www.springframework.org/schema/jms/spring-jms-2.5.xsd=org/springframework/jms/config/spring-jms-2.5.xsd, http://www.springframework.org/schema/jms/spring-jms.xsd=org/springframework/jms/config/spring-jms-3.2.xsd, http://www.springframework.org/schema/aop/spring-aop-2.5.xsd=org/springframework/aop/config/spring-aop-2.5.xsd, http://www.springframework.org/schema/jms/spring-jms-3.1.xsd=org/springframework/jms/config/spring-jms-3.1.xsd, http://www.springframework.org/schema/mvc/spring-mvc.xsd=org/springframework/web/servlet/config/spring-mvc-3.2.xsd, http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd=org/springframework/web/servlet/config/spring-mvc-3.2.xsd, http://www.springframework.org/schema/jdbc/spring-jdbc.xsd=org/springframework/jdbc/config/spring-jdbc-3.2.xsd, http://www.springframework.org/schema/beans/spring-beans-3.2.xsd=org/springframework/beans/factory/xml/spring-beans-3.2.xsd, http://www.springframework.org/schema/tx/spring-tx-2.0.xsd=org/springframework/transaction/config/spring-tx-2.0.xsd, http://www.springframework.org/schema/aop/spring-aop-3.1.xsd=org/springframework/aop/config/spring-aop-3.1.xsd, http://www.springframework.org/schema/task/spring-task-3.2.xsd=org/springframework/scheduling/config/spring-task-3.2.xsd, http://www.springframework.org/schema/tx/spring-tx-3.0.xsd=org/springframework/transaction/config/spring-tx-3.0.xsd, http://www.springframework.org/schema/context/spring-context-3.0.xsd=org/springframework/context/config/spring-context-3.0.xsd, http://www.springframework.org/schema/tool/spring-tool.xsd=org/springframework/beans/factory/xml/spring-tool-3.2.xsd, http://www.springframework.org/schema/util/spring-util-3.0.xsd=org/springframework/beans/factory/xml/spring-util-3.0.xsd, http://www.alibaba.com/schema/stat.xsd=META-INF/stat.xsd, http://www.springframework.org/schema/util/spring-util-2.0.xsd=org/springframework/beans/factory/xml/spring-util-2.0.xsd, http://www.springframework.org/schema/lang/spring-lang-3.0.xsd=org/springframework/scripting/config/spring-lang-3.0.xsd, http://www.springframework.org/schema/lang/spring-lang-2.0.xsd=org/springframework/scripting/config/spring-lang-2.0.xsd, http://www.springframework.org/schema/jdbc/spring-jdbc-3.2.xsd=org/springframework/jdbc/config/spring-jdbc-3.2.xsd, http://www.springframework.org/schema/tool/spring-tool-3.2.xsd=org/springframework/beans/factory/xml/spring-tool-3.2.xsd, http://www.springframework.org/schema/beans/spring-beans-2.5.xsd=org/springframework/beans/factory/xml/spring-beans-2.5.xsd}
+[DEBUG][20170408 13:50:52,843][PluggableSchemaResolver:118] Found XML schema [http://www.springframework.org/schema/beans/spring-beans-3.2.xsd] in classpath: org/springframework/beans/factory/xml/spring-beans-3.2.xsd
+[DEBUG][20170408 13:50:53,061][PluggableSchemaResolver:118] Found XML schema [http://www.springframework.org/schema/context/spring-context-3.2.xsd] in classpath: org/springframework/context/config/spring-context-3.2.xsd
+[DEBUG][20170408 13:50:53,101][PluggableSchemaResolver:118] Found XML schema [http://www.springframework.org/schema/tool/spring-tool-3.2.xsd] in classpath: org/springframework/beans/factory/xml/spring-tool-3.2.xsd
+[DEBUG][20170408 13:50:53,144][PluggableSchemaResolver:118] Found XML schema [http://www.springframework.org/schema/aop/spring-aop-3.2.xsd] in classpath: org/springframework/aop/config/spring-aop-3.2.xsd
+[DEBUG][20170408 13:50:53,189][DefaultBeanDefinitionDocumentReader:106] Loading bean definitions
+[DEBUG][20170408 13:50:53,271][DefaultNamespaceHandlerResolver:156] Loaded NamespaceHandler mappings: {http://www.springframework.org/schema/p=org.springframework.beans.factory.xml.SimplePropertyNamespaceHandler, http://www.springframework.org/schema/mvc=org.springframework.web.servlet.config.MvcNamespaceHandler, http://www.springframework.org/schema/util=org.springframework.beans.factory.xml.UtilNamespaceHandler, http://code.alibabatech.com/schema/dubbo=com.alibaba.dubbo.config.spring.schema.DubboNamespaceHandler, http://www.alibaba.com/schema/stat=com.alibaba.druid.support.spring.stat.config.DruidStatNamespaceHandler, http://www.springframework.org/schema/jee=org.springframework.ejb.config.JeeNamespaceHandler, http://www.springframework.org/schema/aop=org.springframework.aop.config.AopNamespaceHandler, http://www.springframework.org/schema/jdbc=org.springframework.jdbc.config.JdbcNamespaceHandler, http://www.springframework.org/schema/cache=org.springframework.cache.config.CacheNamespaceHandler, http://mybatis.org/schema/mybatis-spring=org.mybatis.spring.config.NamespaceHandler, http://www.springframework.org/schema/c=org.springframework.beans.factory.xml.SimpleConstructorNamespaceHandler, http://www.springframework.org/schema/tx=org.springframework.transaction.config.TxNamespaceHandler, http://www.springframework.org/schema/jms=org.springframework.jms.config.JmsNamespaceHandler, http://www.springframework.org/schema/task=org.springframework.scheduling.config.TaskNamespaceHandler, http://www.springframework.org/schema/lang=org.springframework.scripting.config.LangNamespaceHandler, http://www.springframework.org/schema/context=org.springframework.context.config.ContextNamespaceHandler}
+[DEBUG][20170408 13:50:53,409][MutablePropertySources:107] Adding [systemProperties] PropertySource with lowest search precedence
+[DEBUG][20170408 13:50:53,410][MutablePropertySources:107] Adding [systemEnvironment] PropertySource with lowest search precedence
+[DEBUG][20170408 13:50:53,410][AbstractEnvironment:126] Initialized StandardEnvironment with PropertySources [systemProperties,systemEnvironment]
+[DEBUG][20170408 13:50:53,456][ClassPathScanningCandidateComponentProvider:231] JSR-250 'javax.annotation.ManagedBean' found and supported for component scanning
+[DEBUG][20170408 13:50:53,481][PathMatchingResourcePatternResolver:553] Looking for matching resources in directory tree [E:\gitProjects\fs-game\fs-game-dubboxService\target\classes\com\fashionsuperman\fs\game\dubboxService]
+[DEBUG][20170408 13:50:53,481][PathMatchingResourcePatternResolver:615] Searching directory [E:\gitProjects\fs-game\fs-game-dubboxService\target\classes\com\fashionsuperman\fs\game\dubboxService] for files matching pattern [E:/gitProjects/fs-game/fs-game-dubboxService/target/classes/com/fashionsuperman/fs/game/dubboxService/**/*.class]
+[DEBUG][20170408 13:50:53,488][PathMatchingResourcePatternResolver:615] Searching directory [E:\gitProjects\fs-game\fs-game-dubboxService\target\classes\com\fashionsuperman\fs\game\dubboxService\common] for files matching pattern [E:/gitProjects/fs-game/fs-game-dubboxService/target/classes/com/fashionsuperman/fs/game/dubboxService/**/*.class]
+[DEBUG][20170408 13:50:53,490][PathMatchingResourcePatternResolver:615] Searching directory [E:\gitProjects\fs-game\fs-game-dubboxService\target\classes\com\fashionsuperman\fs\game\dubboxService\user] for files matching pattern [E:/gitProjects/fs-game/fs-game-dubboxService/target/classes/com/fashionsuperman/fs/game/dubboxService/**/*.class]
+[DEBUG][20170408 13:50:53,495][PathMatchingResourcePatternResolver:354] Resolved location pattern [classpath*:com/fashionsuperman/fs/game/dubboxService/**/*.class] to resources [file [E:\gitProjects\fs-game\fs-game-dubboxService\target\classes\com\fashionsuperman\fs\game\dubboxService\common\SerializationOptimizerImpl.class], file [E:\gitProjects\fs-game\fs-game-dubboxService\target\classes\com\fashionsuperman\fs\game\dubboxService\Main.class], file [E:\gitProjects\fs-game\fs-game-dubboxService\target\classes\com\fashionsuperman\fs\game\dubboxService\user\UserServiceX.class]]
+[DEBUG][20170408 13:50:53,573][ClassPathScanningCandidateComponentProvider:273] Identified candidate component class: file [E:\gitProjects\fs-game\fs-game-dubboxService\target\classes\com\fashionsuperman\fs\game\dubboxService\user\UserServiceX.class]
+[DEBUG][20170408 13:50:53,596][MutablePropertySources:107] Adding [systemProperties] PropertySource with lowest search precedence
+[DEBUG][20170408 13:50:53,597][MutablePropertySources:107] Adding [systemEnvironment] PropertySource with lowest search precedence
+[DEBUG][20170408 13:50:53,597][AbstractEnvironment:126] Initialized StandardEnvironment with PropertySources [systemProperties,systemEnvironment]
+[DEBUG][20170408 13:50:53,598][ClassPathScanningCandidateComponentProvider:231] JSR-250 'javax.annotation.ManagedBean' found and supported for component scanning
+[DEBUG][20170408 13:50:53,600][PathMatchingResourcePatternResolver:553] Looking for matching resources in directory tree [E:\gitProjects\fs-game\fs-game-service\target\classes\com\fashionsuperman\fs\game\service]
+[DEBUG][20170408 13:50:53,605][PathMatchingResourcePatternResolver:615] Searching directory [E:\gitProjects\fs-game\fs-game-service\target\classes\com\fashionsuperman\fs\game\service] for files matching pattern [E:/gitProjects/fs-game/fs-game-service/target/classes/com/fashionsuperman/fs/game/service/**/*.class]
+[DEBUG][20170408 13:50:53,606][PathMatchingResourcePatternResolver:615] Searching directory [E:\gitProjects\fs-game\fs-game-service\target\classes\com\fashionsuperman\fs\game\service\constant] for files matching pattern [E:/gitProjects/fs-game/fs-game-service/target/classes/com/fashionsuperman/fs/game/service/**/*.class]
+[DEBUG][20170408 13:50:53,607][PathMatchingResourcePatternResolver:615] Searching directory [E:\gitProjects\fs-game\fs-game-service\target\classes\com\fashionsuperman\fs\game\service\trade] for files matching pattern [E:/gitProjects/fs-game/fs-game-service/target/classes/com/fashionsuperman/fs/game/service/**/*.class]
+[DEBUG][20170408 13:50:53,608][PathMatchingResourcePatternResolver:615] Searching directory [E:\gitProjects\fs-game\fs-game-service\target\classes\com\fashionsuperman\fs\game\service\trade\commodity] for files matching pattern [E:/gitProjects/fs-game/fs-game-service/target/classes/com/fashionsuperman/fs/game/service/**/*.class]
+[DEBUG][20170408 13:50:53,609][PathMatchingResourcePatternResolver:615] Searching directory [E:\gitProjects\fs-game\fs-game-service\target\classes\com\fashionsuperman\fs\game\service\trade\commoditycatagory] for files matching pattern [E:/gitProjects/fs-game/fs-game-service/target/classes/com/fashionsuperman/fs/game/service/**/*.class]
+[DEBUG][20170408 13:50:53,610][PathMatchingResourcePatternResolver:615] Searching directory [E:\gitProjects\fs-game\fs-game-service\target\classes\com\fashionsuperman\fs\game\service\user] for files matching pattern [E:/gitProjects/fs-game/fs-game-service/target/classes/com/fashionsuperman/fs/game/service/**/*.class]
+[DEBUG][20170408 13:50:53,612][PathMatchingResourcePatternResolver:354] Resolved location pattern [classpath*:com/fashionsuperman/fs/game/service/**/*.class] to resources [file [E:\gitProjects\fs-game\fs-game-service\target\classes\com\fashionsuperman\fs\game\service\constant\ForeignType.class], file [E:\gitProjects\fs-game\fs-game-service\target\classes\com\fashionsuperman\fs\game\service\trade\commodity\CommodityService.class], file [E:\gitProjects\fs-game\fs-game-service\target\classes\com\fashionsuperman\fs\game\service\trade\commoditycatagory\CommodityCatagoryService.class], file [E:\gitProjects\fs-game\fs-game-service\target\classes\com\fashionsuperman\fs\game\service\user\UserService.class]]
+[DEBUG][20170408 13:50:53,624][ClassPathScanningCandidateComponentProvider:273] Identified candidate component class: file [E:\gitProjects\fs-game\fs-game-service\target\classes\com\fashionsuperman\fs\game\service\trade\commodity\CommodityService.class]
+[DEBUG][20170408 13:50:53,630][ClassPathScanningCandidateComponentProvider:273] Identified candidate component class: file [E:\gitProjects\fs-game\fs-game-service\target\classes\com\fashionsuperman\fs\game\service\trade\commoditycatagory\CommodityCatagoryService.class]
+[DEBUG][20170408 13:50:53,632][ClassPathScanningCandidateComponentProvider:273] Identified candidate component class: file [E:\gitProjects\fs-game\fs-game-service\target\classes\com\fashionsuperman\fs\game\service\user\UserService.class]
+[INFO ][20170408 13:50:53,654][XmlBeanDefinitionReader:315] Loading XML bean definitions from class path resource [spring/data-access-context.xml]
+[DEBUG][20170408 13:50:53,656][DefaultDocumentLoader:72] Using JAXP provider [com.sun.org.apache.xerces.internal.jaxp.DocumentBuilderFactoryImpl]
+[DEBUG][20170408 13:50:53,670][PluggableSchemaResolver:118] Found XML schema [http://www.springframework.org/schema/beans/spring-beans.xsd] in classpath: org/springframework/beans/factory/xml/spring-beans-3.2.xsd
+[DEBUG][20170408 13:50:53,749][PluggableSchemaResolver:118] Found XML schema [http://www.springframework.org/schema/tx/spring-tx.xsd] in classpath: org/springframework/transaction/config/spring-tx-3.2.xsd
+[DEBUG][20170408 13:50:53,772][PluggableSchemaResolver:118] Found XML schema [http://www.springframework.org/schema/tool/spring-tool-3.2.xsd] in classpath: org/springframework/beans/factory/xml/spring-tool-3.2.xsd
+[DEBUG][20170408 13:50:53,788][PluggableSchemaResolver:118] Found XML schema [http://www.springframework.org/schema/aop/spring-aop.xsd] in classpath: org/springframework/aop/config/spring-aop-3.2.xsd
+[DEBUG][20170408 13:50:53,817][DefaultBeanDefinitionDocumentReader:106] Loading bean definitions
+[DEBUG][20170408 13:50:53,883][BeanDefinitionParserDelegate:500] Neither XML 'id' nor 'name' specified - using generated bean name [org.mybatis.spring.mapper.MapperScannerConfigurer#0]
+[DEBUG][20170408 13:50:53,886][AbstractBeanDefinitionReader:216] Loaded 8 bean definitions from location pattern [classpath:spring/data-access-context.xml]
+[DEBUG][20170408 13:50:53,887][DefaultBeanDefinitionDocumentReader:252] Imported 8 bean definitions from URL location [classpath:spring/data-access-context.xml]
+[INFO ][20170408 13:50:53,888][XmlBeanDefinitionReader:315] Loading XML bean definitions from class path resource [spring/spring-dubbo-provider.xml]
+[DEBUG][20170408 13:50:53,891][DefaultDocumentLoader:72] Using JAXP provider [com.sun.org.apache.xerces.internal.jaxp.DocumentBuilderFactoryImpl]
+[DEBUG][20170408 13:50:53,896][PluggableSchemaResolver:118] Found XML schema [http://www.springframework.org/schema/beans/spring-beans.xsd] in classpath: org/springframework/beans/factory/xml/spring-beans-3.2.xsd
+[DEBUG][20170408 13:50:53,959][PluggableSchemaResolver:118] Found XML schema [http://code.alibabatech.com/schema/dubbo/dubbo.xsd] in classpath: META-INF/dubbo.xsd
+[DEBUG][20170408 13:50:54,027][DefaultBeanDefinitionDocumentReader:106] Loading bean definitions
+[INFO ][20170408 13:50:54,087][?:?] using logger: com.alibaba.dubbo.common.logger.log4j.Log4jLoggerAdapter
+[DEBUG][20170408 13:50:54,331][AbstractBeanDefinitionReader:216] Loaded 6 bean definitions from location pattern [classpath:spring/spring-dubbo-provider.xml]
+[DEBUG][20170408 13:50:54,331][DefaultBeanDefinitionDocumentReader:252] Imported 6 bean definitions from URL location [classpath:spring/spring-dubbo-provider.xml]
+[DEBUG][20170408 13:50:54,332][AbstractBeanDefinitionReader:216] Loaded 25 bean definitions from location pattern [classpath:spring/spring-context.xml]
+[DEBUG][20170408 13:50:54,332][AbstractApplicationContext:540] Bean factory for org.springframework.context.support.ClassPathXmlApplicationContext@610694f1: org.springframework.beans.factory.support.DefaultListableBeanFactory@305ffe9e: defining beans [org.springframework.context.support.PropertySourcesPlaceholderConfigurer#0,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor,UserServiceX,commodityService,commodityCatagoryService,userService,org.springframework.context.support.PropertySourcesPlaceholderConfigurer#1,org.springframework.aop.config.internalAutoProxyCreator,commonJdbcDataSource,commonTransactionManager,org.springframework.transaction.annotation.AnnotationTransactionAttributeSource#0,org.springframework.transaction.interceptor.TransactionInterceptor#0,org.springframework.transaction.config.internalTransactionAdvisor,commonSessionFactory,org.mybatis.spring.mapper.MapperScannerConfigurer#0,commonSessionTemplate,fs-game-dubboxService,com.alibaba.dubbo.config.RegistryConfig,dubbo,rest,com.alibaba.dubbo.config.ProviderConfig,com.fashionsuperman.fs.game.facet.user.UserI]; root of factory hierarchy
+[DEBUG][20170408 13:50:54,505][DefaultSingletonBeanRegistry:215] Creating shared instance of singleton bean 'org.springframework.context.annotation.internalConfigurationAnnotationProcessor'
+[DEBUG][20170408 13:50:54,505][AbstractAutowireCapableBeanFactory:432] Creating instance of bean 'org.springframework.context.annotation.internalConfigurationAnnotationProcessor'
+[DEBUG][20170408 13:50:54,550][AbstractAutowireCapableBeanFactory:506] Eagerly caching bean 'org.springframework.context.annotation.internalConfigurationAnnotationProcessor' to allow for resolving potential circular references
+[DEBUG][20170408 13:50:54,553][AbstractAutowireCapableBeanFactory:460] Finished creating instance of bean 'org.springframework.context.annotation.internalConfigurationAnnotationProcessor'
+[DEBUG][20170408 13:50:54,553][DefaultSingletonBeanRegistry:215] Creating shared instance of singleton bean 'org.mybatis.spring.mapper.MapperScannerConfigurer#0'
+[DEBUG][20170408 13:50:54,553][AbstractAutowireCapableBeanFactory:432] Creating instance of bean 'org.mybatis.spring.mapper.MapperScannerConfigurer#0'
+[DEBUG][20170408 13:50:54,554][AbstractAutowireCapableBeanFactory:506] Eagerly caching bean 'org.mybatis.spring.mapper.MapperScannerConfigurer#0' to allow for resolving potential circular references
+[DEBUG][20170408 13:50:54,652][AbstractAutowireCapableBeanFactory:1555] Invoking afterPropertiesSet() on bean with name 'org.mybatis.spring.mapper.MapperScannerConfigurer#0'
+[DEBUG][20170408 13:50:54,653][AbstractAutowireCapableBeanFactory:460] Finished creating instance of bean 'org.mybatis.spring.mapper.MapperScannerConfigurer#0'
+[DEBUG][20170408 13:50:54,944][MutablePropertySources:107] Adding [systemProperties] PropertySource with lowest search precedence
+[DEBUG][20170408 13:50:54,945][MutablePropertySources:107] Adding [systemEnvironment] PropertySource with lowest search precedence
+[DEBUG][20170408 13:50:54,945][AbstractEnvironment:126] Initialized StandardEnvironment with PropertySources [systemProperties,systemEnvironment]
+[DEBUG][20170408 13:50:54,948][PathMatchingResourcePatternResolver:553] Looking for matching resources in directory tree [E:\gitProjects\fs-game\fs-game-dao\target\classes\com\fashionsuperman\fs\game\dao\mapper]
+[DEBUG][20170408 13:50:54,948][PathMatchingResourcePatternResolver:615] Searching directory [E:\gitProjects\fs-game\fs-game-dao\target\classes\com\fashionsuperman\fs\game\dao\mapper] for files matching pattern [E:/gitProjects/fs-game/fs-game-dao/target/classes/com/fashionsuperman/fs/game/dao/mapper/**/*.class]
+[DEBUG][20170408 13:50:54,981][PathMatchingResourcePatternResolver:354] Resolved location pattern [classpath*:com/fashionsuperman/fs/game/dao/mapper/**/*.class] to resources [file [E:\gitProjects\fs-game\fs-game-dao\target\classes\com\fashionsuperman\fs\game\dao\mapper\CommodityCatagoryMapper.class], file [E:\gitProjects\fs-game\fs-game-dao\target\classes\com\fashionsuperman\fs\game\dao\mapper\CommodityMapper.class], file [E:\gitProjects\fs-game\fs-game-dao\target\classes\com\fashionsuperman\fs\game\dao\mapper\RankMapper.class], file [E:\gitProjects\fs-game\fs-game-dao\target\classes\com\fashionsuperman\fs\game\dao\mapper\UserMapper.class], file [E:\gitProjects\fs-game\fs-game-dao\target\classes\com\fashionsuperman\fs\game\dao\mapper\UserRelationshipMapper.class]]
+[DEBUG][20170408 13:50:54,993][ClassPathScanningCandidateComponentProvider:273] Identified candidate component class: file [E:\gitProjects\fs-game\fs-game-dao\target\classes\com\fashionsuperman\fs\game\dao\mapper\CommodityCatagoryMapper.class]
+[DEBUG][20170408 13:50:55,009][ClassPathScanningCandidateComponentProvider:273] Identified candidate component class: file [E:\gitProjects\fs-game\fs-game-dao\target\classes\com\fashionsuperman\fs\game\dao\mapper\CommodityMapper.class]
+[DEBUG][20170408 13:50:55,009][ClassPathScanningCandidateComponentProvider:273] Identified candidate component class: file [E:\gitProjects\fs-game\fs-game-dao\target\classes\com\fashionsuperman\fs\game\dao\mapper\RankMapper.class]
+[DEBUG][20170408 13:50:55,021][ClassPathScanningCandidateComponentProvider:273] Identified candidate component class: file [E:\gitProjects\fs-game\fs-game-dao\target\classes\com\fashionsuperman\fs\game\dao\mapper\UserMapper.class]
+[DEBUG][20170408 13:50:55,022][ClassPathScanningCandidateComponentProvider:273] Identified candidate component class: file [E:\gitProjects\fs-game\fs-game-dao\target\classes\com\fashionsuperman\fs\game\dao\mapper\UserRelationshipMapper.class]
+[DEBUG][20170408 13:50:55,022][ClassPathMapperScanner:161] Creating MapperFactoryBean with name 'commodityCatagoryMapper' and 'com.fashionsuperman.fs.game.dao.mapper.CommodityCatagoryMapper' mapperInterface
+[DEBUG][20170408 13:50:55,024][ClassPathMapperScanner:161] Creating MapperFactoryBean with name 'commodityMapper' and 'com.fashionsuperman.fs.game.dao.mapper.CommodityMapper' mapperInterface
+[DEBUG][20170408 13:50:55,024][ClassPathMapperScanner:161] Creating MapperFactoryBean with name 'rankMapper' and 'com.fashionsuperman.fs.game.dao.mapper.RankMapper' mapperInterface
+[DEBUG][20170408 13:50:55,024][ClassPathMapperScanner:161] Creating MapperFactoryBean with name 'userMapper' and 'com.fashionsuperman.fs.game.dao.mapper.UserMapper' mapperInterface
+[DEBUG][20170408 13:50:55,025][ClassPathMapperScanner:161] Creating MapperFactoryBean with name 'userRelationshipMapper' and 'com.fashionsuperman.fs.game.dao.mapper.UserRelationshipMapper' mapperInterface
+[DEBUG][20170408 13:50:55,028][DefaultSingletonBeanRegistry:215] Creating shared instance of singleton bean 'org.springframework.context.support.PropertySourcesPlaceholderConfigurer#0'
+[DEBUG][20170408 13:50:55,028][AbstractAutowireCapableBeanFactory:432] Creating instance of bean 'org.springframework.context.support.PropertySourcesPlaceholderConfigurer#0'
+[DEBUG][20170408 13:50:55,043][AbstractAutowireCapableBeanFactory:506] Eagerly caching bean 'org.springframework.context.support.PropertySourcesPlaceholderConfigurer#0' to allow for resolving potential circular references
+[DEBUG][20170408 13:50:55,059][AbstractAutowireCapableBeanFactory:460] Finished creating instance of bean 'org.springframework.context.support.PropertySourcesPlaceholderConfigurer#0'
+[DEBUG][20170408 13:50:55,060][DefaultSingletonBeanRegistry:215] Creating shared instance of singleton bean 'org.springframework.context.support.PropertySourcesPlaceholderConfigurer#1'
+[DEBUG][20170408 13:50:55,060][AbstractAutowireCapableBeanFactory:432] Creating instance of bean 'org.springframework.context.support.PropertySourcesPlaceholderConfigurer#1'
+[DEBUG][20170408 13:50:55,061][AbstractAutowireCapableBeanFactory:506] Eagerly caching bean 'org.springframework.context.support.PropertySourcesPlaceholderConfigurer#1' to allow for resolving potential circular references
+[DEBUG][20170408 13:50:55,062][AbstractAutowireCapableBeanFactory:460] Finished creating instance of bean 'org.springframework.context.support.PropertySourcesPlaceholderConfigurer#1'
+[DEBUG][20170408 13:50:55,063][MutablePropertySources:107] Adding [environmentProperties] PropertySource with lowest search precedence
+[INFO ][20170408 13:50:55,063][PropertiesLoaderSupport:172] Loading properties file from class path resource [jdbc.properties]
+[INFO ][20170408 13:50:55,064][PropertiesLoaderSupport:172] Loading properties file from class path resource [public_system.properties]
+[INFO ][20170408 13:50:55,065][PropertiesLoaderSupport:172] Loading properties file from class path resource [redis.properties]
+[INFO ][20170408 13:50:55,066][PropertiesLoaderSupport:172] Loading properties file from class path resource [jms.properties]
+[DEBUG][20170408 13:50:55,067][MutablePropertySources:107] Adding [localProperties] PropertySource with lowest search precedence
+[DEBUG][20170408 13:50:55,072][PropertySourcesPropertyResolver:81] Searching for key 'mysql.jdbc.driverClassName' in [environmentProperties]
+[DEBUG][20170408 13:50:55,072][PropertySourcesPropertyResolver:81] Searching for key 'mysql.jdbc.driverClassName' in [systemProperties]
+[DEBUG][20170408 13:50:55,073][PropertySourcesPropertyResolver:81] Searching for key 'mysql.jdbc.driverClassName' in [systemEnvironment]
+[DEBUG][20170408 13:50:55,074][PropertySourcesPropertyResolver:103] Could not find key 'mysql.jdbc.driverClassName' in any property source. Returning [null]
+[DEBUG][20170408 13:50:55,075][PropertySourcesPropertyResolver:81] Searching for key 'mysql.jdbc.driverClassName' in [localProperties]
+[DEBUG][20170408 13:50:55,076][PropertySourcesPropertyResolver:90] Found key 'mysql.jdbc.driverClassName' in [localProperties] with type [String] and value 'com.mysql.jdbc.Driver'
+[DEBUG][20170408 13:50:55,080][PropertySourcesPropertyResolver:81] Searching for key 'common.jdbc.url' in [environmentProperties]
+[DEBUG][20170408 13:50:55,083][PropertySourcesPropertyResolver:81] Searching for key 'common.jdbc.url' in [systemProperties]
+[DEBUG][20170408 13:50:55,083][PropertySourcesPropertyResolver:81] Searching for key 'common.jdbc.url' in [systemEnvironment]
+[DEBUG][20170408 13:50:55,085][PropertySourcesPropertyResolver:103] Could not find key 'common.jdbc.url' in any property source. Returning [null]
+[DEBUG][20170408 13:50:55,085][PropertySourcesPropertyResolver:81] Searching for key 'common.jdbc.url' in [localProperties]
+[DEBUG][20170408 13:50:55,087][PropertySourcesPropertyResolver:90] Found key 'common.jdbc.url' in [localProperties] with type [String] and value 'jdbc:mysql://localhost:3306/ifyoudog?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true'
+[DEBUG][20170408 13:50:55,087][PropertySourcesPropertyResolver:81] Searching for key 'common.jdbc.username' in [environmentProperties]
+[DEBUG][20170408 13:50:55,088][PropertySourcesPropertyResolver:81] Searching for key 'common.jdbc.username' in [systemProperties]
+[DEBUG][20170408 13:50:55,089][PropertySourcesPropertyResolver:81] Searching for key 'common.jdbc.username' in [systemEnvironment]
+[DEBUG][20170408 13:50:55,089][PropertySourcesPropertyResolver:103] Could not find key 'common.jdbc.username' in any property source. Returning [null]
+[DEBUG][20170408 13:50:55,090][PropertySourcesPropertyResolver:81] Searching for key 'common.jdbc.username' in [localProperties]
+[DEBUG][20170408 13:50:55,090][PropertySourcesPropertyResolver:90] Found key 'common.jdbc.username' in [localProperties] with type [String] and value 'ifyoudog'
+[DEBUG][20170408 13:50:55,090][PropertySourcesPropertyResolver:81] Searching for key 'common.jdbc.password' in [environmentProperties]
+[DEBUG][20170408 13:50:55,092][PropertySourcesPropertyResolver:81] Searching for key 'common.jdbc.password' in [systemProperties]
+[DEBUG][20170408 13:50:55,092][PropertySourcesPropertyResolver:81] Searching for key 'common.jdbc.password' in [systemEnvironment]
+[DEBUG][20170408 13:50:55,094][PropertySourcesPropertyResolver:103] Could not find key 'common.jdbc.password' in any property source. Returning [null]
+[DEBUG][20170408 13:50:55,095][PropertySourcesPropertyResolver:81] Searching for key 'common.jdbc.password' in [localProperties]
+[DEBUG][20170408 13:50:55,095][PropertySourcesPropertyResolver:90] Found key 'common.jdbc.password' in [localProperties] with type [String] and value 'ifyoudog'
+[DEBUG][20170408 13:50:55,096][PropertySourcesPropertyResolver:81] Searching for key 'druid.initialSize' in [environmentProperties]
+[DEBUG][20170408 13:50:55,101][PropertySourcesPropertyResolver:81] Searching for key 'druid.initialSize' in [systemProperties]
+[DEBUG][20170408 13:50:55,234][PropertySourcesPropertyResolver:81] Searching for key 'druid.initialSize' in [systemEnvironment]
+[DEBUG][20170408 13:50:55,235][PropertySourcesPropertyResolver:103] Could not find key 'druid.initialSize' in any property source. Returning [null]
+[DEBUG][20170408 13:50:55,235][PropertySourcesPropertyResolver:81] Searching for key 'druid.initialSize' in [localProperties]
+[DEBUG][20170408 13:50:55,236][PropertySourcesPropertyResolver:90] Found key 'druid.initialSize' in [localProperties] with type [String] and value '5'
+[DEBUG][20170408 13:50:55,239][PropertySourcesPropertyResolver:81] Searching for key 'druid.maxActive' in [environmentProperties]
+[DEBUG][20170408 13:50:55,240][PropertySourcesPropertyResolver:81] Searching for key 'druid.maxActive' in [systemProperties]
+[DEBUG][20170408 13:50:55,240][PropertySourcesPropertyResolver:81] Searching for key 'druid.maxActive' in [systemEnvironment]
+[DEBUG][20170408 13:50:55,241][PropertySourcesPropertyResolver:103] Could not find key 'druid.maxActive' in any property source. Returning [null]
+[DEBUG][20170408 13:50:55,241][PropertySourcesPropertyResolver:81] Searching for key 'druid.maxActive' in [localProperties]
+[DEBUG][20170408 13:50:55,243][PropertySourcesPropertyResolver:90] Found key 'druid.maxActive' in [localProperties] with type [String] and value '10'
+[DEBUG][20170408 13:50:55,245][PropertySourcesPropertyResolver:81] Searching for key 'druid.maxIdle' in [environmentProperties]
+[DEBUG][20170408 13:50:55,245][PropertySourcesPropertyResolver:81] Searching for key 'druid.maxIdle' in [systemProperties]
+[DEBUG][20170408 13:50:55,249][PropertySourcesPropertyResolver:81] Searching for key 'druid.maxIdle' in [systemEnvironment]
+[DEBUG][20170408 13:50:55,249][PropertySourcesPropertyResolver:103] Could not find key 'druid.maxIdle' in any property source. Returning [null]
+[DEBUG][20170408 13:50:55,250][PropertySourcesPropertyResolver:81] Searching for key 'druid.maxIdle' in [localProperties]
+[DEBUG][20170408 13:50:55,250][PropertySourcesPropertyResolver:90] Found key 'druid.maxIdle' in [localProperties] with type [String] and value '5'
+[DEBUG][20170408 13:50:55,250][PropertySourcesPropertyResolver:81] Searching for key 'druid.minIdle' in [environmentProperties]
+[DEBUG][20170408 13:50:55,251][PropertySourcesPropertyResolver:81] Searching for key 'druid.minIdle' in [systemProperties]
+[DEBUG][20170408 13:50:55,251][PropertySourcesPropertyResolver:81] Searching for key 'druid.minIdle' in [systemEnvironment]
+[DEBUG][20170408 13:50:55,251][PropertySourcesPropertyResolver:103] Could not find key 'druid.minIdle' in any property source. Returning [null]
+[DEBUG][20170408 13:50:55,252][PropertySourcesPropertyResolver:81] Searching for key 'druid.minIdle' in [localProperties]
+[DEBUG][20170408 13:50:55,252][PropertySourcesPropertyResolver:90] Found key 'druid.minIdle' in [localProperties] with type [String] and value '3'
+[DEBUG][20170408 13:50:55,252][PropertySourcesPropertyResolver:81] Searching for key 'druid.maxWait' in [environmentProperties]
+[DEBUG][20170408 13:50:55,253][PropertySourcesPropertyResolver:81] Searching for key 'druid.maxWait' in [systemProperties]
+[DEBUG][20170408 13:50:55,253][PropertySourcesPropertyResolver:81] Searching for key 'druid.maxWait' in [systemEnvironment]
+[DEBUG][20170408 13:50:55,253][PropertySourcesPropertyResolver:103] Could not find key 'druid.maxWait' in any property source. Returning [null]
+[DEBUG][20170408 13:50:55,254][PropertySourcesPropertyResolver:81] Searching for key 'druid.maxWait' in [localProperties]
+[DEBUG][20170408 13:50:55,254][PropertySourcesPropertyResolver:90] Found key 'druid.maxWait' in [localProperties] with type [String] and value '60000'
+[DEBUG][20170408 13:50:55,254][PropertySourcesPropertyResolver:81] Searching for key 'druid.removeAbandoned' in [environmentProperties]
+[DEBUG][20170408 13:50:55,255][PropertySourcesPropertyResolver:81] Searching for key 'druid.removeAbandoned' in [systemProperties]
+[DEBUG][20170408 13:50:55,255][PropertySourcesPropertyResolver:81] Searching for key 'druid.removeAbandoned' in [systemEnvironment]
+[DEBUG][20170408 13:50:55,255][PropertySourcesPropertyResolver:103] Could not find key 'druid.removeAbandoned' in any property source. Returning [null]
+[DEBUG][20170408 13:50:55,256][PropertySourcesPropertyResolver:81] Searching for key 'druid.removeAbandoned' in [localProperties]
+[DEBUG][20170408 13:50:55,256][PropertySourcesPropertyResolver:90] Found key 'druid.removeAbandoned' in [localProperties] with type [String] and value 'true'
+[DEBUG][20170408 13:50:55,256][PropertySourcesPropertyResolver:81] Searching for key 'druid.removeAbandonedTimeout' in [environmentProperties]
+[DEBUG][20170408 13:50:55,257][PropertySourcesPropertyResolver:81] Searching for key 'druid.removeAbandonedTimeout' in [systemProperties]
+[DEBUG][20170408 13:50:55,257][PropertySourcesPropertyResolver:81] Searching for key 'druid.removeAbandonedTimeout' in [systemEnvironment]
+[DEBUG][20170408 13:50:55,257][PropertySourcesPropertyResolver:103] Could not find key 'druid.removeAbandonedTimeout' in any property source. Returning [null]
+[DEBUG][20170408 13:50:55,258][PropertySourcesPropertyResolver:81] Searching for key 'druid.removeAbandonedTimeout' in [localProperties]
+[DEBUG][20170408 13:50:55,258][PropertySourcesPropertyResolver:90] Found key 'druid.removeAbandonedTimeout' in [localProperties] with type [String] and value '180'
+[DEBUG][20170408 13:50:55,258][PropertySourcesPropertyResolver:81] Searching for key 'druid.timeBetweenEvictionRunsMillis' in [environmentProperties]
+[DEBUG][20170408 13:50:55,259][PropertySourcesPropertyResolver:81] Searching for key 'druid.timeBetweenEvictionRunsMillis' in [systemProperties]
+[DEBUG][20170408 13:50:55,269][PropertySourcesPropertyResolver:81] Searching for key 'druid.timeBetweenEvictionRunsMillis' in [systemEnvironment]
+[DEBUG][20170408 13:50:55,269][PropertySourcesPropertyResolver:103] Could not find key 'druid.timeBetweenEvictionRunsMillis' in any property source. Returning [null]
+[DEBUG][20170408 13:50:55,270][PropertySourcesPropertyResolver:81] Searching for key 'druid.timeBetweenEvictionRunsMillis' in [localProperties]
+[DEBUG][20170408 13:50:55,270][PropertySourcesPropertyResolver:90] Found key 'druid.timeBetweenEvictionRunsMillis' in [localProperties] with type [String] and value '60000'
+[DEBUG][20170408 13:50:55,290][PropertySourcesPropertyResolver:81] Searching for key 'druid.minEvictableIdleTimeMillis' in [environmentProperties]
+[DEBUG][20170408 13:50:55,290][PropertySourcesPropertyResolver:81] Searching for key 'druid.minEvictableIdleTimeMillis' in [systemProperties]
+[DEBUG][20170408 13:50:55,291][PropertySourcesPropertyResolver:81] Searching for key 'druid.minEvictableIdleTimeMillis' in [systemEnvironment]
+[DEBUG][20170408 13:50:55,291][PropertySourcesPropertyResolver:103] Could not find key 'druid.minEvictableIdleTimeMillis' in any property source. Returning [null]
+[DEBUG][20170408 13:50:55,291][PropertySourcesPropertyResolver:81] Searching for key 'druid.minEvictableIdleTimeMillis' in [localProperties]
+[DEBUG][20170408 13:50:55,292][PropertySourcesPropertyResolver:90] Found key 'druid.minEvictableIdleTimeMillis' in [localProperties] with type [String] and value '300000'
+[DEBUG][20170408 13:50:55,293][PropertySourcesPropertyResolver:81] Searching for key 'druid.validationQuery' in [environmentProperties]
+[DEBUG][20170408 13:50:55,293][PropertySourcesPropertyResolver:81] Searching for key 'druid.validationQuery' in [systemProperties]
+[DEBUG][20170408 13:50:55,293][PropertySourcesPropertyResolver:81] Searching for key 'druid.validationQuery' in [systemEnvironment]
+[DEBUG][20170408 13:50:55,294][PropertySourcesPropertyResolver:103] Could not find key 'druid.validationQuery' in any property source. Returning [null]
+[DEBUG][20170408 13:50:55,294][PropertySourcesPropertyResolver:81] Searching for key 'druid.validationQuery' in [localProperties]
+[DEBUG][20170408 13:50:55,294][PropertySourcesPropertyResolver:90] Found key 'druid.validationQuery' in [localProperties] with type [String] and value 'SELECT 1 FROM DUAL'
+[DEBUG][20170408 13:50:55,295][PropertySourcesPropertyResolver:81] Searching for key 'druid.testWhileIdle' in [environmentProperties]
+[DEBUG][20170408 13:50:55,295][PropertySourcesPropertyResolver:81] Searching for key 'druid.testWhileIdle' in [systemProperties]
+[DEBUG][20170408 13:50:55,295][PropertySourcesPropertyResolver:81] Searching for key 'druid.testWhileIdle' in [systemEnvironment]
+[DEBUG][20170408 13:50:55,296][PropertySourcesPropertyResolver:103] Could not find key 'druid.testWhileIdle' in any property source. Returning [null]
+[DEBUG][20170408 13:50:55,296][PropertySourcesPropertyResolver:81] Searching for key 'druid.testWhileIdle' in [localProperties]
+[DEBUG][20170408 13:50:55,296][PropertySourcesPropertyResolver:90] Found key 'druid.testWhileIdle' in [localProperties] with type [String] and value 'true '
+[DEBUG][20170408 13:50:55,297][PropertySourcesPropertyResolver:81] Searching for key 'druid.testOnBorrow' in [environmentProperties]
+[DEBUG][20170408 13:50:55,297][PropertySourcesPropertyResolver:81] Searching for key 'druid.testOnBorrow' in [systemProperties]
+[DEBUG][20170408 13:50:55,298][PropertySourcesPropertyResolver:81] Searching for key 'druid.testOnBorrow' in [systemEnvironment]
+[DEBUG][20170408 13:50:55,298][PropertySourcesPropertyResolver:103] Could not find key 'druid.testOnBorrow' in any property source. Returning [null]
+[DEBUG][20170408 13:50:55,298][PropertySourcesPropertyResolver:81] Searching for key 'druid.testOnBorrow' in [localProperties]
+[DEBUG][20170408 13:50:55,299][PropertySourcesPropertyResolver:90] Found key 'druid.testOnBorrow' in [localProperties] with type [String] and value 'false'
+[DEBUG][20170408 13:50:55,299][PropertySourcesPropertyResolver:81] Searching for key 'druid.testOnReturn' in [environmentProperties]
+[DEBUG][20170408 13:50:55,299][PropertySourcesPropertyResolver:81] Searching for key 'druid.testOnReturn' in [systemProperties]
+[DEBUG][20170408 13:50:55,300][PropertySourcesPropertyResolver:81] Searching for key 'druid.testOnReturn' in [systemEnvironment]
+[DEBUG][20170408 13:50:55,300][PropertySourcesPropertyResolver:103] Could not find key 'druid.testOnReturn' in any property source. Returning [null]
+[DEBUG][20170408 13:50:55,300][PropertySourcesPropertyResolver:81] Searching for key 'druid.testOnReturn' in [localProperties]
+[DEBUG][20170408 13:50:55,301][PropertySourcesPropertyResolver:90] Found key 'druid.testOnReturn' in [localProperties] with type [String] and value 'false'
+[DEBUG][20170408 13:50:55,301][PropertySourcesPropertyResolver:81] Searching for key 'druid.poolPreparedStatements' in [environmentProperties]
+[DEBUG][20170408 13:50:55,301][PropertySourcesPropertyResolver:81] Searching for key 'druid.poolPreparedStatements' in [systemProperties]
+[DEBUG][20170408 13:50:55,302][PropertySourcesPropertyResolver:81] Searching for key 'druid.poolPreparedStatements' in [systemEnvironment]
+[DEBUG][20170408 13:50:55,302][PropertySourcesPropertyResolver:103] Could not find key 'druid.poolPreparedStatements' in any property source. Returning [null]
+[DEBUG][20170408 13:50:55,302][PropertySourcesPropertyResolver:81] Searching for key 'druid.poolPreparedStatements' in [localProperties]
+[DEBUG][20170408 13:50:55,303][PropertySourcesPropertyResolver:90] Found key 'druid.poolPreparedStatements' in [localProperties] with type [String] and value 'true'
+[DEBUG][20170408 13:50:55,303][PropertySourcesPropertyResolver:81] Searching for key 'druid.maxPoolPreparedStatementPerConnectionSize' in [environmentProperties]
+[DEBUG][20170408 13:50:55,303][PropertySourcesPropertyResolver:81] Searching for key 'druid.maxPoolPreparedStatementPerConnectionSize' in [systemProperties]
+[DEBUG][20170408 13:50:55,304][PropertySourcesPropertyResolver:81] Searching for key 'druid.maxPoolPreparedStatementPerConnectionSize' in [systemEnvironment]
+[DEBUG][20170408 13:50:55,304][PropertySourcesPropertyResolver:103] Could not find key 'druid.maxPoolPreparedStatementPerConnectionSize' in any property source. Returning [null]
+[DEBUG][20170408 13:50:55,304][PropertySourcesPropertyResolver:81] Searching for key 'druid.maxPoolPreparedStatementPerConnectionSize' in [localProperties]
+[DEBUG][20170408 13:50:55,305][PropertySourcesPropertyResolver:90] Found key 'druid.maxPoolPreparedStatementPerConnectionSize' in [localProperties] with type [String] and value '50'
+[DEBUG][20170408 13:50:55,305][PropertySourcesPropertyResolver:81] Searching for key 'druid.filters' in [environmentProperties]
+[DEBUG][20170408 13:50:55,305][PropertySourcesPropertyResolver:81] Searching for key 'druid.filters' in [systemProperties]
+[DEBUG][20170408 13:50:55,306][PropertySourcesPropertyResolver:81] Searching for key 'druid.filters' in [systemEnvironment]
+[DEBUG][20170408 13:50:55,306][PropertySourcesPropertyResolver:103] Could not find key 'druid.filters' in any property source. Returning [null]
+[DEBUG][20170408 13:50:55,306][PropertySourcesPropertyResolver:81] Searching for key 'druid.filters' in [localProperties]
+[DEBUG][20170408 13:50:55,307][PropertySourcesPropertyResolver:90] Found key 'druid.filters' in [localProperties] with type [String] and value 'stat'
+[DEBUG][20170408 13:50:55,307][PropertySourcesPropertyResolver:81] Searching for key 'dubbo.multi.address' in [environmentProperties]
+[DEBUG][20170408 13:50:55,308][PropertySourcesPropertyResolver:81] Searching for key 'dubbo.multi.address' in [systemProperties]
+[DEBUG][20170408 13:50:55,308][PropertySourcesPropertyResolver:81] Searching for key 'dubbo.multi.address' in [systemEnvironment]
+[DEBUG][20170408 13:50:55,308][PropertySourcesPropertyResolver:103] Could not find key 'dubbo.multi.address' in any property source. Returning [null]
+[DEBUG][20170408 13:50:55,309][PropertySourcesPropertyResolver:81] Searching for key 'dubbo.multi.address' in [localProperties]
+[DEBUG][20170408 13:50:55,309][PropertySourcesPropertyResolver:90] Found key 'dubbo.multi.address' in [localProperties] with type [String] and value 'multicast://224.5.6.7:1234'
+[DEBUG][20170408 13:50:55,333][MutablePropertySources:107] Adding [environmentProperties] PropertySource with lowest search precedence
+[INFO ][20170408 13:50:55,334][PropertiesLoaderSupport:172] Loading properties file from class path resource [dubbo.properties]
+[DEBUG][20170408 13:50:55,335][MutablePropertySources:107] Adding [localProperties] PropertySource with lowest search precedence
+[DEBUG][20170408 13:50:55,340][DefaultSingletonBeanRegistry:215] Creating shared instance of singleton bean 'org.springframework.context.annotation.internalAutowiredAnnotationProcessor'
+[DEBUG][20170408 13:50:55,340][AbstractAutowireCapableBeanFactory:432] Creating instance of bean 'org.springframework.context.annotation.internalAutowiredAnnotationProcessor'
+[DEBUG][20170408 13:50:55,343][AbstractAutowireCapableBeanFactory:506] Eagerly caching bean 'org.springframework.context.annotation.internalAutowiredAnnotationProcessor' to allow for resolving potential circular references
+[DEBUG][20170408 13:50:55,344][AbstractAutowireCapableBeanFactory:460] Finished creating instance of bean 'org.springframework.context.annotation.internalAutowiredAnnotationProcessor'
+[DEBUG][20170408 13:50:55,344][DefaultSingletonBeanRegistry:215] Creating shared instance of singleton bean 'org.springframework.context.annotation.internalRequiredAnnotationProcessor'
+[DEBUG][20170408 13:50:55,344][AbstractAutowireCapableBeanFactory:432] Creating instance of bean 'org.springframework.context.annotation.internalRequiredAnnotationProcessor'
+[DEBUG][20170408 13:50:55,345][AbstractAutowireCapableBeanFactory:506] Eagerly caching bean 'org.springframework.context.annotation.internalRequiredAnnotationProcessor' to allow for resolving potential circular references
+[DEBUG][20170408 13:50:55,345][AbstractAutowireCapableBeanFactory:460] Finished creating instance of bean 'org.springframework.context.annotation.internalRequiredAnnotationProcessor'
+[DEBUG][20170408 13:50:55,346][DefaultSingletonBeanRegistry:215] Creating shared instance of singleton bean 'org.springframework.context.annotation.internalCommonAnnotationProcessor'
+[DEBUG][20170408 13:50:55,346][AbstractAutowireCapableBeanFactory:432] Creating instance of bean 'org.springframework.context.annotation.internalCommonAnnotationProcessor'
+[DEBUG][20170408 13:50:55,404][AbstractAutowireCapableBeanFactory:506] Eagerly caching bean 'org.springframework.context.annotation.internalCommonAnnotationProcessor' to allow for resolving potential circular references
+[DEBUG][20170408 13:50:55,405][AbstractAutowireCapableBeanFactory:460] Finished creating instance of bean 'org.springframework.context.annotation.internalCommonAnnotationProcessor'
+[DEBUG][20170408 13:50:55,405][DefaultSingletonBeanRegistry:215] Creating shared instance of singleton bean 'org.springframework.context.annotation.ConfigurationClassPostProcessor.importAwareProcessor'
+[DEBUG][20170408 13:50:55,405][AbstractAutowireCapableBeanFactory:432] Creating instance of bean 'org.springframework.context.annotation.ConfigurationClassPostProcessor.importAwareProcessor'
+[DEBUG][20170408 13:50:55,405][AbstractAutowireCapableBeanFactory:506] Eagerly caching bean 'org.springframework.context.annotation.ConfigurationClassPostProcessor.importAwareProcessor' to allow for resolving potential circular references
+[DEBUG][20170408 13:50:55,406][AbstractAutowireCapableBeanFactory:460] Finished creating instance of bean 'org.springframework.context.annotation.ConfigurationClassPostProcessor.importAwareProcessor'
+[DEBUG][20170408 13:50:55,406][DefaultSingletonBeanRegistry:215] Creating shared instance of singleton bean 'org.springframework.aop.config.internalAutoProxyCreator'
+[DEBUG][20170408 13:50:55,406][AbstractAutowireCapableBeanFactory:432] Creating instance of bean 'org.springframework.aop.config.internalAutoProxyCreator'
+[DEBUG][20170408 13:50:55,460][AbstractAutowireCapableBeanFactory:506] Eagerly caching bean 'org.springframework.aop.config.internalAutoProxyCreator' to allow for resolving potential circular references
+[DEBUG][20170408 13:50:55,490][AbstractAutowireCapableBeanFactory:460] Finished creating instance of bean 'org.springframework.aop.config.internalAutoProxyCreator'
+[DEBUG][20170408 13:50:55,494][AbstractApplicationContext:807] Unable to locate MessageSource with name 'messageSource': using default [org.springframework.context.support.DelegatingMessageSource@3e74829]
+[DEBUG][20170408 13:50:55,497][AbstractApplicationContext:831] Unable to locate ApplicationEventMulticaster with name 'applicationEventMulticaster': using default [org.springframework.context.event.SimpleApplicationEventMulticaster@7fcf2fc1]
+[INFO ][20170408 13:50:55,511][DefaultListableBeanFactory:603] Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@305ffe9e: defining beans [org.springframework.context.support.PropertySourcesPlaceholderConfigurer#0,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor,UserServiceX,commodityService,commodityCatagoryService,userService,org.springframework.context.support.PropertySourcesPlaceholderConfigurer#1,org.springframework.aop.config.internalAutoProxyCreator,commonJdbcDataSource,commonTransactionManager,org.springframework.transaction.annotation.AnnotationTransactionAttributeSource#0,org.springframework.transaction.interceptor.TransactionInterceptor#0,org.springframework.transaction.config.internalTransactionAdvisor,commonSessionFactory,org.mybatis.spring.mapper.MapperScannerConfigurer#0,commonSessionTemplate,fs-game-dubboxService,com.alibaba.dubbo.config.RegistryConfig,dubbo,rest,com.alibaba.dubbo.config.ProviderConfig,com.fashionsuperman.fs.game.facet.user.UserI,org.springframework.context.annotation.ConfigurationClassPostProcessor.importAwareProcessor,commodityCatagoryMapper,commodityMapper,rankMapper,userMapper,userRelationshipMapper]; root of factory hierarchy
+[DEBUG][20170408 13:50:55,512][AbstractBeanFactory:246] Returning cached instance of singleton bean 'org.springframework.context.support.PropertySourcesPlaceholderConfigurer#0'
+[DEBUG][20170408 13:50:55,512][AbstractBeanFactory:246] Returning cached instance of singleton bean 'org.springframework.context.annotation.internalConfigurationAnnotationProcessor'
+[DEBUG][20170408 13:50:55,512][AbstractBeanFactory:246] Returning cached instance of singleton bean 'org.springframework.context.annotation.internalAutowiredAnnotationProcessor'
+[DEBUG][20170408 13:50:55,513][AbstractBeanFactory:246] Returning cached instance of singleton bean 'org.springframework.context.annotation.internalRequiredAnnotationProcessor'
+[DEBUG][20170408 13:50:55,513][AbstractBeanFactory:246] Returning cached instance of singleton bean 'org.springframework.context.annotation.internalCommonAnnotationProcessor'
+[DEBUG][20170408 13:50:55,513][DefaultSingletonBeanRegistry:215] Creating shared instance of singleton bean 'UserServiceX'
+[DEBUG][20170408 13:50:55,513][AbstractAutowireCapableBeanFactory:432] Creating instance of bean 'UserServiceX'
+[DEBUG][20170408 13:50:55,524][DefaultSingletonBeanRegistry:215] Creating shared instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+[DEBUG][20170408 13:50:55,525][AbstractAutowireCapableBeanFactory:432] Creating instance of bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+[DEBUG][20170408 13:50:55,527][AbstractAutowireCapableBeanFactory:506] Eagerly caching bean 'org.springframework.transaction.config.internalTransactionAdvisor' to allow for resolving potential circular references
+[DEBUG][20170408 13:50:55,538][DefaultSingletonBeanRegistry:215] Creating shared instance of singleton bean 'org.springframework.transaction.annotation.AnnotationTransactionAttributeSource#0'
+[DEBUG][20170408 13:50:55,538][AbstractAutowireCapableBeanFactory:432] Creating instance of bean 'org.springframework.transaction.annotation.AnnotationTransactionAttributeSource#0'
+[DEBUG][20170408 13:50:55,538][BeanFactoryAdvisorRetrievalHelper:87] Skipping currently created advisor 'org.springframework.transaction.config.internalTransactionAdvisor'
+[DEBUG][20170408 13:50:55,548][AbstractAutowireCapableBeanFactory:506] Eagerly caching bean 'org.springframework.transaction.annotation.AnnotationTransactionAttributeSource#0' to allow for resolving potential circular references
+[DEBUG][20170408 13:50:55,555][BeanFactoryAdvisorRetrievalHelper:87] Skipping currently created advisor 'org.springframework.transaction.config.internalTransactionAdvisor'
+[DEBUG][20170408 13:50:55,556][BeanFactoryAdvisorRetrievalHelper:87] Skipping currently created advisor 'org.springframework.transaction.config.internalTransactionAdvisor'
+[DEBUG][20170408 13:50:55,569][AbstractAutowireCapableBeanFactory:460] Finished creating instance of bean 'org.springframework.transaction.annotation.AnnotationTransactionAttributeSource#0'
+[DEBUG][20170408 13:50:55,570][AbstractAutowireCapableBeanFactory:460] Finished creating instance of bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+[DEBUG][20170408 13:50:55,583][InjectionMetadata:71] Registered injected element on class [com.fashionsuperman.fs.game.dubboxService.user.UserServiceX]: AutowiredFieldElement for private com.fashionsuperman.fs.game.service.user.UserService com.fashionsuperman.fs.game.dubboxService.user.UserServiceX.userService
+[DEBUG][20170408 13:50:55,583][AbstractAutowireCapableBeanFactory:506] Eagerly caching bean 'UserServiceX' to allow for resolving potential circular references
+[DEBUG][20170408 13:50:55,588][InjectionMetadata:85] Processing injected method of bean 'UserServiceX': AutowiredFieldElement for private com.fashionsuperman.fs.game.service.user.UserService com.fashionsuperman.fs.game.dubboxService.user.UserServiceX.userService
+[DEBUG][20170408 13:50:55,591][AbstractBeanFactory:246] Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+[DEBUG][20170408 13:50:55,657][LogFactory:115] Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+[DEBUG][20170408 13:50:55,676][AbstractBeanFactory:246] Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+[DEBUG][20170408 13:50:55,677][DefaultSingletonBeanRegistry:215] Creating shared instance of singleton bean 'commodityCatagoryMapper'
+[DEBUG][20170408 13:50:55,678][AbstractAutowireCapableBeanFactory:432] Creating instance of bean 'commodityCatagoryMapper'
+[DEBUG][20170408 13:50:55,678][AbstractAutowireCapableBeanFactory:506] Eagerly caching bean 'commodityCatagoryMapper' to allow for resolving potential circular references
+[DEBUG][20170408 13:50:55,690][DefaultSingletonBeanRegistry:215] Creating shared instance of singleton bean 'commonSessionFactory'
+[DEBUG][20170408 13:50:55,690][AbstractAutowireCapableBeanFactory:432] Creating instance of bean 'commonSessionFactory'
+[DEBUG][20170408 13:50:55,695][AbstractAutowireCapableBeanFactory:506] Eagerly caching bean 'commonSessionFactory' to allow for resolving potential circular references
+[DEBUG][20170408 13:50:55,703][DefaultSingletonBeanRegistry:215] Creating shared instance of singleton bean 'commonJdbcDataSource'
+[DEBUG][20170408 13:50:55,703][AbstractAutowireCapableBeanFactory:432] Creating instance of bean 'commonJdbcDataSource'
+[DEBUG][20170408 13:50:55,703][AbstractBeanFactory:246] Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+[DEBUG][20170408 13:50:55,918][AbstractAutowireCapableBeanFactory:506] Eagerly caching bean 'commonJdbcDataSource' to allow for resolving potential circular references
+[ERROR][20170408 13:50:56,006][DruidAbstractDataSource:946] maxIdle is deprecated
+[DEBUG][20170408 13:50:56,136][AbstractAutowireCapableBeanFactory:1612] Invoking init method  'init' on bean with name 'commonJdbcDataSource'
+[INFO ][20170408 13:50:57,293][DruidDataSource:669] {dataSource-1} inited
+[DEBUG][20170408 13:50:57,293][AbstractBeanFactory:246] Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+[DEBUG][20170408 13:50:57,294][AbstractBeanFactory:246] Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+[DEBUG][20170408 13:50:57,327][AbstractAutowireCapableBeanFactory:460] Finished creating instance of bean 'commonJdbcDataSource'
+[DEBUG][20170408 13:50:57,329][PathMatchingResourcePatternResolver:553] Looking for matching resources in directory tree [E:\gitProjects\fs-game\fs-game-dao\target\classes\mybatis\mapper]
+[DEBUG][20170408 13:50:57,330][PathMatchingResourcePatternResolver:615] Searching directory [E:\gitProjects\fs-game\fs-game-dao\target\classes\mybatis\mapper] for files matching pattern [E:/gitProjects/fs-game/fs-game-dao/target/classes/mybatis/mapper/*.xml]
+[DEBUG][20170408 13:50:57,382][PathMatchingResourcePatternResolver:354] Resolved location pattern [classpath*:mybatis/mapper/*.xml] to resources [file [E:\gitProjects\fs-game\fs-game-dao\target\classes\mybatis\mapper\CommodityCatagoryMapper.xml], file [E:\gitProjects\fs-game\fs-game-dao\target\classes\mybatis\mapper\CommodityMapper.xml], file [E:\gitProjects\fs-game\fs-game-dao\target\classes\mybatis\mapper\RankMapper.xml], file [E:\gitProjects\fs-game\fs-game-dao\target\classes\mybatis\mapper\UserMapper.xml], file [E:\gitProjects\fs-game\fs-game-dao\target\classes\mybatis\mapper\UserRelationshipMapper.xml]]
+[DEBUG][20170408 13:50:57,383][PathMatchingResourcePatternResolver:553] Looking for matching resources in directory tree [E:\gitProjects\fs-game\fs-game-dao\target\classes\mybatis\mapper\custom]
+[DEBUG][20170408 13:50:57,383][PathMatchingResourcePatternResolver:615] Searching directory [E:\gitProjects\fs-game\fs-game-dao\target\classes\mybatis\mapper\custom] for files matching pattern [E:/gitProjects/fs-game/fs-game-dao/target/classes/mybatis/mapper/custom/*.xml]
+[DEBUG][20170408 13:50:57,391][PathMatchingResourcePatternResolver:354] Resolved location pattern [classpath*:mybatis/mapper/custom/*.xml] to resources [file [E:\gitProjects\fs-game\fs-game-dao\target\classes\mybatis\mapper\custom\CommodityCatagoryMapper.xml], file [E:\gitProjects\fs-game\fs-game-dao\target\classes\mybatis\mapper\custom\CommodityMapper.xml], file [E:\gitProjects\fs-game\fs-game-dao\target\classes\mybatis\mapper\custom\RankMapper.xml], file [E:\gitProjects\fs-game\fs-game-dao\target\classes\mybatis\mapper\custom\UserMapper.xml], file [E:\gitProjects\fs-game\fs-game-dao\target\classes\mybatis\mapper\custom\UserRelationshipMapper.xml]]
+[DEBUG][20170408 13:50:57,402][AbstractAutowireCapableBeanFactory:1555] Invoking afterPropertiesSet() on bean with name 'commonSessionFactory'
+[DEBUG][20170408 13:50:57,911][SqlSessionFactoryBean:427] Parsed configuration file: 'class path resource [spring/mybatis-config.xml]'
+[DEBUG][20170408 13:50:58,040][SqlSessionFactoryBean:468] Parsed mapper file: 'file [E:\gitProjects\fs-game\fs-game-dao\target\classes\mybatis\mapper\CommodityCatagoryMapper.xml]'
+[DEBUG][20170408 13:50:58,106][SqlSessionFactoryBean:468] Parsed mapper file: 'file [E:\gitProjects\fs-game\fs-game-dao\target\classes\mybatis\mapper\CommodityMapper.xml]'
+[DEBUG][20170408 13:50:58,168][SqlSessionFactoryBean:468] Parsed mapper file: 'file [E:\gitProjects\fs-game\fs-game-dao\target\classes\mybatis\mapper\RankMapper.xml]'
+[DEBUG][20170408 13:50:58,392][SqlSessionFactoryBean:468] Parsed mapper file: 'file [E:\gitProjects\fs-game\fs-game-dao\target\classes\mybatis\mapper\UserMapper.xml]'
+[DEBUG][20170408 13:50:58,463][SqlSessionFactoryBean:468] Parsed mapper file: 'file [E:\gitProjects\fs-game\fs-game-dao\target\classes\mybatis\mapper\UserRelationshipMapper.xml]'
+[DEBUG][20170408 13:50:58,511][SqlSessionFactoryBean:468] Parsed mapper file: 'file [E:\gitProjects\fs-game\fs-game-dao\target\classes\mybatis\mapper\custom\CommodityCatagoryMapper.xml]'
+[DEBUG][20170408 13:50:58,536][SqlSessionFactoryBean:468] Parsed mapper file: 'file [E:\gitProjects\fs-game\fs-game-dao\target\classes\mybatis\mapper\custom\CommodityMapper.xml]'
+[DEBUG][20170408 13:50:58,563][SqlSessionFactoryBean:468] Parsed mapper file: 'file [E:\gitProjects\fs-game\fs-game-dao\target\classes\mybatis\mapper\custom\RankMapper.xml]'
+[DEBUG][20170408 13:50:58,593][SqlSessionFactoryBean:468] Parsed mapper file: 'file [E:\gitProjects\fs-game\fs-game-dao\target\classes\mybatis\mapper\custom\UserMapper.xml]'
+[DEBUG][20170408 13:50:58,615][SqlSessionFactoryBean:468] Parsed mapper file: 'file [E:\gitProjects\fs-game\fs-game-dao\target\classes\mybatis\mapper\custom\UserRelationshipMapper.xml]'
+[DEBUG][20170408 13:50:58,617][AbstractBeanFactory:246] Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+[DEBUG][20170408 13:50:58,618][AbstractBeanFactory:246] Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+[DEBUG][20170408 13:50:58,618][AbstractAutowireCapableBeanFactory:460] Finished creating instance of bean 'commonSessionFactory'
+[DEBUG][20170408 13:50:58,619][AbstractBeanFactory:246] Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+[DEBUG][20170408 13:50:58,619][AbstractBeanFactory:246] Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+[DEBUG][20170408 13:50:58,653][AbstractAutowireCapableBeanFactory:1555] Invoking afterPropertiesSet() on bean with name 'commodityCatagoryMapper'
+[DEBUG][20170408 13:50:58,654][AbstractBeanFactory:246] Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+[DEBUG][20170408 13:50:58,654][AbstractBeanFactory:246] Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+[DEBUG][20170408 13:50:58,661][AbstractAutowireCapableBeanFactory:460] Finished creating instance of bean 'commodityCatagoryMapper'
+[DEBUG][20170408 13:50:58,663][AbstractBeanFactory:246] Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+[DEBUG][20170408 13:50:58,664][DefaultSingletonBeanRegistry:215] Creating shared instance of singleton bean 'commodityMapper'
+[DEBUG][20170408 13:50:58,665][AbstractAutowireCapableBeanFactory:432] Creating instance of bean 'commodityMapper'
+[DEBUG][20170408 13:50:58,666][AbstractAutowireCapableBeanFactory:506] Eagerly caching bean 'commodityMapper' to allow for resolving potential circular references
+[DEBUG][20170408 13:50:58,667][AbstractBeanFactory:246] Returning cached instance of singleton bean 'commonSessionFactory'
+[DEBUG][20170408 13:50:58,667][AbstractAutowireCapableBeanFactory:1555] Invoking afterPropertiesSet() on bean with name 'commodityMapper'
+[DEBUG][20170408 13:50:58,668][AbstractBeanFactory:246] Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+[DEBUG][20170408 13:50:58,668][AbstractBeanFactory:246] Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+[DEBUG][20170408 13:50:58,669][AbstractAutowireCapableBeanFactory:460] Finished creating instance of bean 'commodityMapper'
+[DEBUG][20170408 13:50:58,670][AbstractBeanFactory:246] Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+[DEBUG][20170408 13:50:58,670][DefaultSingletonBeanRegistry:215] Creating shared instance of singleton bean 'rankMapper'
+[DEBUG][20170408 13:50:58,670][AbstractAutowireCapableBeanFactory:432] Creating instance of bean 'rankMapper'
+[DEBUG][20170408 13:50:58,672][AbstractAutowireCapableBeanFactory:506] Eagerly caching bean 'rankMapper' to allow for resolving potential circular references
+[DEBUG][20170408 13:50:58,672][AbstractBeanFactory:246] Returning cached instance of singleton bean 'commonSessionFactory'
+[DEBUG][20170408 13:50:58,673][AbstractAutowireCapableBeanFactory:1555] Invoking afterPropertiesSet() on bean with name 'rankMapper'
+[DEBUG][20170408 13:50:58,675][AbstractBeanFactory:246] Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+[DEBUG][20170408 13:50:58,675][AbstractBeanFactory:246] Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+[DEBUG][20170408 13:50:58,676][AbstractAutowireCapableBeanFactory:460] Finished creating instance of bean 'rankMapper'
+[DEBUG][20170408 13:50:58,676][AbstractBeanFactory:246] Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+[DEBUG][20170408 13:50:58,677][DefaultSingletonBeanRegistry:215] Creating shared instance of singleton bean 'userMapper'
+[DEBUG][20170408 13:50:58,677][AbstractAutowireCapableBeanFactory:432] Creating instance of bean 'userMapper'
+[DEBUG][20170408 13:50:58,696][AbstractAutowireCapableBeanFactory:506] Eagerly caching bean 'userMapper' to allow for resolving potential circular references
+[DEBUG][20170408 13:50:58,699][AbstractBeanFactory:246] Returning cached instance of singleton bean 'commonSessionFactory'
+[DEBUG][20170408 13:50:58,700][AbstractAutowireCapableBeanFactory:1555] Invoking afterPropertiesSet() on bean with name 'userMapper'
+[DEBUG][20170408 13:50:58,701][AbstractBeanFactory:246] Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+[DEBUG][20170408 13:50:58,701][AbstractBeanFactory:246] Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+[DEBUG][20170408 13:50:58,702][AbstractAutowireCapableBeanFactory:460] Finished creating instance of bean 'userMapper'
+[DEBUG][20170408 13:50:58,702][AbstractBeanFactory:246] Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+[DEBUG][20170408 13:50:58,702][DefaultSingletonBeanRegistry:215] Creating shared instance of singleton bean 'userRelationshipMapper'
+[DEBUG][20170408 13:50:58,703][AbstractAutowireCapableBeanFactory:432] Creating instance of bean 'userRelationshipMapper'
+[DEBUG][20170408 13:50:58,704][AbstractAutowireCapableBeanFactory:506] Eagerly caching bean 'userRelationshipMapper' to allow for resolving potential circular references
+[DEBUG][20170408 13:50:58,705][AbstractBeanFactory:246] Returning cached instance of singleton bean 'commonSessionFactory'
+[DEBUG][20170408 13:50:58,705][AbstractAutowireCapableBeanFactory:1555] Invoking afterPropertiesSet() on bean with name 'userRelationshipMapper'
+[DEBUG][20170408 13:50:58,706][AbstractBeanFactory:246] Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+[DEBUG][20170408 13:50:58,707][AbstractBeanFactory:246] Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+[DEBUG][20170408 13:50:58,707][AbstractAutowireCapableBeanFactory:460] Finished creating instance of bean 'userRelationshipMapper'
+[DEBUG][20170408 13:50:58,708][DefaultSingletonBeanRegistry:215] Creating shared instance of singleton bean 'userService'
+[DEBUG][20170408 13:50:58,708][AbstractAutowireCapableBeanFactory:432] Creating instance of bean 'userService'
+[DEBUG][20170408 13:50:58,709][AbstractBeanFactory:246] Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+[DEBUG][20170408 13:50:58,755][InjectionMetadata:71] Registered injected element on class [com.fashionsuperman.fs.game.service.user.UserService]: AutowiredFieldElement for private com.fashionsuperman.fs.game.dao.mapper.UserMapper com.fashionsuperman.fs.game.service.user.UserService.userMapper
+[DEBUG][20170408 13:50:58,755][InjectionMetadata:71] Registered injected element on class [com.fashionsuperman.fs.game.service.user.UserService]: AutowiredFieldElement for private com.fashionsuperman.fs.game.dao.mapper.UserRelationshipMapper com.fashionsuperman.fs.game.service.user.UserService.userRelationshipMapper
+[DEBUG][20170408 13:50:58,756][AbstractAutowireCapableBeanFactory:506] Eagerly caching bean 'userService' to allow for resolving potential circular references
+[DEBUG][20170408 13:50:58,759][InjectionMetadata:85] Processing injected method of bean 'userService': AutowiredFieldElement for private com.fashionsuperman.fs.game.dao.mapper.UserMapper com.fashionsuperman.fs.game.service.user.UserService.userMapper
+[DEBUG][20170408 13:50:58,761][AbstractBeanFactory:246] Returning cached instance of singleton bean 'userMapper'
+[DEBUG][20170408 13:50:58,764][AbstractBeanFactory:246] Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+[DEBUG][20170408 13:50:58,765][AbstractBeanFactory:246] Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+[DEBUG][20170408 13:50:58,769][AutowiredAnnotationBeanPostProcessor:436] Autowiring by type from bean name 'userService' to bean named 'userMapper'
+[DEBUG][20170408 13:50:58,775][InjectionMetadata:85] Processing injected method of bean 'userService': AutowiredFieldElement for private com.fashionsuperman.fs.game.dao.mapper.UserRelationshipMapper com.fashionsuperman.fs.game.service.user.UserService.userRelationshipMapper
+[DEBUG][20170408 13:50:58,777][AbstractBeanFactory:246] Returning cached instance of singleton bean 'userRelationshipMapper'
+[DEBUG][20170408 13:50:58,782][AbstractBeanFactory:246] Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+[DEBUG][20170408 13:50:58,782][AbstractBeanFactory:246] Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+[DEBUG][20170408 13:50:58,785][AutowiredAnnotationBeanPostProcessor:436] Autowiring by type from bean name 'userService' to bean named 'userRelationshipMapper'
+[DEBUG][20170408 13:50:58,785][AbstractBeanFactory:246] Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+[DEBUG][20170408 13:50:58,785][AbstractBeanFactory:246] Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+[DEBUG][20170408 13:50:58,786][AbstractAutowireCapableBeanFactory:460] Finished creating instance of bean 'userService'
+[DEBUG][20170408 13:50:58,786][AutowiredAnnotationBeanPostProcessor:436] Autowiring by type from bean name 'UserServiceX' to bean named 'userService'
+[DEBUG][20170408 13:50:58,786][AbstractBeanFactory:246] Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+[DEBUG][20170408 13:50:58,787][AbstractBeanFactory:246] Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+[DEBUG][20170408 13:50:58,794][AbstractAutowireCapableBeanFactory:460] Finished creating instance of bean 'UserServiceX'
+[DEBUG][20170408 13:50:58,795][DefaultSingletonBeanRegistry:215] Creating shared instance of singleton bean 'commodityService'
+[DEBUG][20170408 13:50:58,795][AbstractAutowireCapableBeanFactory:432] Creating instance of bean 'commodityService'
+[DEBUG][20170408 13:50:58,795][AbstractBeanFactory:246] Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+[DEBUG][20170408 13:50:58,825][InjectionMetadata:71] Registered injected element on class [com.fashionsuperman.fs.game.service.trade.commodity.CommodityService]: AutowiredFieldElement for private com.fashionsuperman.fs.game.dao.mapper.CommodityMapper com.fashionsuperman.fs.game.service.trade.commodity.CommodityService.commodityMapper
+[DEBUG][20170408 13:50:58,825][InjectionMetadata:71] Registered injected element on class [com.fashionsuperman.fs.game.service.trade.commodity.CommodityService]: AutowiredFieldElement for private com.fashionsuperman.fs.game.service.trade.commoditycatagory.CommodityCatagoryService com.fashionsuperman.fs.game.service.trade.commodity.CommodityService.commodityCatagoryService
+[DEBUG][20170408 13:50:58,825][InjectionMetadata:71] Registered injected element on class [com.fashionsuperman.fs.game.service.trade.commodity.CommodityService]: AutowiredFieldElement for private com.fashionsuperman.fs.game.dao.mapper.CommodityCatagoryMapper com.fashionsuperman.fs.game.service.trade.commodity.CommodityService.commodityCatagoryMapper
+[DEBUG][20170408 13:50:58,826][AbstractAutowireCapableBeanFactory:506] Eagerly caching bean 'commodityService' to allow for resolving potential circular references
+[DEBUG][20170408 13:50:58,829][InjectionMetadata:85] Processing injected method of bean 'commodityService': AutowiredFieldElement for private com.fashionsuperman.fs.game.dao.mapper.CommodityMapper com.fashionsuperman.fs.game.service.trade.commodity.CommodityService.commodityMapper
+[DEBUG][20170408 13:50:58,830][AbstractBeanFactory:246] Returning cached instance of singleton bean 'commodityMapper'
+[DEBUG][20170408 13:50:58,832][AbstractBeanFactory:246] Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+[DEBUG][20170408 13:50:58,833][AbstractBeanFactory:246] Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+[DEBUG][20170408 13:50:58,834][AutowiredAnnotationBeanPostProcessor:436] Autowiring by type from bean name 'commodityService' to bean named 'commodityMapper'
+[DEBUG][20170408 13:50:58,834][InjectionMetadata:85] Processing injected method of bean 'commodityService': AutowiredFieldElement for private com.fashionsuperman.fs.game.service.trade.commoditycatagory.CommodityCatagoryService com.fashionsuperman.fs.game.service.trade.commodity.CommodityService.commodityCatagoryService
+[DEBUG][20170408 13:50:58,835][DefaultSingletonBeanRegistry:215] Creating shared instance of singleton bean 'commodityCatagoryService'
+[DEBUG][20170408 13:50:58,835][AbstractAutowireCapableBeanFactory:432] Creating instance of bean 'commodityCatagoryService'
+[DEBUG][20170408 13:50:58,835][AbstractBeanFactory:246] Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+[DEBUG][20170408 13:50:58,836][InjectionMetadata:71] Registered injected element on class [com.fashionsuperman.fs.game.service.trade.commoditycatagory.CommodityCatagoryService]: AutowiredFieldElement for private com.fashionsuperman.fs.game.dao.mapper.CommodityCatagoryMapper com.fashionsuperman.fs.game.service.trade.commoditycatagory.CommodityCatagoryService.commodityCatagoryMapper
+[DEBUG][20170408 13:50:58,836][AbstractAutowireCapableBeanFactory:506] Eagerly caching bean 'commodityCatagoryService' to allow for resolving potential circular references
+[DEBUG][20170408 13:50:58,840][InjectionMetadata:85] Processing injected method of bean 'commodityCatagoryService': AutowiredFieldElement for private com.fashionsuperman.fs.game.dao.mapper.CommodityCatagoryMapper com.fashionsuperman.fs.game.service.trade.commoditycatagory.CommodityCatagoryService.commodityCatagoryMapper
+[DEBUG][20170408 13:50:58,841][AbstractBeanFactory:246] Returning cached instance of singleton bean 'commodityCatagoryMapper'
+[DEBUG][20170408 13:50:58,843][AbstractBeanFactory:246] Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+[DEBUG][20170408 13:50:58,844][AbstractBeanFactory:246] Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+[DEBUG][20170408 13:50:58,845][AutowiredAnnotationBeanPostProcessor:436] Autowiring by type from bean name 'commodityCatagoryService' to bean named 'commodityCatagoryMapper'
+[DEBUG][20170408 13:50:58,849][AbstractBeanFactory:246] Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+[DEBUG][20170408 13:50:58,849][AbstractBeanFactory:246] Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+[DEBUG][20170408 13:50:58,850][AbstractAutowireCapableBeanFactory:460] Finished creating instance of bean 'commodityCatagoryService'
+[DEBUG][20170408 13:50:58,850][AutowiredAnnotationBeanPostProcessor:436] Autowiring by type from bean name 'commodityService' to bean named 'commodityCatagoryService'
+[DEBUG][20170408 13:50:58,851][InjectionMetadata:85] Processing injected method of bean 'commodityService': AutowiredFieldElement for private com.fashionsuperman.fs.game.dao.mapper.CommodityCatagoryMapper com.fashionsuperman.fs.game.service.trade.commodity.CommodityService.commodityCatagoryMapper
+[DEBUG][20170408 13:50:58,851][AbstractBeanFactory:246] Returning cached instance of singleton bean 'commodityCatagoryMapper'
+[DEBUG][20170408 13:50:58,851][AutowiredAnnotationBeanPostProcessor:436] Autowiring by type from bean name 'commodityService' to bean named 'commodityCatagoryMapper'
+[DEBUG][20170408 13:50:58,851][AbstractBeanFactory:246] Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+[DEBUG][20170408 13:50:58,852][AbstractBeanFactory:246] Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+[DEBUG][20170408 13:50:58,852][AbstractAutowireCapableBeanFactory:460] Finished creating instance of bean 'commodityService'
+[DEBUG][20170408 13:50:58,853][AbstractBeanFactory:246] Returning cached instance of singleton bean 'commodityCatagoryService'
+[DEBUG][20170408 13:50:58,853][AbstractBeanFactory:246] Returning cached instance of singleton bean 'userService'
+[DEBUG][20170408 13:50:58,853][AbstractBeanFactory:246] Returning cached instance of singleton bean 'org.springframework.context.support.PropertySourcesPlaceholderConfigurer#1'
+[DEBUG][20170408 13:50:58,853][AbstractBeanFactory:246] Returning cached instance of singleton bean 'org.springframework.aop.config.internalAutoProxyCreator'
+[DEBUG][20170408 13:50:58,853][AbstractBeanFactory:246] Returning cached instance of singleton bean 'commonJdbcDataSource'
+[DEBUG][20170408 13:50:58,853][DefaultSingletonBeanRegistry:215] Creating shared instance of singleton bean 'commonTransactionManager'
+[DEBUG][20170408 13:50:58,853][AbstractAutowireCapableBeanFactory:432] Creating instance of bean 'commonTransactionManager'
+[DEBUG][20170408 13:50:58,854][AbstractBeanFactory:246] Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+[DEBUG][20170408 13:50:58,891][AbstractAutowireCapableBeanFactory:506] Eagerly caching bean 'commonTransactionManager' to allow for resolving potential circular references
+[DEBUG][20170408 13:50:58,906][AbstractBeanFactory:246] Returning cached instance of singleton bean 'commonJdbcDataSource'
+[DEBUG][20170408 13:50:58,907][AbstractAutowireCapableBeanFactory:1555] Invoking afterPropertiesSet() on bean with name 'commonTransactionManager'
+[DEBUG][20170408 13:50:58,907][AbstractBeanFactory:246] Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+[DEBUG][20170408 13:50:58,907][AbstractBeanFactory:246] Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+[DEBUG][20170408 13:50:58,909][AbstractAutowireCapableBeanFactory:460] Finished creating instance of bean 'commonTransactionManager'
+[DEBUG][20170408 13:50:58,910][AbstractBeanFactory:246] Returning cached instance of singleton bean 'org.springframework.transaction.annotation.AnnotationTransactionAttributeSource#0'
+[DEBUG][20170408 13:50:58,910][DefaultSingletonBeanRegistry:215] Creating shared instance of singleton bean 'org.springframework.transaction.interceptor.TransactionInterceptor#0'
+[DEBUG][20170408 13:50:58,910][AbstractAutowireCapableBeanFactory:432] Creating instance of bean 'org.springframework.transaction.interceptor.TransactionInterceptor#0'
+[DEBUG][20170408 13:50:58,914][AbstractAutowireCapableBeanFactory:506] Eagerly caching bean 'org.springframework.transaction.interceptor.TransactionInterceptor#0' to allow for resolving potential circular references
+[DEBUG][20170408 13:50:58,925][AbstractBeanFactory:246] Returning cached instance of singleton bean 'org.springframework.transaction.annotation.AnnotationTransactionAttributeSource#0'
+[DEBUG][20170408 13:50:58,925][AbstractAutowireCapableBeanFactory:1555] Invoking afterPropertiesSet() on bean with name 'org.springframework.transaction.interceptor.TransactionInterceptor#0'
+[DEBUG][20170408 13:50:58,925][AbstractAutowireCapableBeanFactory:460] Finished creating instance of bean 'org.springframework.transaction.interceptor.TransactionInterceptor#0'
+[DEBUG][20170408 13:50:58,926][AbstractBeanFactory:246] Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+[DEBUG][20170408 13:50:58,926][AbstractBeanFactory:246] Returning cached instance of singleton bean 'commonSessionFactory'
+[DEBUG][20170408 13:50:58,927][AbstractBeanFactory:246] Returning cached instance of singleton bean 'org.mybatis.spring.mapper.MapperScannerConfigurer#0'
+[DEBUG][20170408 13:50:58,927][DefaultSingletonBeanRegistry:215] Creating shared instance of singleton bean 'fs-game-dubboxService'
+[DEBUG][20170408 13:50:58,927][AbstractAutowireCapableBeanFactory:432] Creating instance of bean 'fs-game-dubboxService'
+[DEBUG][20170408 13:50:58,927][AbstractBeanFactory:246] Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+[DEBUG][20170408 13:50:58,983][AbstractAutowireCapableBeanFactory:506] Eagerly caching bean 'fs-game-dubboxService' to allow for resolving potential circular references
+[DEBUG][20170408 13:50:59,000][AbstractBeanFactory:246] Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+[DEBUG][20170408 13:50:59,000][AbstractBeanFactory:246] Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+[DEBUG][20170408 13:50:59,001][AbstractAutowireCapableBeanFactory:460] Finished creating instance of bean 'fs-game-dubboxService'
+[DEBUG][20170408 13:50:59,001][DefaultSingletonBeanRegistry:215] Creating shared instance of singleton bean 'com.alibaba.dubbo.config.RegistryConfig'
+[DEBUG][20170408 13:50:59,001][AbstractAutowireCapableBeanFactory:432] Creating instance of bean 'com.alibaba.dubbo.config.RegistryConfig'
+[DEBUG][20170408 13:50:59,002][AbstractBeanFactory:246] Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+[DEBUG][20170408 13:50:59,003][AbstractAutowireCapableBeanFactory:506] Eagerly caching bean 'com.alibaba.dubbo.config.RegistryConfig' to allow for resolving potential circular references
+[DEBUG][20170408 13:50:59,012][AbstractBeanFactory:246] Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+[DEBUG][20170408 13:50:59,012][AbstractBeanFactory:246] Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+[DEBUG][20170408 13:50:59,013][AbstractAutowireCapableBeanFactory:460] Finished creating instance of bean 'com.alibaba.dubbo.config.RegistryConfig'
+[DEBUG][20170408 13:50:59,013][DefaultSingletonBeanRegistry:215] Creating shared instance of singleton bean 'dubbo'
+[DEBUG][20170408 13:50:59,013][AbstractAutowireCapableBeanFactory:432] Creating instance of bean 'dubbo'
+[DEBUG][20170408 13:50:59,013][AbstractBeanFactory:246] Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+[DEBUG][20170408 13:50:59,015][AbstractAutowireCapableBeanFactory:506] Eagerly caching bean 'dubbo' to allow for resolving potential circular references
+[DEBUG][20170408 13:50:59,047][AbstractBeanFactory:246] Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+[DEBUG][20170408 13:50:59,047][AbstractBeanFactory:246] Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+[DEBUG][20170408 13:50:59,048][AbstractAutowireCapableBeanFactory:460] Finished creating instance of bean 'dubbo'
+[DEBUG][20170408 13:50:59,048][DefaultSingletonBeanRegistry:215] Creating shared instance of singleton bean 'rest'
+[DEBUG][20170408 13:50:59,048][AbstractAutowireCapableBeanFactory:432] Creating instance of bean 'rest'
+[DEBUG][20170408 13:50:59,048][AbstractBeanFactory:246] Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+[DEBUG][20170408 13:50:59,049][AbstractAutowireCapableBeanFactory:506] Eagerly caching bean 'rest' to allow for resolving potential circular references
+[DEBUG][20170408 13:50:59,050][AbstractBeanFactory:246] Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+[DEBUG][20170408 13:50:59,051][AbstractBeanFactory:246] Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+[DEBUG][20170408 13:50:59,051][AbstractAutowireCapableBeanFactory:460] Finished creating instance of bean 'rest'
+[DEBUG][20170408 13:50:59,051][DefaultSingletonBeanRegistry:215] Creating shared instance of singleton bean 'com.alibaba.dubbo.config.ProviderConfig'
+[DEBUG][20170408 13:50:59,051][AbstractAutowireCapableBeanFactory:432] Creating instance of bean 'com.alibaba.dubbo.config.ProviderConfig'
+[DEBUG][20170408 13:50:59,052][AbstractBeanFactory:246] Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+[DEBUG][20170408 13:50:59,055][AbstractAutowireCapableBeanFactory:506] Eagerly caching bean 'com.alibaba.dubbo.config.ProviderConfig' to allow for resolving potential circular references
+[DEBUG][20170408 13:50:59,081][AbstractBeanFactory:246] Returning cached instance of singleton bean 'dubbo'
+[DEBUG][20170408 13:50:59,089][AbstractBeanFactory:246] Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+[DEBUG][20170408 13:50:59,089][AbstractBeanFactory:246] Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+[DEBUG][20170408 13:50:59,091][AbstractAutowireCapableBeanFactory:460] Finished creating instance of bean 'com.alibaba.dubbo.config.ProviderConfig'
+[DEBUG][20170408 13:50:59,092][DefaultSingletonBeanRegistry:215] Creating shared instance of singleton bean 'com.fashionsuperman.fs.game.facet.user.UserI'
+[DEBUG][20170408 13:50:59,092][AbstractAutowireCapableBeanFactory:432] Creating instance of bean 'com.fashionsuperman.fs.game.facet.user.UserI'
+[DEBUG][20170408 13:50:59,092][AbstractBeanFactory:246] Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+[DEBUG][20170408 13:50:59,110][ExtensionLoader:943]  [DUBBO] package com.alibaba.dubbo.rpc;
+import com.alibaba.dubbo.common.extension.ExtensionLoader;
+public class Protocol$Adpative implements com.alibaba.dubbo.rpc.Protocol {
+public void destroy() {throw new UnsupportedOperationException("method public abstract void com.alibaba.dubbo.rpc.Protocol.destroy() of interface com.alibaba.dubbo.rpc.Protocol is not adaptive method!");
+}
+public int getDefaultPort() {throw new UnsupportedOperationException("method public abstract int com.alibaba.dubbo.rpc.Protocol.getDefaultPort() of interface com.alibaba.dubbo.rpc.Protocol is not adaptive method!");
+}
+public com.alibaba.dubbo.rpc.Invoker refer(java.lang.Class arg0, com.alibaba.dubbo.common.URL arg1) throws com.alibaba.dubbo.rpc.RpcException {
+if (arg1 == null) throw new IllegalArgumentException("url == null");
+com.alibaba.dubbo.common.URL url = arg1;
+String extName = ( url.getProtocol() == null ? "dubbo" : url.getProtocol() );
+if(extName == null) throw new IllegalStateException("Fail to get extension(com.alibaba.dubbo.rpc.Protocol) name from url(" + url.toString() + ") use keys([protocol])");
+com.alibaba.dubbo.rpc.Protocol extension = (com.alibaba.dubbo.rpc.Protocol)ExtensionLoader.getExtensionLoader(com.alibaba.dubbo.rpc.Protocol.class).getExtension(extName);
+return extension.refer(arg0, arg1);
+}
+public com.alibaba.dubbo.rpc.Exporter export(com.alibaba.dubbo.rpc.Invoker arg0) throws com.alibaba.dubbo.rpc.RpcException {
+if (arg0 == null) throw new IllegalArgumentException("com.alibaba.dubbo.rpc.Invoker argument == null");
+if (arg0.getUrl() == null) throw new IllegalArgumentException("com.alibaba.dubbo.rpc.Invoker argument getUrl() == null");com.alibaba.dubbo.common.URL url = arg0.getUrl();
+String extName = ( url.getProtocol() == null ? "dubbo" : url.getProtocol() );
+if(extName == null) throw new IllegalStateException("Fail to get extension(com.alibaba.dubbo.rpc.Protocol) name from url(" + url.toString() + ") use keys([protocol])");
+com.alibaba.dubbo.rpc.Protocol extension = (com.alibaba.dubbo.rpc.Protocol)ExtensionLoader.getExtensionLoader(com.alibaba.dubbo.rpc.Protocol.class).getExtension(extName);
+return extension.export(arg0);
+}
+}, dubbo version: 2.8.4, current host: 127.0.0.1
+[DEBUG][20170408 13:50:59,534][ExtensionLoader:943]  [DUBBO] package com.alibaba.dubbo.rpc;
+import com.alibaba.dubbo.common.extension.ExtensionLoader;
+public class ProxyFactory$Adpative implements com.alibaba.dubbo.rpc.ProxyFactory {
+public java.lang.Object getProxy(com.alibaba.dubbo.rpc.Invoker arg0) throws com.alibaba.dubbo.rpc.RpcException {
+if (arg0 == null) throw new IllegalArgumentException("com.alibaba.dubbo.rpc.Invoker argument == null");
+if (arg0.getUrl() == null) throw new IllegalArgumentException("com.alibaba.dubbo.rpc.Invoker argument getUrl() == null");com.alibaba.dubbo.common.URL url = arg0.getUrl();
+String extName = url.getParameter("proxy", "javassist");
+if(extName == null) throw new IllegalStateException("Fail to get extension(com.alibaba.dubbo.rpc.ProxyFactory) name from url(" + url.toString() + ") use keys([proxy])");
+com.alibaba.dubbo.rpc.ProxyFactory extension = (com.alibaba.dubbo.rpc.ProxyFactory)ExtensionLoader.getExtensionLoader(com.alibaba.dubbo.rpc.ProxyFactory.class).getExtension(extName);
+return extension.getProxy(arg0);
+}
+public com.alibaba.dubbo.rpc.Invoker getInvoker(java.lang.Object arg0, java.lang.Class arg1, com.alibaba.dubbo.common.URL arg2) throws com.alibaba.dubbo.rpc.RpcException {
+if (arg2 == null) throw new IllegalArgumentException("url == null");
+com.alibaba.dubbo.common.URL url = arg2;
+String extName = url.getParameter("proxy", "javassist");
+if(extName == null) throw new IllegalStateException("Fail to get extension(com.alibaba.dubbo.rpc.ProxyFactory) name from url(" + url.toString() + ") use keys([proxy])");
+com.alibaba.dubbo.rpc.ProxyFactory extension = (com.alibaba.dubbo.rpc.ProxyFactory)ExtensionLoader.getExtensionLoader(com.alibaba.dubbo.rpc.ProxyFactory.class).getExtension(extName);
+return extension.getInvoker(arg0, arg1, arg2);
+}
+}, dubbo version: 2.8.4, current host: 127.0.0.1
+[DEBUG][20170408 13:50:59,568][AbstractAutowireCapableBeanFactory:506] Eagerly caching bean 'com.fashionsuperman.fs.game.facet.user.UserI' to allow for resolving potential circular references
+[DEBUG][20170408 13:50:59,611][AbstractBeanFactory:246] Returning cached instance of singleton bean 'UserServiceX'
+[DEBUG][20170408 13:50:59,612][AbstractBeanFactory:246] Returning cached instance of singleton bean 'rest'
+[DEBUG][20170408 13:50:59,619][AbstractAutowireCapableBeanFactory:1555] Invoking afterPropertiesSet() on bean with name 'com.fashionsuperman.fs.game.facet.user.UserI'
+[DEBUG][20170408 13:50:59,620][AbstractBeanFactory:246] Returning cached instance of singleton bean 'com.alibaba.dubbo.config.ProviderConfig'
+[DEBUG][20170408 13:50:59,623][AbstractBeanFactory:246] Returning cached instance of singleton bean 'dubbo'
+[DEBUG][20170408 13:50:59,623][AbstractBeanFactory:246] Returning cached instance of singleton bean 'rest'
+[DEBUG][20170408 13:50:59,623][AbstractBeanFactory:246] Returning cached instance of singleton bean 'fs-game-dubboxService'
+[DEBUG][20170408 13:50:59,624][AbstractBeanFactory:246] Returning cached instance of singleton bean 'com.alibaba.dubbo.config.RegistryConfig'
+[DEBUG][20170408 13:50:59,625][AbstractBeanFactory:246] Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+[DEBUG][20170408 13:50:59,625][AbstractBeanFactory:246] Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+[DEBUG][20170408 13:50:59,628][AbstractAutowireCapableBeanFactory:460] Finished creating instance of bean 'com.fashionsuperman.fs.game.facet.user.UserI'
+[DEBUG][20170408 13:50:59,628][AbstractBeanFactory:246] Returning cached instance of singleton bean 'org.springframework.context.annotation.ConfigurationClassPostProcessor.importAwareProcessor'
+[DEBUG][20170408 13:50:59,628][AbstractBeanFactory:246] Returning cached instance of singleton bean 'commodityCatagoryMapper'
+[DEBUG][20170408 13:50:59,628][AbstractBeanFactory:246] Returning cached instance of singleton bean 'commodityMapper'
+[DEBUG][20170408 13:50:59,628][AbstractBeanFactory:246] Returning cached instance of singleton bean 'rankMapper'
+[DEBUG][20170408 13:50:59,628][AbstractBeanFactory:246] Returning cached instance of singleton bean 'userMapper'
+[DEBUG][20170408 13:50:59,630][AbstractBeanFactory:246] Returning cached instance of singleton bean 'userRelationshipMapper'
+[DEBUG][20170408 13:50:59,640][AbstractApplicationContext:858] Unable to locate LifecycleProcessor with name 'lifecycleProcessor': using default [org.springframework.context.support.DefaultLifecycleProcessor@6d467c87]
+[DEBUG][20170408 13:50:59,641][AbstractBeanFactory:246] Returning cached instance of singleton bean 'lifecycleProcessor'
+[DEBUG][20170408 13:50:59,643][AbstractBeanFactory:246] Returning cached instance of singleton bean 'commonSessionFactory'
+[DEBUG][20170408 13:50:59,643][AbstractBeanFactory:246] Returning cached instance of singleton bean 'com.fashionsuperman.fs.game.facet.user.UserI'
+[INFO ][20170408 13:50:59,643][ServiceBean:108]  [DUBBO] The service ready on spring started. service: com.fashionsuperman.fs.game.facet.user.UserI, dubbo version: 2.8.4, current host: 127.0.0.1
+[DEBUG][20170408 13:50:59,750][ExtensionLoader:943]  [DUBBO] package com.alibaba.dubbo.remoting.http;
+import com.alibaba.dubbo.common.extension.ExtensionLoader;
+public class HttpBinder$Adpative implements com.alibaba.dubbo.remoting.http.HttpBinder {
+public com.alibaba.dubbo.remoting.http.HttpServer bind(com.alibaba.dubbo.common.URL arg0, com.alibaba.dubbo.remoting.http.HttpHandler arg1) {
+if (arg0 == null) throw new IllegalArgumentException("url == null");
+com.alibaba.dubbo.common.URL url = arg0;
+String extName = url.getParameter("server", "jetty");
+if(extName == null) throw new IllegalStateException("Fail to get extension(com.alibaba.dubbo.remoting.http.HttpBinder) name from url(" + url.toString() + ") use keys([server])");
+com.alibaba.dubbo.remoting.http.HttpBinder extension = (com.alibaba.dubbo.remoting.http.HttpBinder)ExtensionLoader.getExtensionLoader(com.alibaba.dubbo.remoting.http.HttpBinder.class).getExtension(extName);
+return extension.bind(arg0, arg1);
+}
+}, dubbo version: 2.8.4, current host: 127.0.0.1
+[DEBUG][20170408 13:50:59,901][ExtensionLoader:943]  [DUBBO] package com.alibaba.dubbo.cache;
+import com.alibaba.dubbo.common.extension.ExtensionLoader;
+public class CacheFactory$Adpative implements com.alibaba.dubbo.cache.CacheFactory {
+public com.alibaba.dubbo.cache.Cache getCache(com.alibaba.dubbo.common.URL arg0) {
+if (arg0 == null) throw new IllegalArgumentException("url == null");
+com.alibaba.dubbo.common.URL url = arg0;
+String extName = url.getParameter("cache", "lru");
+if(extName == null) throw new IllegalStateException("Fail to get extension(com.alibaba.dubbo.cache.CacheFactory) name from url(" + url.toString() + ") use keys([cache])");
+com.alibaba.dubbo.cache.CacheFactory extension = (com.alibaba.dubbo.cache.CacheFactory)ExtensionLoader.getExtensionLoader(com.alibaba.dubbo.cache.CacheFactory.class).getExtension(extName);
+return extension.getCache(arg0);
+}
+}, dubbo version: 2.8.4, current host: 127.0.0.1
+[DEBUG][20170408 13:50:59,936][ExtensionLoader:943]  [DUBBO] package com.alibaba.dubbo.monitor;
+import com.alibaba.dubbo.common.extension.ExtensionLoader;
+public class MonitorFactory$Adpative implements com.alibaba.dubbo.monitor.MonitorFactory {
+public com.alibaba.dubbo.monitor.Monitor getMonitor(com.alibaba.dubbo.common.URL arg0) {
+if (arg0 == null) throw new IllegalArgumentException("url == null");
+com.alibaba.dubbo.common.URL url = arg0;
+String extName = ( url.getProtocol() == null ? "dubbo" : url.getProtocol() );
+if(extName == null) throw new IllegalStateException("Fail to get extension(com.alibaba.dubbo.monitor.MonitorFactory) name from url(" + url.toString() + ") use keys([protocol])");
+com.alibaba.dubbo.monitor.MonitorFactory extension = (com.alibaba.dubbo.monitor.MonitorFactory)ExtensionLoader.getExtensionLoader(com.alibaba.dubbo.monitor.MonitorFactory.class).getExtension(extName);
+return extension.getMonitor(arg0);
+}
+}, dubbo version: 2.8.4, current host: 127.0.0.1
+[DEBUG][20170408 13:50:59,971][ExtensionLoader:943]  [DUBBO] package com.alibaba.dubbo.validation;
+import com.alibaba.dubbo.common.extension.ExtensionLoader;
+public class Validation$Adpative implements com.alibaba.dubbo.validation.Validation {
+public com.alibaba.dubbo.validation.Validator getValidator(com.alibaba.dubbo.common.URL arg0) {
+if (arg0 == null) throw new IllegalArgumentException("url == null");
+com.alibaba.dubbo.common.URL url = arg0;
+String extName = url.getParameter("validation", "jvalidation");
+if(extName == null) throw new IllegalStateException("Fail to get extension(com.alibaba.dubbo.validation.Validation) name from url(" + url.toString() + ") use keys([validation])");
+com.alibaba.dubbo.validation.Validation extension = (com.alibaba.dubbo.validation.Validation)ExtensionLoader.getExtensionLoader(com.alibaba.dubbo.validation.Validation.class).getExtension(extName);
+return extension.getValidator(arg0);
+}
+}, dubbo version: 2.8.4, current host: 127.0.0.1
+[INFO ][20170408 13:50:59,989][ServiceConfig:518]  [DUBBO] Export dubbo service com.fashionsuperman.fs.game.facet.user.UserI to local registry, dubbo version: 2.8.4, current host: 127.0.0.1
+[INFO ][20170408 13:50:59,990][ServiceConfig:474]  [DUBBO] Export dubbo service com.fashionsuperman.fs.game.facet.user.UserI to url rest://192.168.1.103:8081/fs-game-service/com.fashionsuperman.fs.game.facet.user.UserI?anyhost=true&application=fs-game-dubboxService&default.accepts=1000&default.threadpool=fixed&default.threads=100&default.timeout=10000&dubbo=2.8.4&extension=com.fashionSuperman.fs.core.jaxws.FormatRestDataFilter,         com.fashionSuperman.fs.core.jaxws.CustomExceptionMapper&generic=false&interface=com.fashionsuperman.fs.game.facet.user.UserI&methods=userLogin,registeUser,userAddFriendByAccountName,getUserFriends,userAddFriend&pid=1116&retries=0&server=tomcat&side=provider&timestamp=1491630659781, dubbo version: 2.8.4, current host: 127.0.0.1
+[INFO ][20170408 13:50:59,990][ServiceConfig:485]  [DUBBO] Register dubbo service com.fashionsuperman.fs.game.facet.user.UserI url rest://192.168.1.103:8081/fs-game-service/com.fashionsuperman.fs.game.facet.user.UserI?anyhost=true&application=fs-game-dubboxService&default.accepts=1000&default.threadpool=fixed&default.threads=100&default.timeout=10000&dubbo=2.8.4&extension=com.fashionSuperman.fs.core.jaxws.FormatRestDataFilter,         com.fashionSuperman.fs.core.jaxws.CustomExceptionMapper&generic=false&interface=com.fashionsuperman.fs.game.facet.user.UserI&methods=userLogin,registeUser,userAddFriendByAccountName,getUserFriends,userAddFriend&pid=1116&retries=0&server=tomcat&side=provider&timestamp=1491630659781 to registry registry://224.5.6.7:1234/com.alibaba.dubbo.registry.RegistryService?application=fs-game-dubboxService&dubbo=2.8.4&pid=1116&registry=multicast&timestamp=1491630659701, dubbo version: 2.8.4, current host: 127.0.0.1
+[DEBUG][20170408 13:51:00,002][ExtensionLoader:943]  [DUBBO] package com.alibaba.dubbo.rpc.cluster;
+import com.alibaba.dubbo.common.extension.ExtensionLoader;
+public class Cluster$Adpative implements com.alibaba.dubbo.rpc.cluster.Cluster {
+public com.alibaba.dubbo.rpc.Invoker join(com.alibaba.dubbo.rpc.cluster.Directory arg0) throws com.alibaba.dubbo.rpc.RpcException {
+if (arg0 == null) throw new IllegalArgumentException("com.alibaba.dubbo.rpc.cluster.Directory argument == null");
+if (arg0.getUrl() == null) throw new IllegalArgumentException("com.alibaba.dubbo.rpc.cluster.Directory argument getUrl() == null");com.alibaba.dubbo.common.URL url = arg0.getUrl();
+String extName = url.getParameter("cluster", "failover");
+if(extName == null) throw new IllegalStateException("Fail to get extension(com.alibaba.dubbo.rpc.cluster.Cluster) name from url(" + url.toString() + ") use keys([cluster])");
+com.alibaba.dubbo.rpc.cluster.Cluster extension = (com.alibaba.dubbo.rpc.cluster.Cluster)ExtensionLoader.getExtensionLoader(com.alibaba.dubbo.rpc.cluster.Cluster.class).getExtension(extName);
+return extension.join(arg0);
+}
+}, dubbo version: 2.8.4, current host: 127.0.0.1
+[DEBUG][20170408 13:51:00,017][ExtensionLoader:943]  [DUBBO] package com.alibaba.dubbo.registry;
+import com.alibaba.dubbo.common.extension.ExtensionLoader;
+public class RegistryFactory$Adpative implements com.alibaba.dubbo.registry.RegistryFactory {
+public com.alibaba.dubbo.registry.Registry getRegistry(com.alibaba.dubbo.common.URL arg0) {
+if (arg0 == null) throw new IllegalArgumentException("url == null");
+com.alibaba.dubbo.common.URL url = arg0;
+String extName = ( url.getProtocol() == null ? "dubbo" : url.getProtocol() );
+if(extName == null) throw new IllegalStateException("Fail to get extension(com.alibaba.dubbo.registry.RegistryFactory) name from url(" + url.toString() + ") use keys([protocol])");
+com.alibaba.dubbo.registry.RegistryFactory extension = (com.alibaba.dubbo.registry.RegistryFactory)ExtensionLoader.getExtensionLoader(com.alibaba.dubbo.registry.RegistryFactory.class).getExtension(extName);
+return extension.getRegistry(arg0);
+}
+}, dubbo version: 2.8.4, current host: 127.0.0.1
+[INFO ][20170408 13:51:02,312][AbstractRegistry:302]  [DUBBO] Register: rest://192.168.1.103:8081/fs-game-service/com.fashionsuperman.fs.game.facet.user.UserI?anyhost=true&application=fs-game-dubboxService&default.accepts=1000&default.threadpool=fixed&default.threads=100&default.timeout=10000&dubbo=2.8.4&extension=com.fashionSuperman.fs.core.jaxws.FormatRestDataFilter,         com.fashionSuperman.fs.core.jaxws.CustomExceptionMapper&generic=false&interface=com.fashionsuperman.fs.game.facet.user.UserI&methods=userLogin,registeUser,userAddFriendByAccountName,getUserFriends,userAddFriend&pid=1116&retries=0&server=tomcat&side=provider&timestamp=1491630659781, dubbo version: 2.8.4, current host: 127.0.0.1
+[INFO ][20170408 13:51:02,313][MulticastRegistry:234]  [DUBBO] Send broadcast message: register rest://192.168.1.103:8081/fs-game-service/com.fashionsuperman.fs.game.facet.user.UserI?anyhost=true&application=fs-game-dubboxService&default.accepts=1000&default.threadpool=fixed&default.threads=100&default.timeout=10000&dubbo=2.8.4&extension=com.fashionSuperman.fs.core.jaxws.FormatRestDataFilter,         com.fashionSuperman.fs.core.jaxws.CustomExceptionMapper&generic=false&interface=com.fashionsuperman.fs.game.facet.user.UserI&methods=userLogin,registeUser,userAddFriendByAccountName,getUserFriends,userAddFriend&pid=1116&retries=0&server=tomcat&side=provider&timestamp=1491630659781 to /224.5.6.7:1234, dubbo version: 2.8.4, current host: 127.0.0.1
+[INFO ][20170408 13:51:02,315][AbstractRegistry:325]  [DUBBO] Subscribe: provider://192.168.1.103:8081/fs-game-service/com.fashionsuperman.fs.game.facet.user.UserI?anyhost=true&application=fs-game-dubboxService&category=configurators&check=false&default.accepts=1000&default.threadpool=fixed&default.threads=100&default.timeout=10000&dubbo=2.8.4&extension=com.fashionSuperman.fs.core.jaxws.FormatRestDataFilter,         com.fashionSuperman.fs.core.jaxws.CustomExceptionMapper&generic=false&interface=com.fashionsuperman.fs.game.facet.user.UserI&methods=userLogin,registeUser,userAddFriendByAccountName,getUserFriends,userAddFriend&pid=1116&retries=0&server=tomcat&side=provider&timestamp=1491630659781, dubbo version: 2.8.4, current host: 127.0.0.1
+[INFO ][20170408 13:51:02,315][MulticastRegistry:234]  [DUBBO] Send broadcast message: subscribe provider://192.168.1.103:8081/fs-game-service/com.fashionsuperman.fs.game.facet.user.UserI?anyhost=true&application=fs-game-dubboxService&category=configurators&check=false&default.accepts=1000&default.threadpool=fixed&default.threads=100&default.timeout=10000&dubbo=2.8.4&extension=com.fashionSuperman.fs.core.jaxws.FormatRestDataFilter,         com.fashionSuperman.fs.core.jaxws.CustomExceptionMapper&generic=false&interface=com.fashionsuperman.fs.game.facet.user.UserI&methods=userLogin,registeUser,userAddFriendByAccountName,getUserFriends,userAddFriend&pid=1116&retries=0&server=tomcat&side=provider&timestamp=1491630659781 to /224.5.6.7:1234, dubbo version: 2.8.4, current host: 127.0.0.1
+[INFO ][20170408 13:51:02,322][MulticastRegistry:203]  [DUBBO] Receive multicast message: register rest://192.168.1.103:8081/fs-game-service/com.fashionsuperman.fs.game.facet.user.UserI?anyhost=true&application=fs-game-dubboxService&default.accepts=1000&default.threadpool=fixed&default.threads=100&default.timeout=10000&dubbo=2.8.4&extension=com.fashionSuperman.fs.core.jaxws.FormatRestDataFilter,         com.fashionSuperman.fs.core.jaxws.CustomExceptionMapper&generic=false&interface=com.fashionsuperman.fs.game.facet.user.UserI&methods=userLogin,registeUser,userAddFriendByAccountName,getUserFriends,userAddFriend&pid=1116&retries=0&server=tomcat&side=provider&timestamp=1491630659781 from /192.168.1.103:1234, dubbo version: 2.8.4, current host: 127.0.0.1
+[INFO ][20170408 13:51:02,335][MulticastRegistry:203]  [DUBBO] Receive multicast message: subscribe provider://192.168.1.103:8081/fs-game-service/com.fashionsuperman.fs.game.facet.user.UserI?anyhost=true&application=fs-game-dubboxService&category=configurators&check=false&default.accepts=1000&default.threadpool=fixed&default.threads=100&default.timeout=10000&dubbo=2.8.4&extension=com.fashionSuperman.fs.core.jaxws.FormatRestDataFilter,         com.fashionSuperman.fs.core.jaxws.CustomExceptionMapper&generic=false&interface=com.fashionsuperman.fs.game.facet.user.UserI&methods=userLogin,registeUser,userAddFriendByAccountName,getUserFriends,userAddFriend&pid=1116&retries=0&server=tomcat&side=provider&timestamp=1491630659781 from /192.168.1.103:1234, dubbo version: 2.8.4, current host: 127.0.0.1
+[WARN ][20170408 13:51:12,317][AbstractRegistry:418]  [DUBBO] Ignore empty notify urls for subscribe url provider://192.168.1.103:8081/fs-game-service/com.fashionsuperman.fs.game.facet.user.UserI?anyhost=true&application=fs-game-dubboxService&category=configurators&check=false&default.accepts=1000&default.threadpool=fixed&default.threads=100&default.timeout=10000&dubbo=2.8.4&extension=com.fashionSuperman.fs.core.jaxws.FormatRestDataFilter,         com.fashionSuperman.fs.core.jaxws.CustomExceptionMapper&generic=false&interface=com.fashionsuperman.fs.game.facet.user.UserI&methods=userLogin,registeUser,userAddFriendByAccountName,getUserFriends,userAddFriend&pid=1116&retries=0&server=tomcat&side=provider&timestamp=1491630659781, dubbo version: 2.8.4, current host: 127.0.0.1
+[DEBUG][20170408 13:51:12,320][PropertySourcesPropertyResolver:81] Searching for key 'spring.liveBeansView.mbeanDomain' in [systemProperties]
+[DEBUG][20170408 13:51:12,320][PropertySourcesPropertyResolver:81] Searching for key 'spring.liveBeansView.mbeanDomain' in [systemEnvironment]
+[DEBUG][20170408 13:51:12,321][PropertySourcesPropertyResolver:103] Could not find key 'spring.liveBeansView.mbeanDomain' in any property source. Returning [null]
+[DEBUG][20170408 13:51:12,321][AbstractBeanFactory:246] Returning cached instance of singleton bean 'lifecycleProcessor'
+[DEBUG][20170408 13:51:12,322][AbstractBeanFactory:246] Returning cached instance of singleton bean 'commonSessionFactory'
+[DEBUG][20170408 13:51:12,322][AbstractBeanFactory:246] Returning cached instance of singleton bean 'com.fashionsuperman.fs.game.facet.user.UserI'
+[DEBUG][20170408 13:51:45,163][Log4jLogger:60] PathInfo: /fs-game-service/User/registeUser
+[DEBUG][20170408 13:51:45,840][SqlSessionUtils:106] Creating a new SqlSession
+[DEBUG][20170408 13:51:45,870][SqlSessionUtils:142] SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@17634ed6] was not registered for synchronization because synchronization is not active
+[DEBUG][20170408 13:51:45,996][DataSourceUtils:110] Fetching JDBC Connection from DataSource
+[DEBUG][20170408 13:51:45,997][SpringManagedTransaction:85] JDBC Connection [com.alibaba.druid.proxy.jdbc.ConnectionProxyImpl@8de4df9] will not be managed by Spring
+[DEBUG][20170408 13:51:46,000][BaseJdbcLogger:132] ooo Using Connection [com.alibaba.druid.proxy.jdbc.ConnectionProxyImpl@8de4df9]
+[DEBUG][20170408 13:51:46,027][BaseJdbcLogger:132] ==>  Preparing: select UserId, AccountName, NickName, ForeighId, ForeighType, Funds, CreateDate, Password from user t WHERE t.accountname = ? 
+[DEBUG][20170408 13:51:46,106][BaseJdbcLogger:132] ==> Parameters: zhaodongchao(String)
+[DEBUG][20170408 13:51:46,162][PreparedStatementPool:123] {conn-10005, pstmt-20000} enter cache
+[DEBUG][20170408 13:51:46,181][SqlSessionUtils:170] Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@17634ed6]
+[DEBUG][20170408 13:51:46,181][DataSourceUtils:327] Returning JDBC Connection to DataSource
+[DEBUG][20170408 13:51:46,184][SqlSessionUtils:106] Creating a new SqlSession
+[DEBUG][20170408 13:51:46,185][SqlSessionUtils:142] SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@50c812b3] was not registered for synchronization because synchronization is not active
+[DEBUG][20170408 13:51:46,187][DataSourceUtils:110] Fetching JDBC Connection from DataSource
+[DEBUG][20170408 13:51:46,188][SpringManagedTransaction:85] JDBC Connection [com.alibaba.druid.proxy.jdbc.ConnectionProxyImpl@8de4df9] will not be managed by Spring
+[DEBUG][20170408 13:51:46,189][BaseJdbcLogger:132] ooo Using Connection [com.alibaba.druid.proxy.jdbc.ConnectionProxyImpl@8de4df9]
+[DEBUG][20170408 13:51:46,189][BaseJdbcLogger:132] ==>  Preparing: insert into user (AccountName, NickName, ForeighId, ForeighType, Funds, CreateDate, Password) values (?, ?, ?, ?, ?, ?, ?) 
+[DEBUG][20170408 13:51:46,194][BaseJdbcLogger:132] ==> Parameters: zhaodongchao(String), 赵东超(String), wx1462989455(String), wx(String), 0.0(Float), 2017-04-08(Date), foreign(String)
+[DEBUG][20170408 13:51:46,515][PreparedStatementPool:123] {conn-10005, pstmt-20001} enter cache
+[DEBUG][20170408 13:51:46,515][SqlSessionUtils:170] Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@50c812b3]
+[DEBUG][20170408 13:51:46,516][DataSourceUtils:327] Returning JDBC Connection to DataSource
