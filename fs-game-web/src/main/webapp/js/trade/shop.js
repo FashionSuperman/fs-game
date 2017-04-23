@@ -22,8 +22,8 @@ $(function(){
 								formatter : function(value, row, index) {
 									var t = "";
 									var m = "";
-									t = '<a href="#" onclick="edit(\''+ row.commodityid + '\', \'' + row.commodityname + '\', \'' + row.commoditydes + '\', \'' + row.commoditycatagoryid +'\')">编辑</a> | ';
-									m = '<a href="#" onclick="deleteCommodity(\''+ row.commodityid + '\')">下架</a>';
+									t = '<a href="#" onclick="edit(\'' + row.shopitemid + '\', \'' + row.commodityid + '\', \'' + row.number + '\', \'' + row.price + '\', \'' + row.commoditycatagoryid + '\', \'' + row.discount + '\', \'' + row.discountdes + '\')">编辑</a> | ';
+									m = '<a href="#" onclick="deleteCommodity(\''+ row.shopitemid + '\')">下架</a>';
 									return t + m
 								}
 							}
@@ -76,13 +76,10 @@ $(function(){
 	});
 });
 
-function addSuccess(){
-	closeNewShopCommodityModal();
-	searchCommodity();
-}
+
 
 $(function(){
-	$('#editShopCommodityModel').bootstrapValidator({
+	$('#editShopCommodityForm').bootstrapValidator({
 		feedbackIcons : {
 			valid : 'glyphicon glyphicon-ok',
 			invalid : 'glyphicon glyphicon-remove',
@@ -115,10 +112,21 @@ $(function(){
 		
 	}).on('success.form.bv', function(e) {
 		e.preventDefault();
-		var data = getFormJson("newShopCommodityForm");
-		doAjax("post",contextPath + "/trade/editNewShopCommodity",data,editSuccess);
+		var data = getFormJson("editShopCommodityForm");
+		showConfirm(doAjax,"确认要修改该商品？","post",contextPath + "/trade/editNewShopCommodity", data, editSuccess);
+//		doAjax("post",contextPath + "/trade/editNewShopCommodity",data,editSuccess);
 	});
 });
+
+function addSuccess(){
+	closeNewShopCommodityModal();
+	searchCommodity();
+}
+function editSuccess(){
+	closeEditShopCommodityModal();
+	searchCommodity();
+}
+
 
 function editSuccess(){
 	closeEditShopCommodityModal();
@@ -134,8 +142,8 @@ $(document).ready(function() {
 });
 
 function catagoryChangeFun(){
-	var selected = $(this).val();//分类id
-	
+	var selected
+	selected = $(this).val();//分类id
 	id = $(this).attr("id");
 	
 	var data = {
@@ -146,6 +154,21 @@ function catagoryChangeFun(){
 		doAjax("post",contextPath + "/trade/queryFooCatagoryCommodities",data,querySuccess);
 	}
 }
+
+function catagoryChangeFun2(ele){
+	var selected
+	selected = ele.val();//分类id
+	id = $(this).attr("id");
+	
+	var data = {
+			"catagoryid":selected
+	};
+	if(selected && selected != ""){
+		//查询该分类下的所有未上线的商品
+		doAjax("post",contextPath + "/trade/queryFooCatagoryCommoditiesAll",data,querySuccess);
+	}
+}
+
 function querySuccess(response){
 	//构造options添加到商品select
 	var option1 = "<option value=\'";
@@ -162,8 +185,9 @@ function querySuccess(response){
 		}else if("editcommoditycatagoryid" == id){
 			$("#editShopCommodityForm #editcommodityname").append(opetionele);
 		}
-		
-		
+	}
+	if("editcommoditycatagoryid" == id){
+		$("#editcommodityname").val(commodityidEdit);
 	}
 }
 
@@ -204,4 +228,48 @@ function closeNewShopCommodityModal(){
 function closeEditShopCommodityModal(){
 	$('#editShopCommodityForm').data('bootstrapValidator').resetForm(true);
 	$('#editShopCommodityModel').modal('hide');
+}
+
+/**
+ * 编辑商品
+ * @param commodityid
+ * @param commodityname
+ * @param commoditydes
+ * @param commoditycatagoryid
+ */
+function edit(shopitemid,commodityid,number,price,commoditycatagoryid,discount,discountdes){
+	id = "editcommoditycatagoryid";
+	//回显
+	$("#shopitemid").val(shopitemid);
+	$("#editcommoditycatagoryid").val(commoditycatagoryid);
+	
+	$("#editnumber").val(number);
+	$("#editprice").val(price);
+	$("#editdiscount").val(discount);
+	$("#editdiscountdes").val(discountdes);
+	
+	commodityidEdit = commodityid;
+	
+//	$("#editcommodityname").val(commodityid);
+	catagoryChangeFun2($("#editcommoditycatagoryid"));
+	
+	$('#editShopCommodityModel').modal({show:true,backdrop: 'static', keyboard: false});
+	
+}
+
+
+/**
+ * 下架商品
+ */
+function deleteCommodity(shopitemid){
+	var data = {
+		"shopitemid":shopitemid
+	};
+	showConfirm(doAjax,"确认要下架该商品？","post",contextPath + "/trade/deleteNewShopCommodity", data, deleteSuccess);
+}
+
+
+
+function deleteSuccess(){
+	searchCommodity();
 }

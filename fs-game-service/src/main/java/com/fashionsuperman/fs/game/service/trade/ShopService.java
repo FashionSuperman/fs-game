@@ -114,4 +114,51 @@ public class ShopService {
 		shopMapper.insertIncrement(param);
 		
 	}
+
+	public List<Commodity> queryFooCatagoryCommoditiesAll(CommodityCatagory param) {
+		List<Commodity> result = new ArrayList<>();
+		if(param == null){
+			throw new BizException(StatusCode.FAILURE_AUTHENTICATE, "请求参数不能为空");
+		}
+		
+		Long catagoryid = param.getCatagoryid();
+		if(catagoryid == null || catagoryid < 0){
+			throw new BizException(StatusCode.FAILURE_AUTHENTICATE, "catagoryid不能为空");
+		}
+		
+		//查询该分类下所有未添加到商店的商品
+		result = commodityMapper.queryFooCatagoryCommoditiesAll(catagoryid);
+		return result;
+	}
+
+	/**
+	 * 商店编辑商品
+	 * @param param
+	 */
+	public void editNewShopCommodity(Shop param) {
+		if(param == null){
+			throw new BizException(StatusCode.FAILURE_AUTHENTICATE, "请求参数不能为空");
+		}
+		
+		Long shopitemid = param.getShopitemid();
+		if(shopitemid == null || shopitemid < 0){
+			throw new BizException(StatusCode.FAILURE_AUTHENTICATE, "shopitemid不能为空");
+		}
+		
+		shopMapper.updateByPrimaryKeySelective(param);
+	}
+
+	public void deleteNewShopCommodity(Shop param) {
+		if(param == null){
+			throw new BizException(StatusCode.FAILURE_AUTHENTICATE, "请求参数不能为空");
+		}
+		
+		Long shopitemid = param.getShopitemid();
+		if(shopitemid == null || shopitemid < 0){
+			throw new BizException(StatusCode.FAILURE_AUTHENTICATE, "shopitemid不能为空");
+		}
+		
+		shopMapper.deleteByPrimaryKey(shopitemid);
+		
+	}
 }

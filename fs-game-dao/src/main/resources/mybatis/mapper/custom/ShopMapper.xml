@@ -14,7 +14,8 @@
   	t1.DiscountDes as discountdes,
   	t2.CommodityName as commodityname,
   	t3.CatagoryName as catagoryname,
-  	t2.CommodityDes as commoditydes
+  	t2.CommodityDes as commoditydes,
+  	t3.CatagoryId as commoditycatagoryid
   		
   			
   	from Shop t1 left join Commodity t2 join CommodityCatagory t3 on t2.CommodityCatagoryId = t3.CatagoryId

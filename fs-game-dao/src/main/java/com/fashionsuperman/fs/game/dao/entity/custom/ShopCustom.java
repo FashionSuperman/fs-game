@@ -15,6 +15,10 @@ public class ShopCustom extends Shop{
 	 * 商品分类名称
 	 */
 	private String catagoryname;
+	/**
+	 * 商品分类id
+	 */
+	private String commoditycatagoryid;
 	public String getCommodityname() {
 		return commodityname;
 	}
@@ -32,6 +36,12 @@ public class ShopCustom extends Shop{
 	}
 	public void setCommoditydes(String commoditydes) {
 		this.commoditydes = commoditydes;
+	}
+	public String getCommoditycatagoryid() {
+		return commoditycatagoryid;
+	}
+	public void setCommoditycatagoryid(String commoditycatagoryid) {
+		this.commoditycatagoryid = commoditycatagoryid;
 	}
 	
 	

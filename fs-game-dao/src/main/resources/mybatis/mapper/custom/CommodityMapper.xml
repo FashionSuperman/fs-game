@@ -51,4 +51,19 @@
     
     where t2.CatagoryId = #{value,jdbcType=BIGINT} and t1.CommodityId not in (select CommodityId from Shop)
   </select>
+  
+  <select id="queryFooCatagoryCommoditiesAll" parameterType="java.lang.Long" 
+  			resultType="com.fashionsuperman.fs.game.dao.entity.Commodity">
+  	select
+  	
+  	t1.CommodityId as commodityid, 
+  	t1.CommodityCatagoryId as commoditycatagoryid, 
+  	t1.CommodityName as commodityname, 
+  	t1.CommodityDes as commoditydes
+  	
+    from commodity t1 join CommodityCatagory t2
+    on t1.CommodityCatagoryId = t2.CatagoryId
+    
+    where t2.CatagoryId = #{value,jdbcType=BIGINT}
+  </select>
 </mapper>

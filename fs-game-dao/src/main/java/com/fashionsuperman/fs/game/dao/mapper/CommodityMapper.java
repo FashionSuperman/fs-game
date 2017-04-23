@@ -75,4 +75,6 @@ public interface CommodityMapper {
 	List<Commodity> selectByParam(Map<String, Object> paramMap);
 
 	List<Commodity> queryFooCatagoryCommodities(Long catagoryid);
+
+	List<Commodity> queryFooCatagoryCommoditiesAll(Long catagoryid);
 }

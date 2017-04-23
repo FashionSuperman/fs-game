@@ -23,7 +23,6 @@ import com.fashionsuperman.fs.game.service.trade.CommodityService;
 import com.fashionsuperman.fs.game.service.trade.ShopService;
 import com.fashionsuperman.fs.game.service.trade.message.MesAddNewCatagory;
 import com.fashionsuperman.fs.game.service.trade.message.MesDeleteCatagory;
-import com.fashionsuperman.fs.game.service.trade.message.MesEditNewShopCommodity;
 import com.fashionsuperman.fs.game.service.trade.message.MesQueryCatagoryList;
 import com.fashionsuperman.fs.game.service.trade.message.MesQueryCommodityList;
 
@@ -178,6 +177,12 @@ public class TradeController {
 		return shopService.queryFooCatagoryCommodities(param);
 	}
 	
+	@ResponseBody
+	@RequestMapping("/queryFooCatagoryCommoditiesAll")
+	public List<Commodity> queryFooCatagoryCommoditiesAll(@RequestBody CommodityCatagory param){
+		return shopService.queryFooCatagoryCommoditiesAll(param);
+	}
+	
 	/**
 	 * 商店添加商品
 	 * @param param
@@ -194,8 +199,13 @@ public class TradeController {
 	 */
 	@ResponseBody
 	@RequestMapping("/editNewShopCommodity")
-	public void editNewShopCommodity(@RequestBody MesEditNewShopCommodity param){
-		
+	public void editNewShopCommodity(@RequestBody Shop param){
+		shopService.editNewShopCommodity(param);
 	}
 	
+	@ResponseBody
+	@RequestMapping("/deleteNewShopCommodity")
+	public void deleteNewShopCommodity(@RequestBody Shop param){
+		shopService.deleteNewShopCommodity(param);
+	}
 }
