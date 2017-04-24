@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.fashionsuperman.fs.game.dao.mapper.PackageMapper" >
+  <insert id="insertIncrement" parameterType="com.fashionsuperman.fs.game.dao.entity.Package">
+  	insert into package (CommodityId, Number)
+    values (#{commodityid,jdbcType=BIGINT}, #{number,jdbcType=INTEGER})
+  </insert>
+  
+  <select id="selectMaxId" resultMap="BaseResultMap">
+  	select 
+    <include refid="Base_Column_List" />
+    from package t
+    where t.PackageId = max(t.PackageId)
+  </select>
+</mapper>

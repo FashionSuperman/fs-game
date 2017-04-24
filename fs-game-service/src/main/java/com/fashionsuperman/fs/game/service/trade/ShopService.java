@@ -7,6 +7,7 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.fashionSuperman.fs.core.common.PageInfo;
 import com.fashionSuperman.fs.core.constant.StatusCode;
@@ -14,9 +15,13 @@ import com.fashionSuperman.fs.core.exception.BizException;
 import com.fashionsuperman.fs.game.dao.entity.Commodity;
 import com.fashionsuperman.fs.game.dao.entity.CommodityCatagory;
 import com.fashionsuperman.fs.game.dao.entity.Shop;
+import com.fashionsuperman.fs.game.dao.entity.User;
 import com.fashionsuperman.fs.game.dao.entity.custom.ShopCustom;
 import com.fashionsuperman.fs.game.dao.mapper.CommodityMapper;
 import com.fashionsuperman.fs.game.dao.mapper.ShopMapper;
+import com.fashionsuperman.fs.game.dao.mapper.UserMapper;
+import com.fashionsuperman.fs.game.facet.trade.message.MesBuyShopCommodity;
+import com.fashionsuperman.fs.game.service.trade.message.MesAddCommodityToUserPackage;
 import com.fashionsuperman.fs.game.service.trade.message.MesQueryCommodityList;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
@@ -27,6 +32,10 @@ public class ShopService {
 	private ShopMapper shopMapper;
 	@Autowired
 	private CommodityMapper commodityMapper;
+	@Autowired
+	private UserMapper userMapper;
+	@Autowired
+	private PackageService packageService;
 	
 	/**
 	 * 获取商品列表
@@ -159,6 +168,69 @@ public class ShopService {
 		}
 		
 		shopMapper.deleteByPrimaryKey(shopitemid);
+		
+	}
+
+	/**
+	 * 购买商店商品
+	 * @param param
+	 */
+	@Transactional
+	public void buyShopCommodity(MesBuyShopCommodity param) {
+		if(param == null){
+			throw new BizException(StatusCode.FAILURE_AUTHENTICATE, "请求参数不能为空");
+		}
+		Long userid = param.getUserid();
+		Long shopitemid = param.getShopitemid();
+		Integer number = param.getNumber();
+		if(userid == null || userid < 0){
+			throw new BizException(StatusCode.FAILURE_AUTHENTICATE, "userid不能为空");
+		}
+		if(shopitemid == null || shopitemid < 0){
+			throw new BizException(StatusCode.FAILURE_AUTHENTICATE, "shopitemid不能为空");
+		}
+		if(number == null || number < 0){
+			throw new BizException(StatusCode.FAILURE_AUTHENTICATE, "number不能为空");
+		}
+		//判断该商品是否在商店存在
+		Shop shop = shopMapper.selectByPrimaryKey(shopitemid);
+		if(shop == null){
+			throw new BizException(StatusCode.FAILURE_AUTHENTICATE, "该商品不存在");
+		}
+		//判断该商品库存
+		int numberInDB = shop.getNumber();
+		if(numberInDB < number){
+			throw new BizException(StatusCode.FAILURE_AUTHENTICATE, "该商品库存不足");
+		}
+		//判断用户资产
+		User user = userMapper.selectByPrimaryKey(userid);
+		if(user == null){
+			throw new BizException(StatusCode.FAILURE_AUTHENTICATE, "该用户不存在");
+		}
+		Float funds = user.getFunds();
+		if(funds == null || funds < shop.getPrice()){
+			throw new BizException(StatusCode.FAILURE_AUTHENTICATE, "您的资产不足,请先充值");
+		}
+		
+		//购买开始
+		//减少库存
+		Shop shopUpdate = new Shop();
+		shopUpdate.setShopitemid(shopitemid);
+		shopUpdate.setNumber(numberInDB - number);
+		shopMapper.updateByPrimaryKeySelective(shopUpdate);
+		
+		//加背包
+		MesAddCommodityToUserPackage mesAddCommodityToUserPackage = new MesAddCommodityToUserPackage();
+		mesAddCommodityToUserPackage.setCommodityid(shop.getCommodityid());
+		mesAddCommodityToUserPackage.setNumber(number);
+		mesAddCommodityToUserPackage.setUserid(userid);
+		packageService.addCommodityToUserPackage(mesAddCommodityToUserPackage);
+		
+		//减资产
+		User userUpdate = new User();
+		userUpdate.setUserid(userid);
+		userUpdate.setFunds(funds - shop.getPrice());
+		userMapper.updateByPrimaryKeySelective(userUpdate);
 		
 	}
 }
