@@ -202,13 +202,23 @@ public class ShopService {
 		if(numberInDB < number){
 			throw new BizException(StatusCode.FAILURE_AUTHENTICATE, "该商品库存不足");
 		}
+		
+		
+		Float price = shop.getPrice();
+		//判断折扣
+		Float discount = shop.getDiscount();
+		//0-1之间的数据,0.6表示六折
+		if(discount != null && discount > 0 && discount < 1){
+			price = price * discount;
+		}
+		
 		//判断用户资产
 		User user = userMapper.selectByPrimaryKey(userid);
 		if(user == null){
 			throw new BizException(StatusCode.FAILURE_AUTHENTICATE, "该用户不存在");
 		}
 		Float funds = user.getFunds();
-		if(funds == null || funds < shop.getPrice()){
+		if(funds == null || funds < price){
 			throw new BizException(StatusCode.FAILURE_AUTHENTICATE, "您的资产不足,请先充值");
 		}
 		
@@ -229,7 +239,7 @@ public class ShopService {
 		//减资产
 		User userUpdate = new User();
 		userUpdate.setUserid(userid);
-		userUpdate.setFunds(funds - shop.getPrice());
+		userUpdate.setFunds(funds - price);
 		userMapper.updateByPrimaryKeySelective(userUpdate);
 		
 	}

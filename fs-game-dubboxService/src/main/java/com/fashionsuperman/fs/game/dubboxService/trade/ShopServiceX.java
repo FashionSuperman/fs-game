@@ -1,7 +1,10 @@
 package com.fashionsuperman.fs.game.dubboxService.trade;
 
+import javax.ws.rs.Consumes;
+import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,8 +24,8 @@ import com.fashionsuperman.fs.game.facet.trade.message.MesGetShopCommodities;
 import com.fashionsuperman.fs.game.service.trade.ShopService;
 import com.fashionsuperman.fs.game.service.trade.message.MesQueryCommodityList;
 @Path("/Shop")
-@Produces(ContentType.APPLICATION_JSON_UTF_8)
 @Service("ShopServiceX")
+@Produces(ContentType.APPLICATION_JSON_UTF_8)
 public class ShopServiceX implements ShopI {
 	@Autowired
 	private CommodityMapper commodityMapper;
@@ -30,11 +33,19 @@ public class ShopServiceX implements ShopI {
 	private CommodityCatagoryMapper commodityCatagoryMapper;
 	@Autowired
 	private ShopService shopService;
+	
+	/**
+	 * 查询/获取 商店商品列表
+	 */
+	@POST
+	@Path("/getShopCommodities")
+	@Consumes(MediaType.APPLICATION_JSON)
 	@Override
 	public PageInfo getShopCommodities(MesGetShopCommodities param) {
 		PageInfo result = new PageInfo();
+		MesQueryCommodityList param2 = new MesQueryCommodityList();
 		if(param == null){
-			throw new BizException(StatusCode.FAILURE_AUTHENTICATE, "请求参数不能为空");
+			return shopService.queryShopCommodityList(param2);
 		}
 		Long commodityid = param.getCommodityid();
 		String commodityname = param.getCommodityname();
@@ -56,7 +67,7 @@ public class ShopServiceX implements ShopI {
 				catagoryname = commodityCatagory.getCatagoryname();
 			}
 		}
-		MesQueryCommodityList param2 = new MesQueryCommodityList();
+		
 		param2.setCommodityname(commodityname);
 		param2.setCatagoryname(catagoryname);
 		param2.setCurrentPage(param.getCurrentPage());
@@ -65,12 +76,19 @@ public class ShopServiceX implements ShopI {
 		return result;
 	}
 
+	/**
+	 * 购买商店商品
+	 */
+	@POST
+	@Path("/buyShopCommodity")
+	@Consumes(MediaType.APPLICATION_JSON)
 	@Override
-	public void buyShopCommodity(MesBuyShopCommodity param) {
+	public MesBuyShopCommodity buyShopCommodity(MesBuyShopCommodity param) {
 		if(param == null){
 			throw new BizException(StatusCode.FAILURE_AUTHENTICATE, "请求参数不能为空");
 		}
 		shopService.buyShopCommodity(param);
+		return param;
 	}
 
 }

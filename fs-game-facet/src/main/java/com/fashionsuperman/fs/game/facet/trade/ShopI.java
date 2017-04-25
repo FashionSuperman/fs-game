@@ -16,5 +16,5 @@ public interface ShopI {
 	 * 购买商店商品
 	 * @param param
 	 */
-	public void buyShopCommodity(MesBuyShopCommodity param);
+	public MesBuyShopCommodity buyShopCommodity(MesBuyShopCommodity param);
 }

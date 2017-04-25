@@ -27,5 +27,6 @@
 
 	<!-- 对外公布接口 retries 失败后，重复调用次数 loadbalance 负载平衡的方法 actives -->
 	<dubbo:service protocol="rest" retries="0"  interface="com.fashionsuperman.fs.game.facet.user.UserI" ref="UserServiceX" />
+	<dubbo:service protocol="rest" retries="0"  interface="com.fashionsuperman.fs.game.facet.trade.ShopI" ref="ShopServiceX" />
 	<!-- <dubbo:service retries="0"  interface="com.fashionSuperman.fs.dubbo.facet.inter.UserInterface" ref="userServiceImpl" /> -->
 </beans>  
