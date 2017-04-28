@@ -2,6 +2,7 @@ package com.fashionsuperman.fs.game.facet.user;
 
 import java.util.List;
 
+import com.fashionSuperman.fs.core.exception.BizException;
 import com.fashionsuperman.fs.game.dao.entity.User;
 import com.fashionsuperman.fs.game.dao.entity.UserRelationshipKey;
 import com.fashionsuperman.fs.game.dao.entity.custom.UserCustom;
@@ -19,30 +20,30 @@ public interface UserI {
 	 * 注册用户
 	 * @param user
 	 */
-	User registeUser(User user);
+	User registeUser(User user) throws BizException;
 	/**
 	 * 用户登录
 	 * @param user
 	 * @return
 	 */
-	User userLogin(User user);
+	User userLogin(User user) throws BizException;
 	/**
 	 * 用户添加好友
 	 * @param param
 	 */
-	UserRelationshipKey userAddFriend(UserRelationshipKey param);
+	UserRelationshipKey userAddFriend(UserRelationshipKey param) throws BizException;
 	
 	/**
 	 * 通过账号名添加好友
 	 * @param param
 	 * @return
 	 */
-	MesUserAddFriendByAccountName userAddFriendByAccountName(MesUserAddFriendByAccountName param);
+	MesUserAddFriendByAccountName userAddFriendByAccountName(MesUserAddFriendByAccountName param) throws BizException;
 	
 	/**
 	 * 获取用户好友列表(带有用户分数)
 	 * @param user
 	 * @return
 	 */
-	List<UserCustom> getUserFriends(User user);
+	List<UserCustom> getUserFriends(User user) throws BizException;
 }

@@ -1,5 +1,6 @@
 package com.fashionsuperman.fs.game.facet.trade;
 
+import com.fashionSuperman.fs.core.exception.BizException;
 import com.fashionsuperman.fs.game.dao.entity.Commodity;
 import com.fashionsuperman.fs.game.facet.trade.message.AddCommodityParam;
 
@@ -15,11 +16,11 @@ public interface CommodityI {
 	 * 添加商品
 	 * @param addCommodityParam
 	 */
-	AddCommodityParam addCommodity(AddCommodityParam addCommodityParam);
+	AddCommodityParam addCommodity(AddCommodityParam addCommodityParam) throws BizException;
 	/**
 	 * 删除商品
 	 * @param commodity
 	 * @return
 	 */
-	int deleteCommodity(Commodity commodity);
+	int deleteCommodity(Commodity commodity) throws BizException;
 }
