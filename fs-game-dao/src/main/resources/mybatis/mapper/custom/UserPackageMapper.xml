@@ -1,5 +1,31 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.fashionsuperman.fs.game.dao.mapper.UserPackageMapper" >
+  <select id="getUserPackageList" parameterType="java.util.Map" resultType="com.fashionsuperman.fs.game.dao.entity.custom.UserPackageListCustom">
+  	select
+  	
+  	t2.CommodityId as commodityid, 
+  	t2.CommodityCatagoryId as commoditycatagoryid, 
+  	t2.CommodityName as commodityname, 
+  	t2.CommodityDes as commoditydes,
+  	t1.Number as number
+  	
+  	from 
+  	UserPackage t
+  	left join Package t1 join Commodity t2 on t1.CommodityId = t2.CommodityId
+  	on t.PackageId = t1.PackageId
+  	
+  	<where>
+  		<if test="userid != null">
+  			t.UserId = #{userid,jdbcType=BIGINT}
+  		</if>
+  		<if test="catagoryid != null">
+  			and t2.CommodityCatagoryId = #{catagoryid,jdbcType=BIGINT}
+  		</if>
+  		<if test="commodityname != null">
+  			and t2.CommodityName like concat('%',#{commodityname,jdbcType=VARCHAR},'%')
+  		</if>
+  	</where>
   
+  </select>
 </mapper>

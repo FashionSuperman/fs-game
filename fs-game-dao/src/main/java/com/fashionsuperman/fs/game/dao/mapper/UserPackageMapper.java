@@ -1,6 +1,10 @@
 package com.fashionsuperman.fs.game.dao.mapper;
 
+import java.util.List;
+import java.util.Map;
+
 import com.fashionsuperman.fs.game.dao.entity.UserPackageKey;
+import com.fashionsuperman.fs.game.dao.entity.custom.UserPackageListCustom;
 
 public interface UserPackageMapper {
     /**
@@ -26,4 +30,11 @@ public interface UserPackageMapper {
      * @mbggenerated Mon Apr 24 20:53:54 CST 2017
      */
     int insertSelective(UserPackageKey record);
+    
+    /**
+     * 获取用户背包
+     * @param paramMap
+     * @return
+     */
+	List<UserPackageListCustom> getUserPackageList(Map<String, Object> paramMap);
 }

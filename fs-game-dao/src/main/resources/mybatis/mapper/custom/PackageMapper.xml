@@ -10,6 +10,8 @@
   	select 
     <include refid="Base_Column_List" />
     from package t
-    where t.PackageId = max(t.PackageId)
+    where t.PackageId = 
+    (select max(t2.PackageId) 
+    from package t2 join UserPackage t1 on t1.PackageId = t2.PackageId where t1.UserId = #{value,jdbcType=BIGINT})
   </select>
 </mapper>

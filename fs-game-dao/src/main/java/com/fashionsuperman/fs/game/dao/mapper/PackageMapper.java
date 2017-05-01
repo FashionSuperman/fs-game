@@ -57,5 +57,5 @@ public interface PackageMapper {
 	 * 获取最新插入的数据
 	 * @return
 	 */
-	Package selectMaxId();
+	Package selectMaxId(Long userid);
 }

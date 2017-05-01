@@ -16,7 +16,8 @@
 	<dubbo:protocol name="dubbo" port="20802" id="dubbo" serialization="kryo" optimizer="com.fashionsuperman.fs.game.dubboxService.common.SerializationOptimizerImpl"/>
 	
 	<dubbo:protocol name="rest" port="8081" id="rest" contextpath="fs-game-service" server="tomcat"
-			extension="com.fashionSuperman.fs.core.jaxws.FormatRestDataFilter,
+			extension="com.fashionSuperman.fs.core.jaxws.OpetionsMethodFilter,
+					   com.fashionSuperman.fs.core.jaxws.FormatRestDataFilter,
 					   com.fashionSuperman.fs.core.jaxws.CustomExceptionMapper"/>
 	
 	<!-- 监控中心配置，protocol="registry"，表示从注册中心发现监控中心地址 -->
@@ -28,5 +29,6 @@
 	<!-- 对外公布接口 retries 失败后，重复调用次数 loadbalance 负载平衡的方法 actives -->
 	<dubbo:service protocol="rest" retries="0"  interface="com.fashionsuperman.fs.game.facet.user.UserI" ref="UserServiceX" />
 	<dubbo:service protocol="rest" retries="0"  interface="com.fashionsuperman.fs.game.facet.trade.ShopI" ref="ShopServiceX" />
+	<dubbo:service protocol="rest" retries="0"  interface="com.fashionsuperman.fs.game.facet.trade.PackageI" ref="PackageServiceX" />
 	<!-- <dubbo:service retries="0"  interface="com.fashionSuperman.fs.dubbo.facet.inter.UserInterface" ref="userServiceImpl" /> -->
 </beans>  
