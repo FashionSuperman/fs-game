@@ -135,9 +135,12 @@
 
 
 	<build>
-
 		<finalName>fs-game-dubboxService</finalName>
+		<directory>target</directory>
+		<outputDirectory>target/classes</outputDirectory>
 		<testOutputDirectory>target/test-classes</testOutputDirectory>
+		<sourceDirectory>src/main/java</sourceDirectory>
+		<testSourceDirectory>src/test/java</testSourceDirectory>
 		<resources>
 			<resource>
 				<targetPath>${project.build.directory}/classes</targetPath>
@@ -159,11 +162,19 @@
 				</includes>
 			</resource>
 			<resource>
+				<targetPath>${project.build.directory}/classes</targetPath>
+				<directory>src/main/resources/spring</directory>
+				<filtering>true</filtering>
+				<includes>
+					<include>**/*.xml</include>
+				</includes>
+			</resource>
+			<resource>
 				<targetPath>${project.build.directory}/classes/META-INF/spring</targetPath>
 				<directory>src/main/resources/spring</directory>
 				<filtering>true</filtering>
 				<includes>
-					<include>spring-context.xml</include>
+					<include>**/*.xml</include>
 				</includes>
 			</resource>
 		</resources>
