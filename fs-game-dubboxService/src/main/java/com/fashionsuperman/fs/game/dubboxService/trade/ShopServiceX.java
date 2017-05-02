@@ -1,7 +1,6 @@
 package com.fashionsuperman.fs.game.dubboxService.trade;
 
 import javax.ws.rs.Consumes;
-import javax.ws.rs.GET;
 import javax.ws.rs.OPTIONS;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
@@ -40,6 +39,7 @@ public class ShopServiceX implements ShopI {
 	 * 查询/获取 商店商品列表
 	 */
 	@POST
+	@OPTIONS
 	@Path("/getShopCommodities")
 	@Consumes({MediaType.APPLICATION_JSON,MediaType.TEXT_XML,MediaType.TEXT_PLAIN})
 	@Override
@@ -82,6 +82,7 @@ public class ShopServiceX implements ShopI {
 	 * 购买商店商品
 	 */
 	@POST
+	@OPTIONS
 	@Path("/buyShopCommodity")
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Override

@@ -3,6 +3,7 @@ package com.fashionsuperman.fs.game.dao.mapper;
 import java.util.List;
 import java.util.Map;
 
+import com.fashionsuperman.fs.game.dao.entity.Package;
 import com.fashionsuperman.fs.game.dao.entity.UserPackageKey;
 import com.fashionsuperman.fs.game.dao.entity.custom.UserPackageListCustom;
 
@@ -37,4 +38,18 @@ public interface UserPackageMapper {
      * @return
      */
 	List<UserPackageListCustom> getUserPackageList(Map<String, Object> paramMap);
+
+	/**
+	 * 获取用户背包中某件商品的数量
+	 * @param paramMap
+	 * @return
+	 */
+	int getUserFooCommodityNum(Map<String, Object> paramMap);
+
+	/**
+	 * 获取某用户的某个商品背包 
+	 * @param paramMap
+	 * @return
+	 */
+	Package selectFooUserFooCommodity(Map<String, Object> paramMap);
 }

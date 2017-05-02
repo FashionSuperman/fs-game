@@ -52,24 +52,40 @@ public class PackageService {
 			throw new BizException(StatusCode.FAILURE_AUTHENTICATE, "number不能为空");
 		}
 		
-		//通过序列函数获取背包id
-		Long packageId = sequenceService.nextval();
+		//TODO 如果用户背包中已经有该商品,更新该商品的
+		Map<String, Object> paramMap = new HashMap<>();
+		paramMap.put("userid", userid);
+		paramMap.put("commodityid", commodityid);
 		
-		//添加到背包
-		Package packageAdd = new Package();
-		packageAdd.setCommodityid(commodityid);
-		packageAdd.setNumber(number);
-		packageAdd.setPackageid(packageId);
-		packageMapper.insert(packageAdd);
+		Package package1 = userPackageMapper.selectFooUserFooCommodity(paramMap);
+		if(package1 != null){//用户已经购买了该商品,更新该商品的背包数量
+			Package recordupdate = new Package();
+			recordupdate.setPackageid(package1.getPackageid());
+			recordupdate.setNumber(package1.getNumber() + number);
+			packageMapper.updateByPrimaryKeySelective(recordupdate);
+		}else{
+			//通过序列函数获取背包id
+			Long packageId = sequenceService.nextval();
+			
+			//添加到背包
+			Package packageAdd = new Package();
+			packageAdd.setCommodityid(commodityid);
+			packageAdd.setNumber(number);
+			packageAdd.setPackageid(packageId);
+			packageMapper.insert(packageAdd);
+			
+			//查询最新添加的背包条目
+//			packageAdd = packageMapper.selectMaxId(userid);
+			
+			//关联到用户
+			UserPackageKey userPackageKey = new UserPackageKey();
+			userPackageKey.setPackageid(packageAdd.getPackageid());
+			userPackageKey.setUserid(userid);
+			userPackageMapper.insert(userPackageKey);
+		}
 		
-		//查询最新添加的背包条目
-//		packageAdd = packageMapper.selectMaxId(userid);
 		
-		//关联到用户
-		UserPackageKey userPackageKey = new UserPackageKey();
-		userPackageKey.setPackageid(packageAdd.getPackageid());
-		userPackageKey.setUserid(userid);
-		userPackageMapper.insert(userPackageKey);
+		
 	}
 	/**
 	 * 获取用户背包列表

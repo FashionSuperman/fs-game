@@ -28,4 +28,47 @@
   	</where>
   
   </select>
+  
+  
+  <select id = "getUserFooCommodityNum" parameterType="java.util.Map" resultType="java.lang.Integer">
+  	select
+  	t1.Number
+  	from 
+  	UserPackage t
+  	left join Package t1
+  	on t.PackageId = t1.PackageId
+  	
+  	<where>
+  		<if test="userid != null">
+  			t.UserId = #{userid,jdbcType=BIGINT}
+  		</if>
+  		<if test="commodityid != null">
+  			and t1.CommodityId = #{commodityid,jdbcType=BIGINT}
+  		</if>
+  	</where>
+  </select>
+  
+  <select id="selectFooUserFooCommodity" 
+  parameterType="java.util.Map" 
+  resultType="com.fashionsuperman.fs.game.dao.entity.Package">
+  	select 
+  	
+  	t2.PackageId as packageid, 
+  	t2.CommodityId as commodityid, 
+  	t2.Number as number
+  	
+  	from 
+  	
+  	UserPackage t1 join Package t2 on t1.PackageId = t2.PackageId
+  	
+  	<where>
+  		<if test="userid != null">
+  			t1.UserId = #{userid,jdbcType=BIGINT}
+  		</if>
+  		<if test="commodityid != null">
+  			and t2.CommodityId = #{commodityid,jdbcType=BIGINT}
+  		</if>
+  	</where>
+  
+  </select>
 </mapper>

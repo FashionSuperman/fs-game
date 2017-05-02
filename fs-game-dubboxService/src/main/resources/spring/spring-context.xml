@@ -17,6 +17,9 @@
 	<context:property-placeholder
 		location="classpath:jdbc.properties,classpath:public_system.properties,classpath:redis.properties,classpath:jms.properties"
 		ignore-unresolvable="true" />
+		
+	<util:properties id="utilProperties"
+		location="classpath:util.properties" />
 	<!-- 采用注释的方式配置bean -->  
 	<context:annotation-config />
 	
