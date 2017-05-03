@@ -12,16 +12,71 @@
 	<artifactId>fs-game-dubbox-web</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
-	<name>fs-game-dubbox-web Maven Webapp</name>
-	<url>http://maven.apache.org</url>
+	<name>fs-game-dubbox-web</name>
 	<dependencies>
 		<dependency>
 			<groupId>com.fashionsuperman</groupId>
-			<artifactId>fs-game-dubboxService</artifactId>
+			<artifactId>fs-game-dubboxservice</artifactId>
 			<version>${project.version}</version>
 		</dependency>
 	</dependencies>
 	<build>
 		<finalName>fs-game-dubbox-web</finalName>
+		<directory>target</directory>
+		<outputDirectory>target/classes</outputDirectory>
+		<testOutputDirectory>target/test-classes</testOutputDirectory>
+		<sourceDirectory>src/main/java</sourceDirectory>
+		<testSourceDirectory>src/test/java</testSourceDirectory>
+		<resources>
+			<resource>
+				<targetPath>${project.build.directory}/classes</targetPath>
+				<directory>src/main/resources</directory>
+				<filtering>true</filtering>
+				<includes>
+					<include>*.xml</include>
+					<include>*.properties</include>
+					<include>spring/*.xml</include>
+				</includes>
+			</resource>
+			<resource>
+				<targetPath>${project.build.directory}/classes</targetPath>
+				<directory>src/main/resources/config/${env}</directory>
+				<filtering>true</filtering>
+				<includes>
+					<include>**/*.xml</include>
+					<include>**/*.properties</include>
+				</includes>
+			</resource>
+			<resource>
+				<targetPath>${project.build.directory}/classes/META-INF/spring</targetPath>
+				<directory>src/main/resources/spring</directory>
+				<filtering>true</filtering>
+				<includes>
+					<include>**/*.xml</include>
+				</includes>
+			</resource>
+		</resources>
+
+		<testResources>
+			<testResource>
+				<targetPath>${project.build.directory}/test-classes</targetPath>
+				<directory>src/main/resources</directory>
+				<filtering>true</filtering>
+				<includes>
+					<include>/*.xml</include>
+					<include>/*.properties</include>
+					<include>spring/*.xml</include>
+				</includes>
+			</testResource>
+			<testResource>
+				<targetPath>${project.build.directory}/test-classes</targetPath>
+				<directory>src/main/resources/config/${env}</directory>
+				<filtering>true</filtering>
+				<includes>
+					<include>**/*.xml</include>
+					<include>**/*.properties</include>
+				</includes>
+			</testResource>
+		</testResources>
 	</build>
 </project>
