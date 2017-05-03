@@ -32,8 +32,10 @@ public class OptionsMethosFilter implements Filter{
 			httpServletResponse.setHeader("Access-Control-Allow-Origin", "*");
 			httpServletResponse.setHeader("Access-Control-Allow-Headers", "Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
 			httpServletResponse.flushBuffer();
-		}else
+		}else{
+			httpServletResponse.setHeader("Access-Control-Allow-Origin", "*");
 			chain.doFilter(httpServletRequest, httpServletResponse);
+		}
 		
 	}
 
