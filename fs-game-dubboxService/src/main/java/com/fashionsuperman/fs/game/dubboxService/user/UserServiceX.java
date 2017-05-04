@@ -12,10 +12,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.alibaba.dubbo.rpc.protocol.rest.support.ContentType;
+import com.fashionSuperman.fs.core.common.PageInfo;
 import com.fashionsuperman.fs.game.dao.entity.User;
 import com.fashionsuperman.fs.game.dao.entity.UserRelationshipKey;
 import com.fashionsuperman.fs.game.dao.entity.custom.UserCustom;
 import com.fashionsuperman.fs.game.facet.user.UserI;
+import com.fashionsuperman.fs.game.facet.user.message.MesGetUserList;
 import com.fashionsuperman.fs.game.facet.user.message.MesUserAddFriendByAccountName;
 import com.fashionsuperman.fs.game.service.user.UserService;
 
@@ -67,5 +69,13 @@ public class UserServiceX implements UserI {
 	public MesUserAddFriendByAccountName userAddFriendByAccountName(MesUserAddFriendByAccountName param) {
 		return userService.userAddFriendByAccountName(param);
 	}
+	
+//	@POST
+//	@Path("/getUserList")
+//	@Consumes(MediaType.APPLICATION_JSON)
+//	@Override
+//	public PageInfo getUserList(MesGetUserList param){
+//		return userService.getUserList(param);
+//	}
 
 }

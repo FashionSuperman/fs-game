@@ -15,7 +15,12 @@
     	<if test="foreightype != null and foreightype != ''">
     		and t.foreightype = #{foreightype , jdbcType = VARCHAR}
     	</if>
+    	<if test="nickname != null and nickname != ''">
+    		and t.NickName = #{nickname , jdbcType = VARCHAR}
+    	</if>
     </where>
+    
+    order by t.CreateDate desc
   </select>
   
   <insert id="insertIncrement" parameterType="com.fashionsuperman.fs.game.dao.entity.User">

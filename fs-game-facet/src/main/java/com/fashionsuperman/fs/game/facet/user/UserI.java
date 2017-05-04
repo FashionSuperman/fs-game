@@ -2,10 +2,12 @@ package com.fashionsuperman.fs.game.facet.user;
 
 import java.util.List;
 
+import com.fashionSuperman.fs.core.common.PageInfo;
 import com.fashionSuperman.fs.core.exception.BizException;
 import com.fashionsuperman.fs.game.dao.entity.User;
 import com.fashionsuperman.fs.game.dao.entity.UserRelationshipKey;
 import com.fashionsuperman.fs.game.dao.entity.custom.UserCustom;
+import com.fashionsuperman.fs.game.facet.user.message.MesGetUserList;
 import com.fashionsuperman.fs.game.facet.user.message.MesUserAddFriendByAccountName;
 
 /**
@@ -46,4 +48,11 @@ public interface UserI {
 	 * @return
 	 */
 	List<UserCustom> getUserFriends(User user) throws BizException;
+	
+	/**
+	 * 管理后台获取用户列表
+	 * @param param
+	 * @return
+	 */
+//	public PageInfo getUserList(MesGetUserList param);
 }

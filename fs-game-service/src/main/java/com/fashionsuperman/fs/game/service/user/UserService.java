@@ -9,6 +9,7 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.fashionSuperman.fs.core.common.PageInfo;
 import com.fashionSuperman.fs.core.constant.StatusCode;
 import com.fashionSuperman.fs.core.exception.BizException;
 import com.fashionSuperman.fs.core.util.StringUtil;
@@ -17,8 +18,11 @@ import com.fashionsuperman.fs.game.dao.entity.UserRelationshipKey;
 import com.fashionsuperman.fs.game.dao.entity.custom.UserCustom;
 import com.fashionsuperman.fs.game.dao.mapper.UserMapper;
 import com.fashionsuperman.fs.game.dao.mapper.UserRelationshipMapper;
+import com.fashionsuperman.fs.game.facet.user.message.MesGetUserList;
 import com.fashionsuperman.fs.game.facet.user.message.MesUserAddFriendByAccountName;
 import com.fashionsuperman.fs.game.service.constant.ForeignType;
+import com.github.pagehelper.Page;
+import com.github.pagehelper.PageHelper;
 /**
  * 用户服务类
  * @description 
@@ -237,6 +241,28 @@ public class UserService {
 			userid = users.get(0).getUserid();
 			result = userRelationshipMapper.selectUserFriends(userid);
 		}
+		
+		return result;
+	}
+	
+	/**
+	 * 管理后台  获取用户列表
+	 * @param param
+	 * @return
+	 */
+	public PageInfo getUserList(MesGetUserList param){
+		PageInfo result = new PageInfo();
+		
+		Page<?> page = PageHelper.startPage(param.getCurrentPage() <= 0 ? 1 : param.getCurrentPage(), param.getPageSize() <= 0 ? 10 : param.getPageSize());
+		
+		Map<String, Object> paramMap = new HashMap<>();
+		paramMap.put("accountname", param.getAccountname());
+		paramMap.put("nickname", param.getNickname());
+		
+		List<User> userList = userMapper.selectByParam(paramMap);
+		
+		result.setTotal(page.getTotal());
+		result.setRows(userList);
 		
 		return result;
 	}
