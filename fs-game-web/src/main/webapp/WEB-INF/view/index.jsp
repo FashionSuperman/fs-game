@@ -12,5 +12,7 @@
 	<a href="${pageContext.request.contextPath}/trade/commodityinit">商品</a>
 	<br/>
 	<a href="${pageContext.request.contextPath}/trade/shopinit">商店</a>
+	<br/>
+	<a href="${pageContext.request.contextPath}/user/userInit">用户</a>
 </html>
 

@@ -70,7 +70,7 @@ public class UserService {
 			user.setPassword(password);
 		}
 		
-		user.setFunds(0f);
+		user.setFunds((user.getFunds() == null || user.getFunds() < 0f) ?  0f : user.getFunds());
 		user.setCreatedate(new Date());
 		
 		//注册

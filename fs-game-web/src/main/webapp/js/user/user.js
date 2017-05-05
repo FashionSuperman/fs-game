@@ -40,6 +40,73 @@ $(function(){
 	});
 });
 
+
+$(function(){
+	$("#newUserForm").bootstrapValidator({
+		feedbackIcons : {
+			valid : 'glyphicon glyphicon-ok',
+			invalid : 'glyphicon glyphicon-remove',
+			validating : 'glyphicon glyphicon-refresh'
+		},
+		
+		fields : {
+			accountname : {
+				validators : {
+					notEmpty : {
+						message :getMessageFromList("ErrorMustInput",[ '账号名称' ])
+					}
+				}
+			},
+			nickname : {
+				validators : {
+					notEmpty : {
+						message :getMessageFromList("ErrorMustInput",[ '昵称' ])
+					}
+				}
+			},
+			/*foreighid : {
+				validators : {
+					notEmpty : {
+						message :getMessageFromList("ErrorMustInput",[ '外部id' ])
+					}
+				}
+			},
+			foreightype : {
+				validators : {
+					notEmpty : {
+						message :getMessageFromList("ErrorMustInput",[ '外部id类型' ])
+					}
+				}
+			},*/
+			funds : {
+				validators : {
+					notEmpty : {
+						message :getMessageFromList("ErrorMustInput",[ '资产' ])
+					}
+				}
+			},
+			password : {
+				validators : {
+					notEmpty : {
+						message :getMessageFromList("ErrorMustInput",[ '密码' ])
+					}
+				}
+			}
+		}
+	}).on("success.form.bv",function(e){
+		e.preventDefault();
+		var data = getFormJson("newUserForm");
+		showConfirm(doAjax,"确认要添加该用户？","post",contextPath + "/user/registeUser", data, addSuccess);
+//		doAjax("post",contextPath + "/user/registeUser",data,addSuccess);
+	});
+});
+
+function addSuccess(){
+	$('#newUserForm').data('bootstrapValidator').resetForm(true);
+	$('#newUser').modal('hide');
+	searchUserInfo();
+}
+
 $(document).ready(function() {
 	searchUserInfo();
 });
@@ -65,7 +132,7 @@ function resetSearch(){
  * 添加用户
  */
 function addNewUser(){
-	
+	$('#newUser').modal({show:true,backdrop: 'static', keyboard: false});
 }
 /**
  * 关闭添加用户模态框

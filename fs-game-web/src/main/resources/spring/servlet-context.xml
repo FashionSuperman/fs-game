@@ -29,9 +29,7 @@
 	<!-- json序列化去除null值，赋默认值-->
 	<mvc:annotation-driven>
 		<mvc:message-converters>
-
-			<bean
-				class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+			<bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
 				<property name="objectMapper">
 					<bean class="com.fashionSuperman.fs.core.common.ObjectMapperCustomer"></bean>
 				</property>
