@@ -1,5 +1,7 @@
 package com.fashionsuperman.fs.web.user;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -17,6 +19,8 @@ import com.fashionsuperman.fs.game.service.user.UserService;
 public class UserController {
 	@Autowired
 	private UserService userService;
+	@Autowired
+	private HttpServletRequest request;
 	
 	@RequestMapping("/userInit")
 	public ModelAndView userInit(){
@@ -30,8 +34,24 @@ public class UserController {
 	}
 	
 	@ResponseBody
-	@RequestMapping("registeUser")
+	@RequestMapping("/registeUser")
 	public void registeUser(@RequestBody User user){
 		userService.registeUser(user);
+	}
+	
+	@ResponseBody
+	@RequestMapping("/updateUser")
+	public void updateUser(@RequestBody User user){
+		userService.updateUser(user);
+	}
+	
+	@RequestMapping("/userPackageInit")
+	public ModelAndView userPackageInit(){
+		String userId = request.getParameter("userId");
+		//查询该用户的背包信息
+		
+		
+		
+		return new ModelAndView("user/userPackage");
 	}
 }

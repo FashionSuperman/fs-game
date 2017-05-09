@@ -20,7 +20,9 @@ import com.fashionsuperman.fs.game.dao.mapper.UserMapper;
 import com.fashionsuperman.fs.game.dao.mapper.UserRelationshipMapper;
 import com.fashionsuperman.fs.game.facet.user.message.MesGetUserList;
 import com.fashionsuperman.fs.game.facet.user.message.MesUserAddFriendByAccountName;
+import com.fashionsuperman.fs.game.facet.user.message.ResGetUserPackageList;
 import com.fashionsuperman.fs.game.service.constant.ForeignType;
+import com.fashionsuperman.fs.game.service.trade.PackageService;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 /**
@@ -36,6 +38,8 @@ public class UserService {
 	private UserMapper userMapper;
 	@Autowired
 	private UserRelationshipMapper userRelationshipMapper;
+	@Autowired
+	private PackageService packageService;
 	/**
 	 * 注册用户
 	 * @param user
@@ -265,5 +269,30 @@ public class UserService {
 		result.setRows(userList);
 		
 		return result;
+	}
+	
+	/**
+	 * 更新用户信息
+	 * @param user
+	 */
+	public void updateUser(User user){
+		if(user == null){
+			throw new BizException(StatusCode.FAILURE_AUTHENTICATE, "参数不能为空");
+		}
+		
+		if(user.getUserid() == null || user.getUserid() <= 0){
+			throw new BizException(StatusCode.FAILURE_AUTHENTICATE, "userid不能为空");
+		}
+		
+		userMapper.updateByPrimaryKeySelective(user);
+	}
+	
+	/**
+	 * 获取用户背包列表
+	 * @param userId
+	 * @return
+	 */
+	public List<ResGetUserPackageList> getUserPackageList(Integer userId){
+		return packageService.getUserPackageList2(userId);
 	}
 }

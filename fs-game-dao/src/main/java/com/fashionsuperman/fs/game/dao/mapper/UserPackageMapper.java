@@ -52,4 +52,11 @@ public interface UserPackageMapper {
 	 * @return
 	 */
 	Package selectFooUserFooCommodity(Map<String, Object> paramMap);
+
+	/**
+	 * 获取用户背包列表,管理后台用
+	 * @param userId
+	 * @return
+	 */
+	List<com.fashionsuperman.fs.game.dao.entity.custom.ResGetUserPackageList> getUserPackageList2(Integer userId);
 }

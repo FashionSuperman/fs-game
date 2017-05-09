@@ -1,9 +1,12 @@
 package com.fashionsuperman.fs.game.service.trade;
 
+import java.lang.reflect.InvocationTargetException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.commons.beanutils.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -17,6 +20,7 @@ import com.fashionsuperman.fs.game.dao.entity.custom.UserPackageListCustom;
 import com.fashionsuperman.fs.game.dao.mapper.PackageMapper;
 import com.fashionsuperman.fs.game.dao.mapper.UserPackageMapper;
 import com.fashionsuperman.fs.game.facet.trade.message.MesGetUserPackageList;
+import com.fashionsuperman.fs.game.facet.user.message.ResGetUserPackageList;
 import com.fashionsuperman.fs.game.service.common.SequenceService;
 import com.fashionsuperman.fs.game.service.trade.message.MesAddCommodityToUserPackage;
 import com.github.pagehelper.Page;
@@ -118,6 +122,29 @@ public class PackageService {
 		result.setRows(userPackageListCustoms);
 		result.setTotal(page.getTotal());
 		
+		
+		return result;
+	}
+	/**
+	 * 获取用户背包列表  管理后台用
+	 * @param userId
+	 */
+	public List<ResGetUserPackageList> getUserPackageList2(Integer userId) {
+		List<ResGetUserPackageList> result = new ArrayList<ResGetUserPackageList>();
+		if(userId == null || userId < 0){
+			throw new BizException(StatusCode.FAILURE_AUTHENTICATE, "用户id不能为空");
+		}
+		ResGetUserPackageList temp;
+		List<com.fashionsuperman.fs.game.dao.entity.custom.ResGetUserPackageList> userPackageListCustoms = userPackageMapper.getUserPackageList2(userId);
+		for(com.fashionsuperman.fs.game.dao.entity.custom.ResGetUserPackageList rgup : userPackageListCustoms){
+			temp = new ResGetUserPackageList();
+			try {
+				BeanUtils.copyProperties(temp, rgup);
+				result.add(temp);
+			} catch (IllegalAccessException | InvocationTargetException e) {
+				e.printStackTrace();
+			}
+		}
 		
 		return result;
 	}

@@ -33,7 +33,7 @@ function commonGridAjax(type, url, data, success, gridid, boolean) {
 			if (errType != undefined && errType != null && errType != "") {
 				showErrMsgFromBack(errType, errList);//页面显示错误消息
 				if (success != null && success != "commonCallback") {
-					eval(success)(response);
+					eval(success)(response, gridid, url, data, boolean);
 				} else if (success == "commonCallback") {
 					commonCallback(response, gridid, url, data, boolean);
 				}
@@ -41,7 +41,7 @@ function commonGridAjax(type, url, data, success, gridid, boolean) {
 			} else {
 				//如果回调函数=="commonCallback"则调用共通的回调函数，否则调用自定义回调函数
 				if (success != null && success != "commonCallback") {
-					eval(success)(response);
+					eval(success)(response, gridid, url, data, boolean);
 				} else if (success == "commonCallback") {
 					commonCallback(response, gridid, url, data, boolean);
 				}
