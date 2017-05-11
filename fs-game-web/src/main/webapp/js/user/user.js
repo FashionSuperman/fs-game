@@ -244,5 +244,5 @@ function editUser(userid){
  * 用户背包
  */
 function userPackage(userid){
-	
+	window.location.href = contextPath + "/user/userPackageInit" + "?userId=" + userid;
 }

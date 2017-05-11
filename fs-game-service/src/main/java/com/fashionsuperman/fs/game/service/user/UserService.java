@@ -292,7 +292,7 @@ public class UserService {
 	 * @param userId
 	 * @return
 	 */
-	public List<ResGetUserPackageList> getUserPackageList(Integer userId){
+	public PageInfo getUserPackageList(Long userId){
 		return packageService.getUserPackageList2(userId);
 	}
 }

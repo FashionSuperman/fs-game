@@ -58,5 +58,5 @@ public interface UserPackageMapper {
 	 * @param userId
 	 * @return
 	 */
-	List<com.fashionsuperman.fs.game.dao.entity.custom.ResGetUserPackageList> getUserPackageList2(Integer userId);
+	List<com.fashionsuperman.fs.game.dao.entity.custom.ResGetUserPackageList> getUserPackageList2(Long userId);
 }

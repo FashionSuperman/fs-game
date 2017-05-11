@@ -29,6 +29,28 @@
   
   </select>
   
+  <select id="getUserPackageList2" 
+	  parameterType="java.lang.Long" 
+	  resultType="com.fashionsuperman.fs.game.dao.entity.custom.ResGetUserPackageList">
+  	select 
+  	
+  	t1.PackageId as packageid,
+  	t3.CatagoryId as catagoryid,
+  	t3.CatagoryName as catagoryname,
+  	t2.CommodityId as commodityid,
+  	t2.CommodityName as commodityname,
+  	t1.Number as number
+  	
+  	from 
+  	UserPackage t
+  	left join Package t1 left join Commodity t2 left join CommodityCatagory t3 on t2.CommodityCatagoryId = t3.CatagoryId on t1.CommodityId = t2.CommodityId 
+  	on t.PackageId = t1.PackageId
+  	
+  	where t.UserId = #{value,jdbcType=BIGINT}
+  	
+  
+  </select>
+  
   
   <select id = "getUserFooCommodityNum" parameterType="java.util.Map" resultType="java.lang.Integer">
   	select

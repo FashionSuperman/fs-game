@@ -129,22 +129,28 @@ public class PackageService {
 	 * 获取用户背包列表  管理后台用
 	 * @param userId
 	 */
-	public List<ResGetUserPackageList> getUserPackageList2(Integer userId) {
-		List<ResGetUserPackageList> result = new ArrayList<ResGetUserPackageList>();
+	public PageInfo getUserPackageList2(Long userId) {
+		PageInfo result = new PageInfo();
+		
+		List<ResGetUserPackageList> resGetUserPackageLists = new ArrayList<ResGetUserPackageList>();
 		if(userId == null || userId < 0){
 			throw new BizException(StatusCode.FAILURE_AUTHENTICATE, "用户id不能为空");
 		}
+		
 		ResGetUserPackageList temp;
 		List<com.fashionsuperman.fs.game.dao.entity.custom.ResGetUserPackageList> userPackageListCustoms = userPackageMapper.getUserPackageList2(userId);
 		for(com.fashionsuperman.fs.game.dao.entity.custom.ResGetUserPackageList rgup : userPackageListCustoms){
 			temp = new ResGetUserPackageList();
 			try {
 				BeanUtils.copyProperties(temp, rgup);
-				result.add(temp);
+				resGetUserPackageLists.add(temp);
 			} catch (IllegalAccessException | InvocationTargetException e) {
 				e.printStackTrace();
 			}
 		}
+		
+		result.setRows(userPackageListCustoms);
+		result.setTotal(userPackageListCustoms.size());
 		
 		return result;
 	}

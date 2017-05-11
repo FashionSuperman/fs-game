@@ -12,6 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.fashionSuperman.fs.core.common.PageInfo;
 import com.fashionsuperman.fs.game.dao.entity.User;
 import com.fashionsuperman.fs.game.facet.user.message.MesGetUserList;
+import com.fashionsuperman.fs.game.facet.user.message.MesGetUserPackageList;
 import com.fashionsuperman.fs.game.service.user.UserService;
 
 @Controller
@@ -47,11 +48,17 @@ public class UserController {
 	
 	@RequestMapping("/userPackageInit")
 	public ModelAndView userPackageInit(){
+		ModelAndView result = new ModelAndView("user/userPackage");
 		String userId = request.getParameter("userId");
+		result.addObject("userId", userId);
+		return result;
+	}
+	
+	@ResponseBody
+	@RequestMapping("/getUserPackageList")
+	public PageInfo getUserPackageList(@RequestBody MesGetUserPackageList user){
 		//查询该用户的背包信息
-		
-		
-		
-		return new ModelAndView("user/userPackage");
+		PageInfo resGetUserPackageLists = userService.getUserPackageList(user.getUserid());
+		return resGetUserPackageLists;
 	}
 }
