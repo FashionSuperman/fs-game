@@ -66,4 +66,21 @@
     
     where t2.CatagoryId = #{value,jdbcType=BIGINT}
   </select>
+  
+  <select id="queryFooCatagoryCommoditiesShop" parameterType="java.lang.Long" 
+  			resultType="com.fashionsuperman.fs.game.dao.entity.custom.CommodityCustom">
+  		select
+  	
+	  	t1.CommodityId as commodityid, 
+	  	t1.CommodityCatagoryId as commoditycatagoryid, 
+	  	t1.CommodityName as commodityname, 
+	  	t1.CommodityDes as commoditydes,
+	  	t3.ShopItemId as shopitemid
+	  	
+	    from commodity t1 join CommodityCatagory t2
+	    on t1.CommodityCatagoryId = t2.CatagoryId
+	    right join Shop t3 on t1.CommodityId = t3.CommodityId
+	    
+	    where t2.CatagoryId = #{value,jdbcType=BIGINT}
+  </select>
 </mapper>

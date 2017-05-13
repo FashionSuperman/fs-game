@@ -19,6 +19,8 @@ public class ShopCustom extends Shop{
 	 * 商品分类id
 	 */
 	private String commoditycatagoryid;
+	
+	
 	public String getCommodityname() {
 		return commodityname;
 	}

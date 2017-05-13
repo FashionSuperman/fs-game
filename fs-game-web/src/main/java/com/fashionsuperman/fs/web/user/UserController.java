@@ -1,5 +1,7 @@
 package com.fashionsuperman.fs.web.user;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,9 +12,16 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.fashionSuperman.fs.core.common.PageInfo;
+import com.fashionSuperman.fs.core.constant.StatusCode;
+import com.fashionSuperman.fs.core.exception.BizException;
+import com.fashionsuperman.fs.game.dao.entity.CommodityCatagory;
 import com.fashionsuperman.fs.game.dao.entity.User;
+import com.fashionsuperman.fs.game.facet.trade.message.MesBuyShopCommodity;
+import com.fashionsuperman.fs.game.facet.trade.message.MesEditPackageNum;
 import com.fashionsuperman.fs.game.facet.user.message.MesGetUserList;
 import com.fashionsuperman.fs.game.facet.user.message.MesGetUserPackageList;
+import com.fashionsuperman.fs.game.service.trade.CommodityCatagoryService;
+import com.fashionsuperman.fs.game.service.trade.ShopService;
 import com.fashionsuperman.fs.game.service.user.UserService;
 
 @Controller
@@ -22,6 +31,10 @@ public class UserController {
 	private UserService userService;
 	@Autowired
 	private HttpServletRequest request;
+	@Autowired
+	private CommodityCatagoryService commodityCatagoryService;
+	@Autowired
+	private ShopService shopService;
 	
 	@RequestMapping("/userInit")
 	public ModelAndView userInit(){
@@ -51,6 +64,10 @@ public class UserController {
 		ModelAndView result = new ModelAndView("user/userPackage");
 		String userId = request.getParameter("userId");
 		result.addObject("userId", userId);
+		//查询所有商品分类
+		List<CommodityCatagory> commodityCatagoryList = commodityCatagoryService.getAllCatagory();
+		result.addObject("commodityCatagoryList", commodityCatagoryList);
+		
 		return result;
 	}
 	
@@ -60,5 +77,29 @@ public class UserController {
 		//查询该用户的背包信息
 		PageInfo resGetUserPackageLists = userService.getUserPackageList(user.getUserid());
 		return resGetUserPackageLists;
+	}
+	
+	/**
+	 * 用户背包添加商品
+	 * @param param
+	 * @return
+	 */
+	@ResponseBody
+	@RequestMapping("/buyShopCommodity")
+	public MesBuyShopCommodity buyShopCommodity(@RequestBody MesBuyShopCommodity param){
+		if(param == null){
+			throw new BizException(StatusCode.FAILURE_AUTHENTICATE, "请求参数不能为空");
+		}
+		shopService.buyShopCommodity(param);
+		return param;
+	}
+	
+	/**
+	 * 编辑用户背包数量,不扣资产
+	 */
+	@ResponseBody
+	@RequestMapping("/editPackageNum")
+	public void editPackageNum(@RequestBody MesEditPackageNum param){
+		shopService.editPackageNum(param);
 	}
 }

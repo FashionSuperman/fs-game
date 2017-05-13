@@ -17,6 +17,7 @@ import com.fashionSuperman.fs.core.exception.BizException;
 import com.fashionsuperman.fs.game.dao.entity.Commodity;
 import com.fashionsuperman.fs.game.dao.entity.CommodityCatagory;
 import com.fashionsuperman.fs.game.dao.entity.Shop;
+import com.fashionsuperman.fs.game.dao.entity.custom.CommodityCustom;
 import com.fashionsuperman.fs.game.facet.trade.message.AddCommodityParam;
 import com.fashionsuperman.fs.game.service.trade.CommodityCatagoryService;
 import com.fashionsuperman.fs.game.service.trade.CommodityService;
@@ -181,6 +182,17 @@ public class TradeController {
 	@RequestMapping("/queryFooCatagoryCommoditiesAll")
 	public List<Commodity> queryFooCatagoryCommoditiesAll(@RequestBody CommodityCatagory param){
 		return shopService.queryFooCatagoryCommoditiesAll(param);
+	}
+	
+	/**
+	 * 查询商店内某个分类下的所有商品
+	 * @param param
+	 * @return
+	 */
+	@ResponseBody
+	@RequestMapping("/queryFooCatagoryCommoditiesShop")
+	public List<CommodityCustom> queryFooCatagoryCommoditiesShop(@RequestBody CommodityCatagory param){
+		return shopService.queryFooCatagoryCommoditiesShop(param);
 	}
 	
 	/**

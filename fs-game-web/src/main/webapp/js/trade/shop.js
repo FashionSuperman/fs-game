@@ -13,6 +13,7 @@ $(function(){
 				columns : [
 				        {field : "",checkbox : true},
 						{field : "commodityname",title : "商品名称",align : "center",valign : "middle"},
+						{field : "catagoryname",title : "商品分类",align : "center",valign : "middle"},
 						{field : "commoditydes",title : "商品描述",align : "center",valign : "middle"},
 						{field : "discount",title : "折扣",align : "center",valign : "middle"},
 						{field : "discountdes",title : "折扣说明",align : "center",valign : "middle"},

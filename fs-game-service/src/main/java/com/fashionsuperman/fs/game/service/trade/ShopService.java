@@ -14,13 +14,17 @@ import com.fashionSuperman.fs.core.constant.StatusCode;
 import com.fashionSuperman.fs.core.exception.BizException;
 import com.fashionsuperman.fs.game.dao.entity.Commodity;
 import com.fashionsuperman.fs.game.dao.entity.CommodityCatagory;
+import com.fashionsuperman.fs.game.dao.entity.Package;
 import com.fashionsuperman.fs.game.dao.entity.Shop;
 import com.fashionsuperman.fs.game.dao.entity.User;
+import com.fashionsuperman.fs.game.dao.entity.custom.CommodityCustom;
 import com.fashionsuperman.fs.game.dao.entity.custom.ShopCustom;
 import com.fashionsuperman.fs.game.dao.mapper.CommodityMapper;
+import com.fashionsuperman.fs.game.dao.mapper.PackageMapper;
 import com.fashionsuperman.fs.game.dao.mapper.ShopMapper;
 import com.fashionsuperman.fs.game.dao.mapper.UserMapper;
 import com.fashionsuperman.fs.game.facet.trade.message.MesBuyShopCommodity;
+import com.fashionsuperman.fs.game.facet.trade.message.MesEditPackageNum;
 import com.fashionsuperman.fs.game.service.trade.message.MesAddCommodityToUserPackage;
 import com.fashionsuperman.fs.game.service.trade.message.MesQueryCommodityList;
 import com.github.pagehelper.Page;
@@ -36,6 +40,8 @@ public class ShopService {
 	private UserMapper userMapper;
 	@Autowired
 	private PackageService packageService;
+	@Autowired
+	private PackageMapper packageMapper;
 	
 	/**
 	 * 获取商品列表
@@ -242,5 +248,48 @@ public class ShopService {
 		userUpdate.setFunds(funds - price);
 		userMapper.updateByPrimaryKeySelective(userUpdate);
 		
+	}
+
+	/**
+	 * 查询商店内某个商品分类下的所有商品
+	 * @param param
+	 * @return
+	 */
+	public List<CommodityCustom> queryFooCatagoryCommoditiesShop(CommodityCatagory param) {
+		List<CommodityCustom> result = new ArrayList<>();
+		if(param == null){
+			throw new BizException(StatusCode.FAILURE_AUTHENTICATE, "请求参数不能为空");
+		}
+		
+		Long catagoryid = param.getCatagoryid();
+		if(catagoryid == null || catagoryid < 0){
+			throw new BizException(StatusCode.FAILURE_AUTHENTICATE, "catagoryid不能为空");
+		}
+		
+		//查询该分类下所有未添加到商店的商品
+		result = commodityMapper.queryFooCatagoryCommoditiesShop(catagoryid);
+		return result;
+	}
+
+	/**
+	 * 修改用户背包数量,不处理资产
+	 * @param param
+	 */
+	public void editPackageNum(MesEditPackageNum param) {
+		if(param == null){
+			throw new BizException(StatusCode.FAILURE_AUTHENTICATE, "请求参数不能为空");
+		}
+		
+		if(param.getPackageid() == null || param.getPackageid() < 0){
+			throw new BizException(StatusCode.FAILURE_AUTHENTICATE, "packageid不能为空");
+		}
+		if(param.getNumber() == null || param.getNumber() < 0){
+			throw new BizException(StatusCode.FAILURE_AUTHENTICATE, "number不能为空");
+		}
+		
+		com.fashionsuperman.fs.game.dao.entity.Package record = new Package();
+		record.setPackageid(param.getPackageid());
+		record.setNumber(param.getNumber());
+		packageMapper.updateByPrimaryKeySelective(record);
 	}
 }

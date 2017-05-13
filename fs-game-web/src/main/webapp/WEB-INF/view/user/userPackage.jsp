@@ -73,20 +73,25 @@
 
 					<div class="ibox-content">
 						<form class="form-horizontal" id="newUserPackageForm">
-							<div class="form-group">
-								<label class="col-sm-2 control-label">商品分类</label>
-								<div class="col-sm-10">
-									<input type="text" id="catagoryid" name="catagoryid"
-										class="form-control">
-								</div>
+						<div class="form-group">
+							<label class="col-sm-2 control-label">商品分类</label>
+							<div class="col-sm-10">
+								<select class="form-control m-b" id="commoditycatagoryid">
+		                            <option value=''>选择分类</option>
+		                               <c:forEach items="${commodityCatagoryList}" var="commodityCatagory" varStatus="s">
+					                    <option value="${commodityCatagory.catagoryid}">${commodityCatagory.catagoryname}</option>
+					                   </c:forEach>
+	                             </select>
 							</div>
-							<div class="form-group">
-								<label class="col-sm-2 control-label">商品名称</label>
-								<div class="col-sm-10">
-									<input type="text" id="commodityid" name="commodityid"
-										class="form-control">
-								</div>
+								
+							<label class="col-sm-2 control-label">商品名称</label>
+							<div class="col-sm-10">
+								<select class="form-control m-b" name="commodityid" id="commodityname">
+		                            <option value=''>选择商品</option>
+	                              </select>
 							</div>
+						</div>
+							
 							<div class="form-group">
 								<label class="col-sm-2 control-label">数量</label>
 								<div class="col-sm-10">
@@ -123,19 +128,19 @@
 
 					<div class="ibox-content">
 						<form class="form-horizontal" id="editUserPackageForm">
-							<input type="hidden" id="userid" name="userid"></input>
+							<input type="hidden" id="editpackageid" name="packageid"></input>
 							<div class="form-group">
 								<label class="col-sm-2 control-label">商品分类</label>
 								<div class="col-sm-10">
 									<input type="text" id="editcatagoryid" name="catagoryid"
-										class="form-control">
+										class="form-control"  readonly="true">
 								</div>
 							</div>
 							<div class="form-group">
 								<label class="col-sm-2 control-label">商品名称</label>
 								<div class="col-sm-10">
 									<input type="text" id="editcommodityid" name="commodityid"
-										class="form-control">
+										class="form-control"  readonly="true">
 								</div>
 							</div>
 							<div class="form-group">

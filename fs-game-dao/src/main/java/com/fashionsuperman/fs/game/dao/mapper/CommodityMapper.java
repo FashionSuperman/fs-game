@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.fashionsuperman.fs.game.dao.entity.Commodity;
+import com.fashionsuperman.fs.game.dao.entity.custom.CommodityCustom;
 
 public interface CommodityMapper {
     /**
@@ -77,4 +78,11 @@ public interface CommodityMapper {
 	List<Commodity> queryFooCatagoryCommodities(Long catagoryid);
 
 	List<Commodity> queryFooCatagoryCommoditiesAll(Long catagoryid);
+
+	/**
+	 * 查询商店内某个商品分类下的所有商品
+	 * @param catagoryid
+	 * @return
+	 */
+	List<CommodityCustom> queryFooCatagoryCommoditiesShop(Long catagoryid);
 }
