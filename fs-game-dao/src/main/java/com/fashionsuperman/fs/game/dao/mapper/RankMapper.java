@@ -1,6 +1,9 @@
 package com.fashionsuperman.fs.game.dao.mapper;
 
+import java.util.List;
+
 import com.fashionsuperman.fs.game.dao.entity.Rank;
+import com.fashionsuperman.fs.game.dao.entity.custom.RankUser;
 
 public interface RankMapper {
     /**
@@ -50,4 +53,6 @@ public interface RankMapper {
      * @mbggenerated Wed Mar 22 11:39:02 CST 2017
      */
     int updateByPrimaryKey(Rank record);
+
+	List<RankUser> getUserList();
 }

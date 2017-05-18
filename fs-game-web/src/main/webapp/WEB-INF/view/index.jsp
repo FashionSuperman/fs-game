@@ -14,5 +14,7 @@
 	<a href="${pageContext.request.contextPath}/trade/shopinit">商店</a>
 	<br/>
 	<a href="${pageContext.request.contextPath}/user/userInit">用户</a>
+	<br/>
+	<a href="${pageContext.request.contextPath}/rank/rankInit">用户排名</a>
 </html>
 
