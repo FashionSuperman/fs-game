@@ -15,7 +15,7 @@ public class DogBizService {
 	 * 获取用户背包中某件商品的数量
 	 * @param paramMap
 	 */
-	public int getUserFooCommodityNum(Map<String, Object> paramMap){
+	public com.fashionsuperman.fs.game.dao.entity.Package getUserFooCommodityNum(Map<String, Object> paramMap){
 		return userPackageMapper.getUserFooCommodityNum(paramMap);
 	}
 }

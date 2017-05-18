@@ -31,5 +31,6 @@
 	<dubbo:service protocol="rest" retries="0"  interface="com.fashionsuperman.fs.game.facet.trade.ShopI" ref="ShopServiceX" />
 	<dubbo:service protocol="rest" retries="0"  interface="com.fashionsuperman.fs.game.facet.trade.PackageI" ref="PackageServiceX" />
 	<dubbo:service protocol="rest" retries="0"  interface="com.fashionsuperman.fs.game.facet.rank.RankServiceI" ref="RankServiceX" />
+	<dubbo:service protocol="rest" retries="0"  interface="com.fashionsuperman.fs.game.facet.biz.DogBizServiceI" ref="DogBizServiceX" />
 	<!-- <dubbo:service retries="0"  interface="com.fashionSuperman.fs.dubbo.facet.inter.UserInterface" ref="userServiceImpl" /> -->
 </beans>  

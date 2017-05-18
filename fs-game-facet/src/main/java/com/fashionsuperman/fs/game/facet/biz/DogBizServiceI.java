@@ -1,5 +1,6 @@
 package com.fashionsuperman.fs.game.facet.biz;
 
+import com.fashionSuperman.fs.core.exception.BizException;
 import com.fashionsuperman.fs.game.facet.biz.message.MesJudgeCanPlay;
 import com.fashionsuperman.fs.game.facet.biz.message.StatusCode;
 
@@ -16,5 +17,5 @@ public interface DogBizServiceI {
 	 * @param mesJudgeCanPlay
 	 * @return
 	 */
-	StatusCode judgeCanPlay(MesJudgeCanPlay mesJudgeCanPlay);
+	StatusCode judgeCanPlay(MesJudgeCanPlay mesJudgeCanPlay) throws BizException;
 }

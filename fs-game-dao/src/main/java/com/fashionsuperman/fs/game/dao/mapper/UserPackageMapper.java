@@ -44,7 +44,7 @@ public interface UserPackageMapper {
 	 * @param paramMap
 	 * @return
 	 */
-	int getUserFooCommodityNum(Map<String, Object> paramMap);
+	Package getUserFooCommodityNum(Map<String, Object> paramMap);
 
 	/**
 	 * 获取某用户的某个商品背包 

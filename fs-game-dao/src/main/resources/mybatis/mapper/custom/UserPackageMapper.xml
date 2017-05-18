@@ -52,9 +52,13 @@
   </select>
   
   
-  <select id = "getUserFooCommodityNum" parameterType="java.util.Map" resultType="java.lang.Integer">
+  <select id = "getUserFooCommodityNum" parameterType="java.util.Map" resultType="com.fashionsuperman.fs.game.dao.entity.Package">
   	select
-  	t1.Number
+  	
+  	ifnull(t1.Number,0) as number,
+  	t1.PackageId as packageid,
+  	t1.CommodityId as commodityid
+  	
   	from 
   	UserPackage t
   	left join Package t1
