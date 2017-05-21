@@ -24,7 +24,7 @@
     t1.CommodityDes
     
     from commodity t1
-    join CommodityCatagory t2
+    join commoditycatagory t2
     on t1.CommodityCatagoryId = t2.CatagoryId
     <where>
     	<if test="commodityname != null and commodityname !=''">
@@ -46,10 +46,10 @@
   	t1.CommodityName as commodityname, 
   	t1.CommodityDes as commoditydes
   	
-    from commodity t1 join CommodityCatagory t2
+    from commodity t1 join commoditycatagory t2
     on t1.CommodityCatagoryId = t2.CatagoryId
     
-    where t2.CatagoryId = #{value,jdbcType=BIGINT} and t1.CommodityId not in (select CommodityId from Shop)
+    where t2.CatagoryId = #{value,jdbcType=BIGINT} and t1.CommodityId not in (select CommodityId from shop)
   </select>
   
   <select id="queryFooCatagoryCommoditiesAll" parameterType="java.lang.Long" 
@@ -61,7 +61,7 @@
   	t1.CommodityName as commodityname, 
   	t1.CommodityDes as commoditydes
   	
-    from commodity t1 join CommodityCatagory t2
+    from commodity t1 join commoditycatagory t2
     on t1.CommodityCatagoryId = t2.CatagoryId
     
     where t2.CatagoryId = #{value,jdbcType=BIGINT}
@@ -77,9 +77,9 @@
 	  	t1.CommodityDes as commoditydes,
 	  	t3.ShopItemId as shopitemid
 	  	
-	    from commodity t1 join CommodityCatagory t2
+	    from commodity t1 join commoditycatagory t2
 	    on t1.CommodityCatagoryId = t2.CatagoryId
-	    right join Shop t3 on t1.CommodityId = t3.CommodityId
+	    right join shop t3 on t1.CommodityId = t3.CommodityId
 	    
 	    where t2.CatagoryId = #{value,jdbcType=BIGINT}
   </select>

@@ -8,12 +8,9 @@
 		<artifactId>fs.game</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
-	<groupId>com.fashionsuperman</groupId>
 	<artifactId>fs-game-web</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
 	<name>fs-game-web Maven Webapp</name>
-	<url>http://maven.apache.org</url>
 	<dependencies>
 
 		<dependency>
@@ -113,7 +110,7 @@
 			</resource>
 			<resource>
 				<targetPath>${project.build.directory}/classes</targetPath>
-				<directory>src/main/resources/${env}</directory>
+				<directory>src/main/resources/deploy</directory>
 				<filtering>true</filtering>
 				<includes>
 					<include>**/*.xml</include>

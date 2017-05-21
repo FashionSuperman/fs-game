@@ -16,7 +16,7 @@
   	
   	from 
   	
-  	ifyoudog.User t1 left join ifyoudog.Rank t2 on t1.UserId = t2.UserId
+  	ifyoudog.user t1 left join ifyoudog.rank t2 on t1.UserId = t2.UserId
   	
   	order by t2.Score desc
   </select>

@@ -18,7 +18,7 @@
   	t3.CatagoryId as commoditycatagoryid
   		
   			
-  	from Shop t1 left join Commodity t2 join CommodityCatagory t3 on t2.CommodityCatagoryId = t3.CatagoryId
+  	from shop t1 left join commodity t2 join commoditycatagory t3 on t2.CommodityCatagoryId = t3.CatagoryId
   	on t1.CommodityId = t2.CommodityId
   	<where>
   		<if test="commodityname != null and commodityname !=''">

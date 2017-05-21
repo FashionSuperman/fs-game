@@ -27,8 +27,8 @@
 		ifnull(t3.Score , 0) as Score
 		
 		from 
-		UserRelationship t1 
-		left join User t2 left join Rank t3 on t2.UserId = t3.UserId
+		userrelationship t1 
+		left join user t2 left join rank t3 on t2.UserId = t3.UserId
 		on t1.BUserId = t2.UserId
 		where 
 		t1.AUserId = #{value,jdbcType=BIGINT}

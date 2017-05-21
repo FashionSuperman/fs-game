@@ -11,8 +11,8 @@
   	t1.Number as number
   	
   	from 
-  	UserPackage t
-  	left join Package t1 join Commodity t2 on t1.CommodityId = t2.CommodityId
+  	userpackage t
+  	left join package t1 join commodity t2 on t1.CommodityId = t2.CommodityId
   	on t.PackageId = t1.PackageId
   	
   	<where>
@@ -42,8 +42,8 @@
   	t1.Number as number
   	
   	from 
-  	UserPackage t
-  	left join Package t1 left join Commodity t2 left join CommodityCatagory t3 on t2.CommodityCatagoryId = t3.CatagoryId on t1.CommodityId = t2.CommodityId 
+  	userpackage t
+  	left join package t1 left join commodity t2 left join commoditycatagory t3 on t2.CommodityCatagoryId = t3.CatagoryId on t1.CommodityId = t2.CommodityId 
   	on t.PackageId = t1.PackageId
   	
   	where t.UserId = #{value,jdbcType=BIGINT}
@@ -60,8 +60,8 @@
   	t1.CommodityId as commodityid
   	
   	from 
-  	UserPackage t
-  	left join Package t1
+  	userpackage t
+  	left join package t1
   	on t.PackageId = t1.PackageId
   	
   	<where>
@@ -85,7 +85,7 @@
   	
   	from 
   	
-  	UserPackage t1 join Package t2 on t1.PackageId = t2.PackageId
+  	userpackage t1 join package t2 on t1.PackageId = t2.PackageId
   	
   	<where>
   		<if test="userid != null">
