@@ -12,7 +12,7 @@
     <!--输出到文件（info）-->
     <!--将生成“info.log.2014-06-11”这样的日志文件-->
     <appender name="fileAppenderInfo" class="org.apache.log4j.DailyRollingFileAppender">
-        <param name="File" value="${user.home}/logs/website/info.log" />
+        <param name="File" value="/usr/tomcat/logs/logs/website/info-fsdog.log" />
         <param name="DatePattern" value=".yyyy-MM-dd" />
         <layout class="org.apache.log4j.PatternLayout">
             <param name="ConversionPattern" value="[%d{HH:mm:ss:SSS}] [%p] - %l - %m%n"/>
@@ -25,7 +25,7 @@
 
     <!--输出到文件（warn）-->
     <appender name="fileAppenderWarn" class="org.apache.log4j.DailyRollingFileAppender">
-        <param name="File" value="${user.home}/logs/website/warn.log" />
+        <param name="File" value="/usr/tomcat8/logs/website/warn-fsdog.log" />
         <param name="DatePattern" value=".yyyy-MM-dd" />
         <layout class="org.apache.log4j.PatternLayout">
             <param name="ConversionPattern" value="[%d{HH:mm:ss:SSS}] [%p] - %l - %m%n"/>
@@ -39,7 +39,7 @@
 
     <!--输出到文件（error）-->
     <appender name="fileAppenderError" class="org.apache.log4j.DailyRollingFileAppender">
-        <param name="File" value="${user.home}/logs/website/error.log" />
+        <param name="File" value="/usr/tomcat/logs/logs/website/error-fsdog.log" />
         <param name="DatePattern" value=".yyyy-MM-dd" />
         <layout class="org.apache.log4j.PatternLayout">
             <param name="ConversionPattern" value="[%d{HH:mm:ss:SSS}] [%p] - %l - %m%n"/>

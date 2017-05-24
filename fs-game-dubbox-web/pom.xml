@@ -8,9 +8,7 @@
 		<artifactId>fs.game</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
-	<groupId>com.fashionsuperman</groupId>
 	<artifactId>fs-game-dubbox-web</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
 	<name>fs-game-dubbox-web</name>
 	<dependencies>

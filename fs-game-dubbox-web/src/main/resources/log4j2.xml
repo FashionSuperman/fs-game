@@ -6,9 +6,9 @@
 	<Properties>
 		<property name="log_pattern">%d{yyyy-MM-ddHH:mm:ss z} %-5level %class{36}
 			%L %M - %msg%xEx%n</property>
-		<property name="basePath">/java/apache-tomcat-8.0.36/webapps</property>
-		<property name="file_name">${basePath}/log/yfz.log</property>
-		<property name="rolling_file_name">${basePath}/backup/yfz-%d{yyyy-MM-dd}-%i.log.gz
+		<property name="basePath">/usr/tomcat8/logs</property>
+		<property name="file_name">${basePath}/log/fs-game-dubbox-web.log</property>
+		<property name="rolling_file_name">${basePath}/backup/fs-game-dubbox-web-%d{yyyy-MM-dd}-%i.log.gz
 		</property>
 		<property name="every_file_size">10M</property><!-- 日志切割的最小单位 -->
 		<!-- trace： 是追踪，就是程序推进以下，你就可以写个trace输出，所以trace应该会特别多，不过没关系，我们可以设置最低日志级别不让他输出。 
