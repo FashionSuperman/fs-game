@@ -205,9 +205,14 @@ public class ShopService {
 		}
 		//判断该商品库存
 		int numberInDB = shop.getNumber();
-		if(numberInDB < number){
-			throw new BizException(StatusCode.FAILURE_AUTHENTICATE, "该商品库存不足");
+		
+		if(numberInDB >= 0){//如果小于0表示无数，不需要判断库存
+			if(numberInDB < number){
+				throw new BizException(StatusCode.FAILURE_AUTHENTICATE, "该商品库存不足");
+			}
 		}
+		
+		
 		
 		
 		Float price = shop.getPrice();
@@ -229,11 +234,15 @@ public class ShopService {
 		}
 		
 		//购买开始
+		
 		//减少库存
-		Shop shopUpdate = new Shop();
-		shopUpdate.setShopitemid(shopitemid);
-		shopUpdate.setNumber(numberInDB - number);
-		shopMapper.updateByPrimaryKeySelective(shopUpdate);
+		if(numberInDB >= 0){//如果小于0表示无数，不需要减少库存
+			Shop shopUpdate = new Shop();
+			shopUpdate.setShopitemid(shopitemid);
+			shopUpdate.setNumber(numberInDB - number);
+			shopMapper.updateByPrimaryKeySelective(shopUpdate);
+		}
+		
 		
 		//加背包
 		MesAddCommodityToUserPackage mesAddCommodityToUserPackage = new MesAddCommodityToUserPackage();
