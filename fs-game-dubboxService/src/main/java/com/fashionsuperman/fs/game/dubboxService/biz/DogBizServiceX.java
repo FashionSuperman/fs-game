@@ -29,6 +29,8 @@ public class DogBizServiceX implements DogBizServiceI{
 	private DogBizService dogBizService;
 	@Value("#{utilProperties.canPlayCommodityId}")
 	private Long canPlayCommodityId;
+	@Value("#{utilProperties.permanentCommodityId}")
+	private Long permanentCommodityId;
 	
 	/**
 	 * 判断用户是否可以继续游戏
@@ -49,12 +51,31 @@ public class DogBizServiceX implements DogBizServiceI{
 		if(userid == null || userid < 0){
 			throw new BizException(com.fashionSuperman.fs.core.constant.StatusCode.FAILURE_AUTHENTICATE, "userid不能为空");
 		}
-		Map<String, Object> paramMap = new HashMap<>();
+		
+		
+		Map<String, Object> paramMap;
+		Package packageUser;
+		
+		//首先判断是否有永久道具
+		paramMap = new HashMap<>();
+		paramMap.put("userid", userid);
+		paramMap.put("commodityid", permanentCommodityId);
+		dogBizService.getUserFooCommodityNum(paramMap);
+		packageUser = dogBizService.getUserFooCommodityNum(paramMap);
+		if(packageUser != null && packageUser.getNumber() != null && packageUser.getNumber() > 0){
+			result.setStatus("1");
+			//如果有永久道具,直接返回
+			return result;
+		}
+		
+		
+		//没有永久道具,判断分次道具
+		paramMap = new HashMap<>();
 		paramMap.put("userid", userid);
 		paramMap.put("commodityid", canPlayCommodityId);
 		
 		
-		Package packageUser = dogBizService.getUserFooCommodityNum(paramMap);
+		packageUser = dogBizService.getUserFooCommodityNum(paramMap);
 		
 		if(packageUser != null && packageUser.getNumber() != null && packageUser.getNumber() > 0){
 			result.setStatus("1");
