@@ -1,28 +1,36 @@
 package com.fashionsuperman.fs.game.service.user;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.fashionSuperman.fs.core.common.PageInfo;
 import com.fashionSuperman.fs.core.constant.StatusCode;
 import com.fashionSuperman.fs.core.exception.BizException;
+import com.fashionSuperman.fs.core.util.HttpClientUtil;
 import com.fashionSuperman.fs.core.util.StringUtil;
 import com.fashionsuperman.fs.game.dao.entity.User;
 import com.fashionsuperman.fs.game.dao.entity.UserRelationshipKey;
 import com.fashionsuperman.fs.game.dao.entity.custom.UserCustom;
 import com.fashionsuperman.fs.game.dao.mapper.UserMapper;
 import com.fashionsuperman.fs.game.dao.mapper.UserRelationshipMapper;
+import com.fashionsuperman.fs.game.facet.user.message.GetAccessTokenResponse;
+import com.fashionsuperman.fs.game.facet.user.message.GetUserinfoResponse;
 import com.fashionsuperman.fs.game.facet.user.message.MesGetUserList;
 import com.fashionsuperman.fs.game.facet.user.message.MesUserAddFriendByAccountName;
 import com.fashionsuperman.fs.game.facet.user.message.ResGetUserPackageList;
+import com.fashionsuperman.fs.game.facet.user.message.ResLoginwx;
 import com.fashionsuperman.fs.game.service.constant.ForeignType;
 import com.fashionsuperman.fs.game.service.trade.PackageService;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 /**
@@ -40,6 +48,8 @@ public class UserService {
 	private UserRelationshipMapper userRelationshipMapper;
 	@Autowired
 	private PackageService packageService;
+	
+	Logger logger = LogManager.getLogger(UserService.class);
 	/**
 	 * 注册用户
 	 * @param user
@@ -294,5 +304,52 @@ public class UserService {
 	 */
 	public PageInfo getUserPackageList(Long userId){
 		return packageService.getUserPackageList2(userId);
+	}
+
+	/**
+	 * 用户授权微信登录回调服务
+	 * @param code
+	 * @return
+	 */
+	public ResLoginwx loginwx(String code) {
+		ResLoginwx resLoginwx = new ResLoginwx();
+		ObjectMapper objectMapper = new ObjectMapper();
+		//1通过code获取网页授权access_token
+		String getAccessTokenUrl = "https://api.weixin.qq.com/sns/oauth2/access_token?appid=wx324313fc147c74e2&secret=0309d8292d03a12d9651cf49d12848a2&code="+code+"&grant_type=authorization_code";
+		
+		String getUserinfoUrl = "https://api.weixin.qq.com/sns/userinfo?access_token=%s&openid=%s&lang=zh_CN";
+		
+		HttpClientUtil httpClientUtil = new HttpClientUtil();
+		String getAccessTokenUrlJson = httpClientUtil.doGet(getAccessTokenUrl);
+		try {
+			GetAccessTokenResponse getAccessTokenResponse = objectMapper.readValue(getAccessTokenUrlJson, GetAccessTokenResponse.class);
+			
+			//2通过access_token获取用户基本信息
+			String access_token = getAccessTokenResponse.getAccess_token();
+			String openid = getAccessTokenResponse.getOpenid();
+			getUserinfoUrl = String.format(getUserinfoUrl, access_token,openid);
+			String getUserinfoUrlJson = httpClientUtil.doGet(getUserinfoUrl);
+			GetUserinfoResponse getUserinfoResponse = objectMapper.readValue(getUserinfoUrlJson, GetUserinfoResponse.class);
+			//3保存基本信息到数据库
+			
+			
+					
+			//4保存基本信息到redis
+			
+			
+			
+		} catch (IOException e) {
+			e.printStackTrace();
+			logger.error(e.getMessage());
+			logger.error("调用微信获取token返回 : " + getAccessTokenUrlJson);
+			throw new BizException(StatusCode.FAILURE_AUTHENTICATE, "登录微信失败");
+		}
+		
+		
+		
+		
+		
+		
+		return null;
 	}
 }

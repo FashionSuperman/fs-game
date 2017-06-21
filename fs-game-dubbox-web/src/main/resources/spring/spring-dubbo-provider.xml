@@ -15,7 +15,7 @@
 
 	<dubbo:protocol name="dubbo" port="20802" id="dubbo" serialization="kryo" optimizer="com.fashionsuperman.fs.game.dubboxService.common.SerializationOptimizerImpl"/>
 	
-	<dubbo:protocol name="rest" port="8080" id="rest" contextpath="fs-game-dubbox-web/fs-game-service" server="servlet"
+	<dubbo:protocol name="rest" port="8080" id="rest" contextpath="ifyoudog/fs-game-service" server="servlet"
 			extension="com.fashionSuperman.fs.core.jaxws.OpetionsMethodFilter,
 					   com.fashionSuperman.fs.core.jaxws.FormatRestDataFilter,
 					   com.fashionSuperman.fs.core.jaxws.CustomExceptionMapper"/>

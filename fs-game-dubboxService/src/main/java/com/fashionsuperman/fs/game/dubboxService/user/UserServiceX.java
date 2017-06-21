@@ -5,6 +5,7 @@ import java.util.List;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
@@ -19,6 +20,7 @@ import com.fashionsuperman.fs.game.dao.entity.custom.UserCustom;
 import com.fashionsuperman.fs.game.facet.user.UserI;
 import com.fashionsuperman.fs.game.facet.user.message.MesGetUserList;
 import com.fashionsuperman.fs.game.facet.user.message.MesUserAddFriendByAccountName;
+import com.fashionsuperman.fs.game.facet.user.message.ResLoginwx;
 import com.fashionsuperman.fs.game.service.user.UserService;
 
 @Path("/User")
@@ -77,5 +79,17 @@ public class UserServiceX implements UserI {
 //	public PageInfo getUserList(MesGetUserList param){
 //		return userService.getUserList(param);
 //	}
-
+	@POST
+	@Path("/userAddFriendByAccountName")
+	@Consumes(MediaType.TEXT_PLAIN)
+	@Override
+	public ResLoginwx loginwx(@PathParam("code") String code){
+		ResLoginwx result = new ResLoginwx();
+		
+		result = userService.loginwx(code);
+		
+		//回写cookie
+		
+		return result;
+	}
 }
