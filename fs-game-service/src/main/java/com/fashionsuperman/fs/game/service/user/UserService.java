@@ -16,6 +16,7 @@ import com.fashionSuperman.fs.core.common.PageInfo;
 import com.fashionSuperman.fs.core.constant.StatusCode;
 import com.fashionSuperman.fs.core.exception.BizException;
 import com.fashionSuperman.fs.core.util.HttpClientUtil;
+import com.fashionSuperman.fs.core.util.JedisUtil;
 import com.fashionSuperman.fs.core.util.StringUtil;
 import com.fashionsuperman.fs.game.dao.entity.User;
 import com.fashionsuperman.fs.game.dao.entity.UserRelationshipKey;
@@ -49,7 +50,15 @@ public class UserService {
 	@Autowired
 	private PackageService packageService;
 	
+	@Autowired
+	private JedisUtil jedisUtil;
+	@Autowired
+	private ObjectMapper objectMapper;
+	
 	Logger logger = LogManager.getLogger(UserService.class);
+	
+	private int timeOut = 30 * 12 * 60 * 60;//30天过期
+	
 	/**
 	 * 注册用户
 	 * @param user
@@ -311,7 +320,8 @@ public class UserService {
 	 * @param code
 	 * @return
 	 */
-	public ResLoginwx loginwx(String code) {
+	public User loginwx(String code) {
+		User result = null;
 		ResLoginwx resLoginwx = new ResLoginwx();
 		ObjectMapper objectMapper = new ObjectMapper();
 		//1通过code获取网页授权access_token
@@ -330,11 +340,19 @@ public class UserService {
 			getUserinfoUrl = String.format(getUserinfoUrl, access_token,openid);
 			String getUserinfoUrlJson = httpClientUtil.doGet(getUserinfoUrl);
 			GetUserinfoResponse getUserinfoResponse = objectMapper.readValue(getUserinfoUrlJson, GetUserinfoResponse.class);
+			
 			//3保存基本信息到数据库
+			User user = new User();
+			user.setAccountname(getUserinfoResponse.getUnionid());
+			user.setNickname(getUserinfoResponse.getNickname());
+			user.setForeighid(getUserinfoResponse.getUnionid());
+			this.registeUser(user);
+			result = user;
 			
-			
-					
 			//4保存基本信息到redis
+			String userString = objectMapper.writeValueAsString(user);
+			this.jedisUtil.STRINGS.set(user.getAccountname(), userString);
+			this.jedisUtil.KEYS.expired(user.getAccountname(), this.timeOut);
 			
 			
 			
@@ -345,11 +363,6 @@ public class UserService {
 			throw new BizException(StatusCode.FAILURE_AUTHENTICATE, "登录微信失败");
 		}
 		
-		
-		
-		
-		
-		
-		return null;
+		return result;
 	}
 }

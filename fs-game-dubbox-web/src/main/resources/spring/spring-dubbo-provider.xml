@@ -21,6 +21,7 @@
 					   com.fashionSuperman.fs.core.jaxws.CustomExceptionMapper"/> -->
 	<dubbo:protocol name="rest" port="8088" id="rest" contextpath="fs-game-dubbox-web/fs-game-service" server="servlet"
 			extension="com.fashionSuperman.fs.core.jaxws.OpetionsMethodFilter,
+						com.fashionsuperman.fs.game.dubboxService.core.LoginFilter,
 					   com.fashionSuperman.fs.core.jaxws.FormatRestDataFilter,
 					   com.fashionSuperman.fs.core.jaxws.CustomExceptionMapper"/>
 	

@@ -2,6 +2,9 @@ package com.fashionsuperman.fs.game.dubboxService.user;
 
 import java.util.List;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
@@ -12,6 +15,7 @@ import javax.ws.rs.core.MediaType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.alibaba.dubbo.rpc.RpcContext;
 import com.alibaba.dubbo.rpc.protocol.rest.support.ContentType;
 import com.fashionSuperman.fs.core.common.PageInfo;
 import com.fashionsuperman.fs.game.dao.entity.User;
@@ -83,12 +87,22 @@ public class UserServiceX implements UserI {
 	@Path("/userAddFriendByAccountName")
 	@Consumes(MediaType.TEXT_PLAIN)
 	@Override
-	public ResLoginwx loginwx(@PathParam("code") String code){
-		ResLoginwx result = new ResLoginwx();
+	public User loginwx(@PathParam("code") String code){
+		User result = new User();
 		
 		result = userService.loginwx(code);
 		
 		//回写cookie
+		
+		HttpServletRequest httpServletRequest = (HttpServletRequest) RpcContext.getContext().getRequest();
+		
+		HttpServletResponse httpServletResponse = (HttpServletResponse) RpcContext.getContext().getResponse();
+		
+		Cookie cookie = new Cookie("sessionId", result.getAccountname());
+		cookie.setMaxAge(30*12*60*60);
+		cookie.setPath("/");
+		httpServletResponse.addCookie(cookie);
+		
 		
 		return result;
 	}

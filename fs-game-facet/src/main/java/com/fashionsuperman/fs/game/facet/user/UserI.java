@@ -62,5 +62,5 @@ public interface UserI {
 	 * @return
 	 * @throws BizException
 	 */
-	public ResLoginwx loginwx(String code) throws BizException;
+	public User loginwx(String code) throws BizException;
 }
