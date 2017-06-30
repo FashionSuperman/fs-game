@@ -15,15 +15,14 @@
 
 	<dubbo:protocol name="dubbo" port="20802" id="dubbo" serialization="kryo" optimizer="com.fashionsuperman.fs.game.dubboxService.common.SerializationOptimizerImpl"/>
 	
-	<!-- <dubbo:protocol name="rest" port="8080" id="rest" contextpath="ifyoudog/fs-game-service" server="servlet"
+	<dubbo:protocol name="rest" port="8080" id="rest" contextpath="ifyoudog/fs-game-service" server="servlet"
+			extension="com.fashionSuperman.fs.core.jaxws.OpetionsMethodFilter,
+					   com.fashionSuperman.fs.core.jaxws.FormatRestDataFilter,
+					   com.fashionSuperman.fs.core.jaxws.CustomExceptionMapper"/>
+	<!-- <dubbo:protocol name="rest" port="8088" id="rest" contextpath="fs-game-dubbox-web/fs-game-service" server="servlet"
 			extension="com.fashionSuperman.fs.core.jaxws.OpetionsMethodFilter,
 					   com.fashionSuperman.fs.core.jaxws.FormatRestDataFilter,
 					   com.fashionSuperman.fs.core.jaxws.CustomExceptionMapper"/> -->
-	<dubbo:protocol name="rest" port="8088" id="rest" contextpath="fs-game-dubbox-web/fs-game-service" server="servlet"
-			extension="com.fashionSuperman.fs.core.jaxws.OpetionsMethodFilter,
-						com.fashionsuperman.fs.game.dubboxService.core.LoginFilter,
-					   com.fashionSuperman.fs.core.jaxws.FormatRestDataFilter,
-					   com.fashionSuperman.fs.core.jaxws.CustomExceptionMapper"/>
 	
 	<!-- 监控中心配置，protocol="registry"，表示从注册中心发现监控中心地址 -->
 	<!-- <dubbo:monitor protocol="registry"/> -->
@@ -40,6 +39,6 @@
 	
 	
 	
-	<dubbo:service protocol="rest" retries="0"  interface="com.fashionsuperman.fs.game.facet.test.TestRedisI" ref="TestRedis" />
+	<!-- <dubbo:service protocol="rest" retries="0"  interface="com.fashionsuperman.fs.game.facet.test.TestRedisI" ref="TestRedis" /> -->
 	<!-- <dubbo:service retries="0"  interface="com.fashionSuperman.fs.dubbo.facet.inter.UserInterface" ref="userServiceImpl" /> -->
 </beans>  

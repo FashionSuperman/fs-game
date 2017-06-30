@@ -6,6 +6,7 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.ws.rs.Consumes;
+import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
@@ -83,21 +84,20 @@ public class UserServiceX implements UserI {
 //	public PageInfo getUserList(MesGetUserList param){
 //		return userService.getUserList(param);
 //	}
-	@POST
-	@Path("/userAddFriendByAccountName")
-	@Consumes(MediaType.TEXT_PLAIN)
+	@GET
+	@Path("/loginwx")
+	@Produces({MediaType.APPLICATION_JSON})
 	@Override
-	public User loginwx(@PathParam("code") String code){
+	public User loginwx(){
 		User result = new User();
+		HttpServletResponse httpServletResponse = (HttpServletResponse) RpcContext.getContext().getResponse();
+		HttpServletRequest httpServletRequest = (HttpServletRequest) RpcContext.getContext().getRequest();
+		
+		String code = httpServletRequest.getParameter("code");
 		
 		result = userService.loginwx(code);
 		
 		//回写cookie
-		
-		HttpServletRequest httpServletRequest = (HttpServletRequest) RpcContext.getContext().getRequest();
-		
-		HttpServletResponse httpServletResponse = (HttpServletResponse) RpcContext.getContext().getResponse();
-		
 		Cookie cookie = new Cookie("sessionId", result.getAccountname());
 		cookie.setMaxAge(30*12*60*60);
 		cookie.setPath("/");

@@ -27,8 +27,6 @@ import com.fashionsuperman.fs.game.facet.user.message.GetAccessTokenResponse;
 import com.fashionsuperman.fs.game.facet.user.message.GetUserinfoResponse;
 import com.fashionsuperman.fs.game.facet.user.message.MesGetUserList;
 import com.fashionsuperman.fs.game.facet.user.message.MesUserAddFriendByAccountName;
-import com.fashionsuperman.fs.game.facet.user.message.ResGetUserPackageList;
-import com.fashionsuperman.fs.game.facet.user.message.ResLoginwx;
 import com.fashionsuperman.fs.game.service.constant.ForeignType;
 import com.fashionsuperman.fs.game.service.trade.PackageService;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -52,8 +50,8 @@ public class UserService {
 	
 	@Autowired
 	private JedisUtil jedisUtil;
-	@Autowired
-	private ObjectMapper objectMapper;
+	
+//	private ObjectMapper objectMapper;
 	
 	Logger logger = LogManager.getLogger(UserService.class);
 	
@@ -76,7 +74,8 @@ public class UserService {
 		param.put("accountname", accountname);
 		List<User> userExist = userMapper.selectByParam(param);
 		if(userExist != null && userExist.size() != 0){
-			throw new BizException(StatusCode.FAILURE_AUTHENTICATE, "该用户已经存在");
+//			throw new BizException(StatusCode.FAILURE_AUTHENTICATE, "该用户已经存在");
+			return;
 		}
 		
 		String nickname = user.getNickname();
@@ -322,15 +321,15 @@ public class UserService {
 	 */
 	public User loginwx(String code) {
 		User result = null;
-		ResLoginwx resLoginwx = new ResLoginwx();
+//		ResLoginwx resLoginwx = new ResLoginwx();
 		ObjectMapper objectMapper = new ObjectMapper();
 		//1通过code获取网页授权access_token
 		String getAccessTokenUrl = "https://api.weixin.qq.com/sns/oauth2/access_token?appid=wx324313fc147c74e2&secret=0309d8292d03a12d9651cf49d12848a2&code="+code+"&grant_type=authorization_code";
 		
 		String getUserinfoUrl = "https://api.weixin.qq.com/sns/userinfo?access_token=%s&openid=%s&lang=zh_CN";
 		
-		HttpClientUtil httpClientUtil = new HttpClientUtil();
-		String getAccessTokenUrlJson = httpClientUtil.doGet(getAccessTokenUrl);
+//		HttpClientUtil httpClientUtil = new HttpClientUtil();
+		String getAccessTokenUrlJson = HttpClientUtil.doGet(getAccessTokenUrl);
 		try {
 			GetAccessTokenResponse getAccessTokenResponse = objectMapper.readValue(getAccessTokenUrlJson, GetAccessTokenResponse.class);
 			
@@ -338,7 +337,7 @@ public class UserService {
 			String access_token = getAccessTokenResponse.getAccess_token();
 			String openid = getAccessTokenResponse.getOpenid();
 			getUserinfoUrl = String.format(getUserinfoUrl, access_token,openid);
-			String getUserinfoUrlJson = httpClientUtil.doGet(getUserinfoUrl);
+			String getUserinfoUrlJson = HttpClientUtil.doGet(getUserinfoUrl);
 			GetUserinfoResponse getUserinfoResponse = objectMapper.readValue(getUserinfoUrlJson, GetUserinfoResponse.class);
 			
 			//3保存基本信息到数据库

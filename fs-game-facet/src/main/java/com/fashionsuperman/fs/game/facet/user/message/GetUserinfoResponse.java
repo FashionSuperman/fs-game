@@ -1,14 +1,17 @@
 package com.fashionsuperman.fs.game.facet.user.message;
 
+import java.util.List;
+
 public class GetUserinfoResponse {
 	private String openid;
 	private String nickname;
 	private String sex;
+	private String language;
 	private String province;
 	private String city;
 	private String country;
 	private String headimgurl;
-	private String privilege;
+	private List<String> privilege;
 	private String unionid;
 	public String getOpenid() {
 		return openid;
@@ -52,17 +55,23 @@ public class GetUserinfoResponse {
 	public void setHeadimgurl(String headimgurl) {
 		this.headimgurl = headimgurl;
 	}
-	public String getPrivilege() {
-		return privilege;
-	}
-	public void setPrivilege(String privilege) {
-		this.privilege = privilege;
-	}
 	public String getUnionid() {
 		return unionid;
 	}
 	public void setUnionid(String unionid) {
 		this.unionid = unionid;
+	}
+	public String getLanguage() {
+		return language;
+	}
+	public void setLanguage(String language) {
+		this.language = language;
+	}
+	public List<String> getPrivilege() {
+		return privilege;
+	}
+	public void setPrivilege(List<String> privilege) {
+		this.privilege = privilege;
 	}
 	
 	

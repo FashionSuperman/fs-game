@@ -1,6 +1,7 @@
 package com.fashionsuperman.fs.game.dubboxService.rank;
 
 import javax.ws.rs.Consumes;
+import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
@@ -24,6 +25,7 @@ public class RankServiceX implements RankServiceI{
 	 * 更新用户分数
 	 */
 	@POST
+	@GET
 	@Path("/updateUserScore")
 	@Consumes(MediaType.APPLICATION_JSON)
 	public MesUpdateUserScore updateUserScore(MesUpdateUserScore mes){
