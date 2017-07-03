@@ -27,6 +27,7 @@ import com.fashionsuperman.fs.game.facet.user.message.GetAccessTokenResponse;
 import com.fashionsuperman.fs.game.facet.user.message.GetUserinfoResponse;
 import com.fashionsuperman.fs.game.facet.user.message.MesGetUserList;
 import com.fashionsuperman.fs.game.facet.user.message.MesUserAddFriendByAccountName;
+import com.fashionsuperman.fs.game.service.common.UtilConstant;
 import com.fashionsuperman.fs.game.service.constant.ForeignType;
 import com.fashionsuperman.fs.game.service.trade.PackageService;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -41,6 +42,9 @@ import com.github.pagehelper.PageHelper;
  */
 @Service
 public class UserService {
+	@Autowired
+	private UtilConstant UtilConstant;
+	
 	@Autowired
 	private UserMapper userMapper;
 	@Autowired
@@ -321,12 +325,14 @@ public class UserService {
 	 */
 	public User loginwx(String code) {
 		User result = null;
-//		ResLoginwx resLoginwx = new ResLoginwx();
 		ObjectMapper objectMapper = new ObjectMapper();
 		//1通过code获取网页授权access_token
-		String getAccessTokenUrl = "https://api.weixin.qq.com/sns/oauth2/access_token?appid=wx324313fc147c74e2&secret=0309d8292d03a12d9651cf49d12848a2&code="+code+"&grant_type=authorization_code";
+//		String getAccessTokenUrl = "https://api.weixin.qq.com/sns/oauth2/access_token?appid=wx324313fc147c74e2&secret=0309d8292d03a12d9651cf49d12848a2&code="+code+"&grant_type=authorization_code";
+		String getAccessTokenUrl = UtilConstant.getAccessTokenUrl;
+		getAccessTokenUrl = String.format(getAccessTokenUrl, UtilConstant.appid,UtilConstant.secret,code);
 		
-		String getUserinfoUrl = "https://api.weixin.qq.com/sns/userinfo?access_token=%s&openid=%s&lang=zh_CN";
+//		String getUserinfoUrl = "https://api.weixin.qq.com/sns/userinfo?access_token=%s&openid=%s&lang=zh_CN";
+		String getUserinfoUrl = UtilConstant.getUserinfoUrl;
 		
 //		HttpClientUtil httpClientUtil = new HttpClientUtil();
 		String getAccessTokenUrlJson = HttpClientUtil.doGet(getAccessTokenUrl);
