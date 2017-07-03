@@ -1,4 +1,12 @@
 package com.fashionsuperman.fs.game.service.trade.message;
+
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
+import com.fashionsuperman.fs.game.service.common.AdapterCDATA;
+
 /**
  * 
  * @description 请求生成订单返回数据
@@ -6,12 +14,15 @@ package com.fashionsuperman.fs.game.service.trade.message;
  * @date 2017年7月3日 下午5:06:25
  * @version 1.0
  */
+@XmlAccessorType(XmlAccessType.FIELD)  
+@XmlRootElement(name = "xml")  
 public class ResUnifiedorder {
 	/**
 	 * 返回状态码
 	 * SUCCESS/FAIL
 	 * 此字段是通信标识，非交易标识，交易是否成功需要查看result_code来判断
 	 */
+	@XmlJavaTypeAdapter(AdapterCDATA.class)
 	private String return_code;
 	/**
 	 * 返回信息
@@ -19,6 +30,7 @@ public class ResUnifiedorder {
 	 * 签名失败
 	 * 参数格式校验错误
 	 */
+	@XmlJavaTypeAdapter(AdapterCDATA.class)
 	private String return_msg;
 	
 	//以下字段在return_code为SUCCESS的时候有返回 
@@ -27,39 +39,47 @@ public class ResUnifiedorder {
 	 * 公众账号ID
 	 * 调用接口提交的公众账号ID
 	 */
+	@XmlJavaTypeAdapter(AdapterCDATA.class)
 	private String appid;
 	/**
 	 * 商户号
 	 * 调用接口提交的商户号
 	 */
+	@XmlJavaTypeAdapter(AdapterCDATA.class)
 	private String mch_id;
 	/**
 	 * 设备号
 	 * 自定义参数，可以为请求支付的终端设备号等
 	 */
+	@XmlJavaTypeAdapter(AdapterCDATA.class)
 	private String device_info;
 	/**
 	 * 随机字符串
 	 * 微信返回的随机字符串
 	 */
+	@XmlJavaTypeAdapter(AdapterCDATA.class)
 	private String nonce_str;
 	/**
 	 * 签名
 	 * 微信返回的签名值
 	 */
+	@XmlJavaTypeAdapter(AdapterCDATA.class)
 	private String sign;
 	/**
 	 * 业务结果
 	 * SUCCESS/FAIL
 	 */
+	@XmlJavaTypeAdapter(AdapterCDATA.class)
 	private String result_code;
 	/**
 	 * 错误代码
 	 */
+	@XmlJavaTypeAdapter(AdapterCDATA.class)
 	private String err_code;
 	/**
 	 * 错误代码描述
 	 */
+	@XmlJavaTypeAdapter(AdapterCDATA.class)
 	private String err_code_des;
 	
 	
@@ -68,17 +88,22 @@ public class ResUnifiedorder {
 	 * 交易类型
 	 * 交易类型，取值为：JSAPI，NATIVE，APP等
 	 */
+	@XmlJavaTypeAdapter(AdapterCDATA.class)
 	private String trade_type;
 	/**
 	 * 预支付交易会话标识
 	 * 微信生成的预支付会话标识，用于后续接口调用中使用，该值有效期为2小时
 	 */
+	@XmlJavaTypeAdapter(AdapterCDATA.class)
 	private String prepay_id;
 	/**
 	 * 二维码链接
 	 * trade_type为NATIVE时有返回，用于生成二维码，展示给用户进行扫码支付
 	 */
+	@XmlJavaTypeAdapter(AdapterCDATA.class)
 	private String code_url;
+	
+	
 	public String getReturn_code() {
 		return return_code;
 	}
