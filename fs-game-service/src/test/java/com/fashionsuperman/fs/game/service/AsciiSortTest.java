@@ -7,6 +7,7 @@ import java.util.UUID;
 import org.junit.Test;
 
 import com.fashionSuperman.fs.core.util.XMLUtil;
+import com.fashionsuperman.fs.game.service.common.OrderNoUtil;
 import com.fashionsuperman.fs.game.service.common.WXSignUtil;
 import com.fashionsuperman.fs.game.service.trade.message.MesUnifiedorder;
 
@@ -19,7 +20,6 @@ public class AsciiSortTest {
 		String device_info = "device_info";
 		String body = "body";
 		String nonce_str = "nonce_str";
-		
 		
 		String[] arr = {appid,mch_id,device_info,body,nonce_str};
 		
@@ -60,9 +60,6 @@ public class AsciiSortTest {
 		String result = WXSignUtil.sign(mesUnifiedorder, "fs");
 		mesUnifiedorder.setSign(result);
 		
-		
-		
-		
 		String xml = XMLUtil.convertToXml(mesUnifiedorder).replace("&lt;", "<").replace("&gt;", ">");
 		System.out.println(xml);
 	}
@@ -73,5 +70,10 @@ public class AsciiSortTest {
 		MesUnifiedorder rs = (MesUnifiedorder) XMLUtil.convertXmlStrToObject(MesUnifiedorder.class, xml);
 		
 		System.out.println(rs.getBody());
+	}
+	
+	@Test
+	public void testGenerateOrderNo(){
+		System.out.println(OrderNoUtil.generateOrderNo());
 	}
 }

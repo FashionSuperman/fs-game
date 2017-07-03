@@ -21,4 +21,8 @@ public class UtilConstant {
 	public String unifiedorderUrl;
 	@Value("{#utilProperties.mch_id}")
 	public String mch_id;
+	@Value("{#utilProperties.notify_url}")
+	public String notify_url;
+	@Value("{#utilProperties.wxkey}")
+	public String wxkey;
 }
