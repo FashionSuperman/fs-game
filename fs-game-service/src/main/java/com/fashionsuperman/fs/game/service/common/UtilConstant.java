@@ -17,4 +17,8 @@ public class UtilConstant {
 	public String getAccessTokenUrl;
 	@Value("{#utilProperties.getAccessTokenUrl}")
 	public String getUserinfoUrl;
+	@Value("{#utilProperties.unifiedorderUrl}")
+	public String unifiedorderUrl;
+	@Value("{#utilProperties.mch_id}")
+	public String mch_id;
 }
