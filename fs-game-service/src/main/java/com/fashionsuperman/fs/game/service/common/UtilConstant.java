@@ -5,24 +5,26 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class UtilConstant {
-	@Value("{#utilProperties.appid}")
+	@Value("#{utilProperties.appid}")
 	public String appid;
-	@Value("{#utilProperties.secret}")
+	@Value("#{utilProperties.secret}")
 	public String secret;
-	@Value("{#utilProperties.redirect_uri}")
+	@Value("#{utilProperties.redirect_uri}")
 	public String redirect_uri;
-	@Value("{#utilProperties.loginUrl}")
+	@Value("#{utilProperties.loginUrl}")
 	public String loginUrl;
-	@Value("{#utilProperties.getAccessTokenUrl}")
+	@Value("#{utilProperties.getAccessTokenUrl}")
 	public String getAccessTokenUrl;
-	@Value("{#utilProperties.getAccessTokenUrl}")
+	@Value("#{utilProperties.getUserinfoUrl}")
 	public String getUserinfoUrl;
-	@Value("{#utilProperties.unifiedorderUrl}")
+	@Value("#{utilProperties.unifiedorderUrl}")
 	public String unifiedorderUrl;
-	@Value("{#utilProperties.mch_id}")
+	@Value("#{utilProperties.mch_id}")
 	public String mch_id;
-	@Value("{#utilProperties.notify_url}")
+	@Value("#{utilProperties.notify_url}")
 	public String notify_url;
-	@Value("{#utilProperties.wxkey}")
+	@Value("#{utilProperties.wxkey}")
 	public String wxkey;
+	
+	
 }

@@ -30,6 +30,7 @@ import com.fashionsuperman.fs.game.facet.user.message.MesUserAddFriendByAccountN
 import com.fashionsuperman.fs.game.service.common.UtilConstant;
 import com.fashionsuperman.fs.game.service.constant.ForeignType;
 import com.fashionsuperman.fs.game.service.trade.PackageService;
+import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
@@ -326,6 +327,7 @@ public class UserService {
 	public User loginwx(String code) {
 		User result = null;
 		ObjectMapper objectMapper = new ObjectMapper();
+		objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
 		//1通过code获取网页授权access_token
 //		String getAccessTokenUrl = "https://api.weixin.qq.com/sns/oauth2/access_token?appid=wx324313fc147c74e2&secret=0309d8292d03a12d9651cf49d12848a2&code="+code+"&grant_type=authorization_code";
 		String getAccessTokenUrl = UtilConstant.getAccessTokenUrl;
