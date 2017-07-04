@@ -44,7 +44,12 @@ public class WXSignUtil {
 			
 			if(!"sign".equals(fieldName)){
 				if(StringUtil.isNotEmpty(fieldValue)){
-					field_Value_Map.put(fieldName, fieldValue);
+					if("backage".equals(fieldName)){
+						field_Value_Map.put("package", fieldValue);
+					}else{
+						field_Value_Map.put(fieldName, fieldValue);
+					}
+					
 				}
 			}
 			sortFieldNameList.add(fieldName);

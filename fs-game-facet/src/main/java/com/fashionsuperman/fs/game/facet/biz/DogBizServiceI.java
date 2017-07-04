@@ -1,7 +1,11 @@
 package com.fashionsuperman.fs.game.facet.biz;
 
 import com.fashionSuperman.fs.core.exception.BizException;
+import com.fashionsuperman.fs.game.facet.biz.message.MesApplyWXPay;
 import com.fashionsuperman.fs.game.facet.biz.message.MesJudgeCanPlay;
+import com.fashionsuperman.fs.game.facet.biz.message.MesSign;
+import com.fashionsuperman.fs.game.facet.biz.message.ResApplyWXPay;
+import com.fashionsuperman.fs.game.facet.biz.message.ResSign;
 import com.fashionsuperman.fs.game.facet.biz.message.StatusCode;
 
 /**
@@ -18,4 +22,19 @@ public interface DogBizServiceI {
 	 * @return
 	 */
 	StatusCode judgeCanPlay(MesJudgeCanPlay mesJudgeCanPlay) throws BizException;
+	/**
+	 * 签名 
+	 * @param mesSign
+	 * @return
+	 * @throws BizException
+	 */
+	public ResSign sign(MesSign mesSign) throws BizException;
+	
+	/**
+	 * 调起微信支付
+	 * @param mesApplyWXPay
+	 * @return
+	 * @throws BizException
+	 */
+	public ResApplyWXPay applyWXPay(MesApplyWXPay mesApplyWXPay) throws BizException;
 }

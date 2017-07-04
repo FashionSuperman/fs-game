@@ -17,7 +17,11 @@ import com.alibaba.dubbo.rpc.protocol.rest.support.ContentType;
 import com.fashionSuperman.fs.core.exception.BizException;
 import com.fashionsuperman.fs.game.dao.entity.Package;
 import com.fashionsuperman.fs.game.facet.biz.DogBizServiceI;
+import com.fashionsuperman.fs.game.facet.biz.message.MesApplyWXPay;
 import com.fashionsuperman.fs.game.facet.biz.message.MesJudgeCanPlay;
+import com.fashionsuperman.fs.game.facet.biz.message.MesSign;
+import com.fashionsuperman.fs.game.facet.biz.message.ResApplyWXPay;
+import com.fashionsuperman.fs.game.facet.biz.message.ResSign;
 import com.fashionsuperman.fs.game.facet.biz.message.StatusCode;
 import com.fashionsuperman.fs.game.service.biz.DogBizService;
 
@@ -83,5 +87,29 @@ public class DogBizServiceX implements DogBizServiceI{
 		
 		return result;
 	}
+	
+	
+	/**
+	 * 签名
+	 */
+	@POST
+	@Path("/sign")
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Override
+	public ResSign sign(MesSign mesSign){
+		return dogBizService.sign(mesSign);
+	}
 
+	/**
+	 * 调起微信支付
+	 */
+	@POST
+	@Path("/applyWXPay")
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Override
+	public ResApplyWXPay applyWXPay(MesApplyWXPay mesApplyWXPay){
+		ResApplyWXPay result = new ResApplyWXPay();
+		result = dogBizService.applyWXPay(mesApplyWXPay);
+		return result;
+	}
 }
