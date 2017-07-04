@@ -30,7 +30,13 @@ public class WXPayService {
 	private UtilConstant utilConstant;
 	
 	private Logger logger = LogManager.getLogger(WXPayService.class);
-	
+	/**
+	 * 微信内部生成订单服务   返回微信内部订单
+	 * @param param
+	 * @return
+	 * @throws IllegalArgumentException
+	 * @throws IllegalAccessException
+	 */
 	public String unifiedorder(MesUnifiedorderInner param) throws IllegalArgumentException, IllegalAccessException{
 		/**
 		 * 预支付订单id   后续支付操作需要
@@ -94,7 +100,7 @@ public class WXPayService {
 				if("SUCCESS".equals(resUnifiedorder.getResult_code())){//业务成功
 					prepay_id = resUnifiedorder.getPrepay_id();
 				}else{
-					logger.error("Result_code()== " + resUnifiedorder.getResult_code() + " err_code==" + resUnifiedorder.getErr_code() + " err_code_des==" + resUnifiedorder.getErr_code_des());
+					logger.error("Result_code== " + resUnifiedorder.getResult_code() + " err_code==" + resUnifiedorder.getErr_code() + " err_code_des==" + resUnifiedorder.getErr_code_des());
 					throw new BizException(StatusCode.FAILURE_AUTHENTICATE, "请求支付失败");
 				}
 			}else{
@@ -108,6 +114,10 @@ public class WXPayService {
 		}
 		return prepay_id;
 	}
+	
+	
+	
+	
 	
 	
 }
