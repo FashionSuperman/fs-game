@@ -352,7 +352,7 @@ public class UserService {
 			User user = new User();
 			user.setAccountname(getUserinfoResponse.getUnionid());
 			user.setNickname(getUserinfoResponse.getNickname());
-			user.setForeighid(getUserinfoResponse.getUnionid());
+			user.setForeighid(getUserinfoResponse.getOpenid());
 			this.registeUser(user);
 			result = user;
 			

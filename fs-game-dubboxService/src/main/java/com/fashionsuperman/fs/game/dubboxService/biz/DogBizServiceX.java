@@ -1,8 +1,11 @@
 package com.fashionsuperman.fs.game.dubboxService.biz;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
@@ -13,9 +16,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
+import com.alibaba.dubbo.rpc.RpcContext;
 import com.alibaba.dubbo.rpc.protocol.rest.support.ContentType;
 import com.fashionSuperman.fs.core.exception.BizException;
+import com.fashionSuperman.fs.core.util.JedisUtil;
 import com.fashionsuperman.fs.game.dao.entity.Package;
+import com.fashionsuperman.fs.game.dao.entity.User;
 import com.fashionsuperman.fs.game.facet.biz.DogBizServiceI;
 import com.fashionsuperman.fs.game.facet.biz.message.MesApplyWXPay;
 import com.fashionsuperman.fs.game.facet.biz.message.MesJudgeCanPlay;
@@ -24,6 +30,8 @@ import com.fashionsuperman.fs.game.facet.biz.message.ResApplyWXPay;
 import com.fashionsuperman.fs.game.facet.biz.message.ResSign;
 import com.fashionsuperman.fs.game.facet.biz.message.StatusCode;
 import com.fashionsuperman.fs.game.service.biz.DogBizService;
+import com.fasterxml.jackson.databind.DeserializationFeature;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 @Path("/DogBiz")
 @Produces(ContentType.APPLICATION_JSON_UTF_8)
@@ -35,6 +43,8 @@ public class DogBizServiceX implements DogBizServiceI{
 	private Long canPlayCommodityId;
 	@Value("#{utilProperties.permanentCommodityId}")
 	private Long permanentCommodityId;
+	@Autowired
+	private JedisUtil jedisUtil;
 	
 	/**
 	 * 判断用户是否可以继续游戏
@@ -108,6 +118,41 @@ public class DogBizServiceX implements DogBizServiceI{
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Override
 	public ResApplyWXPay applyWXPay(MesApplyWXPay mesApplyWXPay){
+		
+		HttpServletRequest httpServletRequest = (HttpServletRequest) RpcContext.getContext().getRequest();
+		
+		Cookie[] cookies = httpServletRequest.getCookies();
+		Cookie cookie = null;
+		if (cookies == null || cookies.length == 0) {
+			throw new BizException(com.fashionSuperman.fs.core.constant.StatusCode.FAILURE_AUTHENTICATE, "未登录");
+		}
+		for (Cookie c : cookies) {
+			if ("sessionId".equals(c.getName())) {
+				cookie = c;
+				break;
+			}
+		}
+		
+		if(cookie == null){
+			throw new BizException(com.fashionSuperman.fs.core.constant.StatusCode.FAILURE_AUTHENTICATE, "未登录");
+		}
+		
+		String sessionId = cookie.getValue();
+		
+		//从redis查询该用户
+		String userInRedis = this.jedisUtil.STRINGS.get(sessionId);
+		ObjectMapper mapper = new ObjectMapper();
+		mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+		
+		User user = null;
+		try {
+			user = mapper.readValue(userInRedis, User.class);
+		} catch (IOException e) {
+			throw new BizException(com.fashionSuperman.fs.core.constant.StatusCode.FAILURE_AUTHENTICATE, "未登录");
+		}
+		
+		mesApplyWXPay.setOpenid(user.getForeighid());
+		
 		ResApplyWXPay result = new ResApplyWXPay();
 		result = dogBizService.applyWXPay(mesApplyWXPay);
 		return result;

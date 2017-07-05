@@ -14,6 +14,11 @@ public class MesApplyWXPay {
 	 * 用户唯一标志
 	 */
 	private String openid;
+	
+	/**
+	 * 订单id
+	 */
+	private String orderid;
 
 	public String getTotal_fee() {
 		return total_fee;
@@ -37,6 +42,14 @@ public class MesApplyWXPay {
 
 	public void setOpenid(String openid) {
 		this.openid = openid;
+	}
+
+	public String getOrderid() {
+		return orderid;
+	}
+
+	public void setOrderid(String orderid) {
+		this.orderid = orderid;
 	}
 
 	

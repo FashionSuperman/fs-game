@@ -60,8 +60,9 @@ public class WXPayService {
 		mesUnifiedorder.setBody(body);
 		
 		//生成商户订单号
-		String out_trade_no = OrderNoUtil.generateOrderNo();
-		mesUnifiedorder.setOut_trade_no(out_trade_no);
+//		String out_trade_no = OrderNoUtil.generateOrderNo();
+//		mesUnifiedorder.setOut_trade_no(out_trade_no);
+		mesUnifiedorder.setOut_trade_no(param.getOrderid());
 		
 		//设置  标价金额 	
 		mesUnifiedorder.setTotal_fee(param.getTotal_fee());

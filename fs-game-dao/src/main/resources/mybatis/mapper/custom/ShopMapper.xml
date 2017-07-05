@@ -39,4 +39,12 @@
       #{price,jdbcType=REAL}, #{userid,jdbcType=BIGINT}, #{discount,jdbcType=REAL}, #{discountdes,jdbcType=VARCHAR}
       )
   </insert>
+  
+  
+  <select id="selectByCommodityId" parameterType="java.lang.Long" resultMap="BaseResultMap">
+  	select 
+    <include refid="Base_Column_List" />
+    from shop
+    where CommodityId = #{value,jdbcType=BIGINT}
+  </select>
 </mapper>

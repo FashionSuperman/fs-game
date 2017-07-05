@@ -67,6 +67,7 @@ public class DogBizService {
 		param.setOpenid(mesApplyWXPay.getOpenid());
 		param.setSpbill_create_ip(mesApplyWXPay.getSpbill_create_ip());
 		param.setTotal_fee(mesApplyWXPay.getTotal_fee());
+		param.setOrderid(mesApplyWXPay.getOrderid());
 		
 		String prepay_id = null;
 		try {

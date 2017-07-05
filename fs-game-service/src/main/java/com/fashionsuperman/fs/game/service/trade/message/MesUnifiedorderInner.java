@@ -15,6 +15,11 @@ public class MesUnifiedorderInner {
 	 */
 	private String openid;
 
+	/**
+	 * 商户订单
+	 */
+	private String orderid;
+	
 	public String getTotal_fee() {
 		return total_fee;
 	}
@@ -37,6 +42,14 @@ public class MesUnifiedorderInner {
 
 	public void setOpenid(String openid) {
 		this.openid = openid;
+	}
+
+	public String getOrderid() {
+		return orderid;
+	}
+
+	public void setOrderid(String orderid) {
+		this.orderid = orderid;
 	}
 	
 	

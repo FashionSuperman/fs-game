@@ -63,4 +63,11 @@ public interface ShopMapper {
 	 * @return
 	 */
 	int insertIncrement(Shop param);
+	
+	/**
+	 * 
+	 * @param commodityid
+	 * @return
+	 */
+	List<Shop> selectByCommodityId(Long commodityid);
 }
