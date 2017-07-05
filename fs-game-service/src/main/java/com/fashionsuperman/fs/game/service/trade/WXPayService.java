@@ -56,7 +56,7 @@ public class WXPayService {
 		mesUnifiedorder.setNonce_str(nonce_str);
 		
 		//设置商品描述
-		String body = "会易通-软件";
+		String body = "会易通-程序";
 		mesUnifiedorder.setBody(body);
 		
 		//生成商户订单号
