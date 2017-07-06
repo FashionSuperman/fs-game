@@ -9,18 +9,19 @@ import javax.ws.rs.core.MediaType;
 
 import org.springframework.stereotype.Service;
 
+import com.alibaba.dubbo.rpc.protocol.rest.support.ContentType;
 import com.fashionsuperman.fs.game.facet.trade.WXPayI;
 import com.fashionsuperman.fs.game.facet.trade.message.MesPayCallback;
 import com.fashionsuperman.fs.game.facet.trade.message.ResPayCallback;
 @Path("/WXPay")
 @Service("WXPayServiceX")
-@Produces(MediaType.TEXT_XML)
+@Produces(ContentType.TEXT_XML_UTF_8)
 public class WXPayServiceX implements WXPayI{
 
 	@POST
 	@OPTIONS
 	@Path("/payCallback")
-	@Consumes({MediaType.TEXT_XML})
+	@Consumes({MediaType.TEXT_XML,MediaType.APPLICATION_XML})
 	@Override
 	public ResPayCallback payCallback(MesPayCallback mesPayCallback) {
 		
@@ -28,6 +29,8 @@ public class WXPayServiceX implements WXPayI{
 		
 		result.setReturn_code("123");
 		result.setReturn_msg("hello");
+		
+		
 		return result;
 	}
 
