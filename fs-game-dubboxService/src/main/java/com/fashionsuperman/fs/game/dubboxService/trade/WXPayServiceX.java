@@ -102,7 +102,11 @@ public class WXPayServiceX implements WXPayI{
 			return result;
 		}else if(DealFlag.DealFailure.equals(dealFlag) || DealFlag.NotDeal.equals(dealFlag)){//没有处理 或者 处理失败  继续处理
 			//给用户添加相应的资产
-			Float funds = Float.parseFloat(total_fee);
+			Float fundsTemp = Float.parseFloat(total_fee);
+			
+			Float funds = fundsTemp/10;
+			
+//			Float funds = Float.parseFloat(fundsTemp2);
 			Float fundsInDb = user.getFunds();
 			Logger.debug("用户 " + openid + " 原来资产 " + fundsInDb);
 			if(fundsInDb == null){

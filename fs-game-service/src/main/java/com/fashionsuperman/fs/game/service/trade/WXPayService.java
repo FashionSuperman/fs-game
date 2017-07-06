@@ -65,7 +65,10 @@ public class WXPayService {
 		mesUnifiedorder.setOut_trade_no(param.getOrderid());
 		
 		//设置  标价金额 	
-		mesUnifiedorder.setTotal_fee(param.getTotal_fee());
+		Float total_fee_f = (Float.parseFloat(param.getTotal_fee()) * 10);
+		String total_fee = total_fee_f.intValue() + "";
+		
+		mesUnifiedorder.setTotal_fee(total_fee);
 		
 		//设置 用户端ip
 		mesUnifiedorder.setSpbill_create_ip(param.getSpbill_create_ip());

@@ -104,6 +104,9 @@ public class LoginFilter implements Filter {
 			// 跳转登录
 			httpServletResponse.sendRedirect(loginUrl);
 			return;
+		}else{
+			chain.doFilter(request, response);
+			return;
 		}
 
 	}

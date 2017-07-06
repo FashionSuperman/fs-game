@@ -3,6 +3,8 @@ package com.fashionsuperman.fs.game.service.trade;
 import java.util.Date;
 import java.util.List;
 
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -26,6 +28,8 @@ import com.fashionsuperman.fs.game.service.common.OrderNoUtil;
  */
 @Service
 public class OrderService {
+	private Logger Logger = LogManager.getLogger(OrderService.class);
+	
 	@Autowired
 	private UserOrderMapper userOrderMapper;
 	@Autowired
@@ -91,6 +95,7 @@ public class OrderService {
 		try {
 			userOrderMapper.insert(record);
 		} catch (Exception e) {
+			Logger.error(e.getMessage());
 			throw new BizException(StatusCode.FAILURE_AUTHENTICATE, "生成订单失败  请稍后重试");
 		}
 		

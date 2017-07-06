@@ -121,6 +121,18 @@ public class DogBizServiceX implements DogBizServiceI{
 		
 		HttpServletRequest httpServletRequest = (HttpServletRequest) RpcContext.getContext().getRequest();
 		
+		String ip = httpServletRequest.getHeader("x-forwarded-for");
+	    if(ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)){
+	        ip = httpServletRequest.getHeader("Proxy-Client-IP");
+	    }
+	    if(ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)){
+	        ip = httpServletRequest.getHeader("WL-Proxy-Client-IP");
+	    }
+	    if(ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)){
+	        ip = httpServletRequest.getRemoteAddr();
+	    }
+	    ip = ip.equals("0:0:0:0:0:0:0:1")?"127.0.0.1":ip;
+		
 		Cookie[] cookies = httpServletRequest.getCookies();
 		Cookie cookie = null;
 		if (cookies == null || cookies.length == 0) {
@@ -141,6 +153,7 @@ public class DogBizServiceX implements DogBizServiceI{
 		
 		//从redis查询该用户
 		String userInRedis = this.jedisUtil.STRINGS.get(sessionId);
+//		String userInRedis = this.jedisUtil.STRINGS.get("oR8r7t5-S45elI3FJjX17v86sYcU");
 		ObjectMapper mapper = new ObjectMapper();
 		mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
 		

@@ -11,6 +11,8 @@
 
 <script type="text/javascript"
 	src="${pageContext.request.contextPath}/js/test.js"></script>
+	
+<script>var contextPath = '${pageContext.request.contextPath}';</script>
 </head>
 <body>
 	<button id="btn_query" type="button" onclick="testPay()">测试</button>

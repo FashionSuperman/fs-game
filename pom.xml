@@ -19,9 +19,6 @@
 				<testEnv>develop</testEnv>
 				<maven.test.skip>true</maven.test.skip>
 			</properties>
-			<activation>
-				<activeByDefault>true</activeByDefault>
-			</activation>
 		</profile>
 		<!-- 测试环境 -->
 		<profile>
@@ -30,7 +27,6 @@
 				<env>test</env>
 				<maven.test.skip>true</maven.test.skip>
 			</properties>
-
 		</profile>
 		<!-- 发布环境 -->
 		<profile>
@@ -39,6 +35,9 @@
 				<env>deploy</env>
 				<maven.test.skip>false</maven.test.skip>
 			</properties>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
 		</profile>
 	</profiles>
 

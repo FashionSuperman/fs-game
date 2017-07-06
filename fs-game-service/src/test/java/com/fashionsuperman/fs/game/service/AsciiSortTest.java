@@ -84,4 +84,12 @@ public class AsciiSortTest {
 		ResUnifiedorder resUnifiedorder = (ResUnifiedorder) XMLUtil.convertXmlStrToObject(ResUnifiedorder.class, xml);
 		System.out.println(resUnifiedorder.getPrepay_id());
 	}
+	
+	@Test
+	public void testparse(){
+		Float fundsTemp = Float.parseFloat("1");
+		
+		Float funds = fundsTemp/10;
+		System.out.println(funds);
+	}
 }
