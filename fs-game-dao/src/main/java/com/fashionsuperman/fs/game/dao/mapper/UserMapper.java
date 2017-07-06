@@ -54,4 +54,11 @@ public interface UserMapper {
 	 * @return
 	 */
 	int insertIncrement(User user);
+
+	/**
+	 * 根据openId查询用户
+	 * @param openid
+	 * @return
+	 */
+	User selectByForeignId(String openid);
 }

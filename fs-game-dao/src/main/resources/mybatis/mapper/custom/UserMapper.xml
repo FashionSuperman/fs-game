@@ -31,4 +31,11 @@
       #{foreighid,jdbcType=VARCHAR}, #{foreightype,jdbcType=VARCHAR}, #{funds,jdbcType=REAL}, 
       #{createdate,jdbcType=DATE}, #{password,jdbcType=VARCHAR})
   </insert>
+  
+  <select id="selectByForeignId" parameterType="java.lang.String" resultMap="BaseResultMap">
+  	select 
+    <include refid="Base_Column_List" />
+    from user
+    where ForeighId = #{value,jdbcType=VARCHAR}
+  </select>
 </mapper>
