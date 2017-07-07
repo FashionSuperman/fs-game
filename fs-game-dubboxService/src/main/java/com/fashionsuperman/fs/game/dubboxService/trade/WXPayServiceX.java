@@ -104,7 +104,7 @@ public class WXPayServiceX implements WXPayI{
 			//给用户添加相应的资产
 			Float fundsTemp = Float.parseFloat(total_fee);
 			
-			Float funds = fundsTemp/10;
+			Float funds = fundsTemp/100;
 			
 //			Float funds = Float.parseFloat(fundsTemp2);
 			Float fundsInDb = user.getFunds();
@@ -121,6 +121,14 @@ public class WXPayServiceX implements WXPayI{
 			user.setFunds(fundsInDb);
 			try {
 				userMapper.updateByPrimaryKeySelective(user);
+				
+				
+				//修改状态为已处理
+				UserOrder userOrderUpdate = new UserOrder();
+				userOrderUpdate.setOrderid(out_trade_no);
+				userOrderUpdate.setDealflag(DealFlag.DealSuccess);
+				
+				userOrderMapper.updateByPrimaryKeySelective(userOrderUpdate);
 				
 				result.setReturn_code("SUCCESS");
 				result.setReturn_msg("SUCCESS");

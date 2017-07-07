@@ -81,7 +81,13 @@ public class LoginFilter implements Filter {
 
 		String requestUri = httpServletRequest.getRequestURI();
 		logger.info("请求路径: " + requestUri);
+		//登录接口 不拦截
 		if (requestUri.contains("loginwx")) {
+			chain.doFilter(request, response);
+			return;
+		}
+		//微信支付回调通知  不拦截
+		if(requestUri.contains("WXPay/payCallback")){
 			chain.doFilter(request, response);
 			return;
 		}

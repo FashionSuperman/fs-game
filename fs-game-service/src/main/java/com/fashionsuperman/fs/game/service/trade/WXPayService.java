@@ -11,7 +11,6 @@ import com.fashionSuperman.fs.core.constant.StatusCode;
 import com.fashionSuperman.fs.core.exception.BizException;
 import com.fashionSuperman.fs.core.util.HttpClientUtil;
 import com.fashionSuperman.fs.core.util.XMLUtil;
-import com.fashionsuperman.fs.game.service.common.OrderNoUtil;
 import com.fashionsuperman.fs.game.service.common.UtilConstant;
 import com.fashionsuperman.fs.game.service.common.WXSignUtil;
 import com.fashionsuperman.fs.game.service.trade.message.MesUnifiedorder;
@@ -65,7 +64,7 @@ public class WXPayService {
 		mesUnifiedorder.setOut_trade_no(param.getOrderid());
 		
 		//设置  标价金额 	
-		Float total_fee_f = (Float.parseFloat(param.getTotal_fee()) * 10);
+		Float total_fee_f = (Float.parseFloat(param.getTotal_fee()) * 100);
 		String total_fee = total_fee_f.intValue() + "";
 		
 		mesUnifiedorder.setTotal_fee(total_fee);
