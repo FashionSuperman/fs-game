@@ -91,6 +91,12 @@ public class LoginFilter implements Filter {
 			chain.doFilter(request, response);
 			return;
 		}
+		//判断试玩次数不拦截
+		if(requestUri.contains("judgeCanPlay")){
+			chain.doFilter(request, response);
+			return;
+		}
+		
 
 		Cookie[] cookies = httpServletRequest.getCookies();
 		if (cookies == null || cookies.length == 0) {

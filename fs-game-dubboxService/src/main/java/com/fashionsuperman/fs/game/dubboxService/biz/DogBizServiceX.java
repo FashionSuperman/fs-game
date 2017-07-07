@@ -22,6 +22,7 @@ import com.fashionSuperman.fs.core.exception.BizException;
 import com.fashionSuperman.fs.core.util.JedisUtil;
 import com.fashionsuperman.fs.game.dao.entity.Package;
 import com.fashionsuperman.fs.game.dao.entity.User;
+import com.fashionsuperman.fs.game.dubboxService.common.DubboxCookieComponent;
 import com.fashionsuperman.fs.game.facet.biz.DogBizServiceI;
 import com.fashionsuperman.fs.game.facet.biz.message.MesApplyWXPay;
 import com.fashionsuperman.fs.game.facet.biz.message.MesJudgeCanPlay;
@@ -45,6 +46,8 @@ public class DogBizServiceX implements DogBizServiceI{
 	private Long permanentCommodityId;
 	@Autowired
 	private JedisUtil jedisUtil;
+	@Autowired
+	private DubboxCookieComponent dubboxCookieComponent;
 	
 	/**
 	 * 判断用户是否可以继续游戏
@@ -66,6 +69,17 @@ public class DogBizServiceX implements DogBizServiceI{
 			throw new BizException(com.fashionSuperman.fs.core.constant.StatusCode.FAILURE_AUTHENTICATE, "userid不能为空");
 		}
 		
+		//TODO
+		//判断是否登录  如果已登录按登录用户的逻辑判断,如果未登录,按未登录逻辑判断(每12小时3次)
+		User user = dubboxCookieComponent.getLoginUser();
+		if(user != null){//已登录
+			
+		}else{//未登录
+			
+		}
+		
+		
+		//以下代码会在用户登录 并且用户免费试玩次数耗尽之后才会执行
 		
 		Map<String, Object> paramMap;
 		Package packageUser;
