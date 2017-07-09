@@ -7,7 +7,6 @@ import com.fashionsuperman.fs.game.dao.entity.User;
 import com.fashionsuperman.fs.game.dao.entity.UserRelationshipKey;
 import com.fashionsuperman.fs.game.dao.entity.custom.UserCustom;
 import com.fashionsuperman.fs.game.facet.user.message.MesUserAddFriendByAccountName;
-import com.fashionsuperman.fs.game.facet.user.message.ResLoginwx;
 
 /**
  * 用户接口定义
@@ -63,4 +62,10 @@ public interface UserI {
 	 * @throws BizException
 	 */
 	public User loginwx() throws BizException;
+	
+	/**
+	 * 获取登录用户信息
+	 * @return
+	 */
+	public User getLoginUserInfo() throws BizException;
 }

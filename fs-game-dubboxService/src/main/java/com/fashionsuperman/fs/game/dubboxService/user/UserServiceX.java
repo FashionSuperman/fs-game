@@ -9,7 +9,6 @@ import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
@@ -18,14 +17,12 @@ import org.springframework.stereotype.Service;
 
 import com.alibaba.dubbo.rpc.RpcContext;
 import com.alibaba.dubbo.rpc.protocol.rest.support.ContentType;
-import com.fashionSuperman.fs.core.common.PageInfo;
+import com.fashionSuperman.fs.core.exception.BizException;
 import com.fashionsuperman.fs.game.dao.entity.User;
 import com.fashionsuperman.fs.game.dao.entity.UserRelationshipKey;
 import com.fashionsuperman.fs.game.dao.entity.custom.UserCustom;
 import com.fashionsuperman.fs.game.facet.user.UserI;
-import com.fashionsuperman.fs.game.facet.user.message.MesGetUserList;
 import com.fashionsuperman.fs.game.facet.user.message.MesUserAddFriendByAccountName;
-import com.fashionsuperman.fs.game.facet.user.message.ResLoginwx;
 import com.fashionsuperman.fs.game.service.user.UserService;
 
 @Path("/User")
@@ -105,5 +102,15 @@ public class UserServiceX implements UserI {
 		
 		
 		return result;
+	}
+
+
+	//TODO
+	@Override
+	@POST
+	@Path("/getLoginUserInfo")
+	@Consumes(MediaType.APPLICATION_JSON)
+	public User getLoginUserInfo() throws BizException {
+		return userService.getLoginUserInfo();
 	}
 }

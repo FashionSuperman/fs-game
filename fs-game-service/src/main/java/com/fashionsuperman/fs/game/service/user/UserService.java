@@ -372,4 +372,15 @@ public class UserService {
 		
 		return result;
 	}
+	
+	/**
+	 * 获取登录用户信息
+	 * @return
+	 */
+	public User getLoginUserInfo(){
+		User result = new User();
+		//TODO
+		
+		return result;
+	}
 }
