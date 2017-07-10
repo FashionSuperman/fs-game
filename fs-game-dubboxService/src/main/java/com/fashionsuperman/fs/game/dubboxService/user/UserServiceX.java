@@ -1,5 +1,6 @@
 package com.fashionsuperman.fs.game.dubboxService.user;
 
+import java.io.IOException;
 import java.util.List;
 
 import javax.servlet.http.Cookie;
@@ -23,6 +24,8 @@ import com.fashionsuperman.fs.game.dao.entity.UserRelationshipKey;
 import com.fashionsuperman.fs.game.dao.entity.custom.UserCustom;
 import com.fashionsuperman.fs.game.facet.user.UserI;
 import com.fashionsuperman.fs.game.facet.user.message.MesUserAddFriendByAccountName;
+import com.fashionsuperman.fs.game.facet.user.message.UserLogin;
+import com.fashionsuperman.fs.game.service.common.UtilConstant;
 import com.fashionsuperman.fs.game.service.user.UserService;
 
 @Path("/User")
@@ -31,6 +34,12 @@ import com.fashionsuperman.fs.game.service.user.UserService;
 public class UserServiceX implements UserI {
 	@Autowired
 	private UserService userService;
+	@Autowired
+	private UtilConstant UtilConstant;
+	
+	@Autowired
+	private com.fashionsuperman.fs.game.dubboxService.common.DubboxCookieComponent dubboxCookieComponent;
+	
 	@POST
 	@Path("/registeUser")
 	@Consumes(MediaType.APPLICATION_JSON)
@@ -74,18 +83,11 @@ public class UserServiceX implements UserI {
 		return userService.userAddFriendByAccountName(param);
 	}
 	
-//	@POST
-//	@Path("/getUserList")
-//	@Consumes(MediaType.APPLICATION_JSON)
-//	@Override
-//	public PageInfo getUserList(MesGetUserList param){
-//		return userService.getUserList(param);
-//	}
 	@GET
 	@Path("/loginwx")
 	@Produces({MediaType.APPLICATION_JSON})
 	@Override
-	public User loginwx(){
+	public User loginwx() throws IOException{
 		User result = new User();
 		HttpServletResponse httpServletResponse = (HttpServletResponse) RpcContext.getContext().getResponse();
 		HttpServletRequest httpServletRequest = (HttpServletRequest) RpcContext.getContext().getRequest();
@@ -96,21 +98,24 @@ public class UserServiceX implements UserI {
 		
 		//回写cookie
 		Cookie cookie = new Cookie("sessionId", result.getAccountname());
-		cookie.setMaxAge(30*12*60*60);
+		cookie.setMaxAge(30*24*60*60);
 		cookie.setPath("/");
 		httpServletResponse.addCookie(cookie);
 		
+		httpServletResponse.sendRedirect(UtilConstant.ifyoudogindex);
 		
 		return result;
 	}
 
 
-	//TODO
 	@Override
 	@POST
 	@Path("/getLoginUserInfo")
 	@Consumes(MediaType.APPLICATION_JSON)
-	public User getLoginUserInfo() throws BizException {
-		return userService.getLoginUserInfo();
+	public UserLogin getLoginUserInfo() throws BizException {
+		UserLogin userLogin = dubboxCookieComponent.getLoginUser();
+		
+		return userLogin;
+		
 	}
 }

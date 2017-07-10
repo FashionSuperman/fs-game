@@ -41,6 +41,6 @@
 	
 	
 	
-	<!-- <dubbo:service protocol="rest" retries="0"  interface="com.fashionsuperman.fs.game.facet.test.TestRedisI" ref="TestRedis" /> -->
+	<dubbo:service protocol="rest" retries="0"  interface="com.fashionsuperman.fs.game.facet.test.TestRedisI" ref="TestRedis" />
 	<!-- <dubbo:service retries="0"  interface="com.fashionSuperman.fs.dubbo.facet.inter.UserInterface" ref="userServiceImpl" /> -->
 </beans>  

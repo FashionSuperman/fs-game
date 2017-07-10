@@ -25,6 +25,15 @@ public class UtilConstant {
 	public String notify_url;
 	@Value("#{utilProperties.wxkey}")
 	public String wxkey;
+	@Value("#{utilProperties.ifyoudogindex}")
+	public String ifyoudogindex;
 	
 	
+	/**
+	 * 是否允许不登录可以玩
+	 * 1表示必须登录
+	 * 0表示不需要
+	 */
+	@Value("#{utilProperties.shouldLogin}")
+	public String shouldLogin;
 }

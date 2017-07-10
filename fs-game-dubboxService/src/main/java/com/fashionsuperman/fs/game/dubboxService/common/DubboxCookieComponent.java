@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 
 import com.alibaba.dubbo.rpc.RpcContext;
 import com.fashionSuperman.fs.core.util.JedisUtil;
-import com.fashionsuperman.fs.game.dao.entity.User;
+import com.fashionsuperman.fs.game.facet.user.message.UserLogin;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -23,8 +23,8 @@ public class DubboxCookieComponent {
 	 * 判断用户是否登录,如果已登录,返回登录的用户信息,如果未登录,返回null
 	 * @return
 	 */
-	public User getLoginUser(){
-		User result = null;
+	public UserLogin getLoginUser(){
+		UserLogin result = null;
 		
 		HttpServletRequest httpServletRequest = (HttpServletRequest) RpcContext.getContext().getRequest();
 		
@@ -51,14 +51,44 @@ public class DubboxCookieComponent {
 		ObjectMapper mapper = new ObjectMapper();
 		mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
 		
-		User user = null;
+		UserLogin user = null;
 		try {
-			user = mapper.readValue(userInRedis, User.class);
+			user = mapper.readValue(userInRedis, UserLogin.class);
 			result = user;
 		} catch (IOException e) {
 			return result;
 		}
 		
 		return result;
+	}
+	
+	
+	/**
+	 * 根据cookie名称获取cookie
+	 * @param cookieName
+	 * @return
+	 */
+	public Cookie getCookie(String cookieName){
+		Cookie result = null;
+		
+		HttpServletRequest httpServletRequest = (HttpServletRequest) RpcContext.getContext().getRequest();
+		
+		Cookie[] cookies = httpServletRequest.getCookies();
+		Cookie cookie = null;
+		if (cookies == null || cookies.length == 0) {//未登录
+			return result;
+		}
+		
+		for (Cookie c : cookies) {
+			if (cookieName.equals(c.getName())) {
+				cookie = c;
+				break;
+			}
+		}
+		
+		if(cookie == null){//未登录
+			return result;
+		}else
+			return cookie;
 	}
 }

@@ -1,12 +1,14 @@
 package com.fashionsuperman.fs.game.service.user;
 
 import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.commons.beanutils.BeanUtils;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +29,7 @@ import com.fashionsuperman.fs.game.facet.user.message.GetAccessTokenResponse;
 import com.fashionsuperman.fs.game.facet.user.message.GetUserinfoResponse;
 import com.fashionsuperman.fs.game.facet.user.message.MesGetUserList;
 import com.fashionsuperman.fs.game.facet.user.message.MesUserAddFriendByAccountName;
+import com.fashionsuperman.fs.game.facet.user.message.UserLogin;
 import com.fashionsuperman.fs.game.service.common.UtilConstant;
 import com.fashionsuperman.fs.game.service.constant.ForeignType;
 import com.fashionsuperman.fs.game.service.trade.PackageService;
@@ -55,6 +58,7 @@ public class UserService {
 	
 	@Autowired
 	private JedisUtil jedisUtil;
+	
 	
 //	private ObjectMapper objectMapper;
 	
@@ -357,7 +361,15 @@ public class UserService {
 			result = user;
 			
 			//4保存基本信息到redis
-			String userString = objectMapper.writeValueAsString(user);
+			UserLogin userLogin = new UserLogin();
+			try {
+				BeanUtils.copyProperties(userLogin, user);
+				userLogin.setHeadimgurl(getUserinfoResponse.getHeadimgurl());
+			} catch (IllegalAccessException | InvocationTargetException e) {
+				logger.error("序列化用户到redis失败   beanUtils复制属性失败");
+			}
+			
+			String userString = objectMapper.writeValueAsString(userLogin);
 			this.jedisUtil.STRINGS.set(user.getAccountname(), userString);
 			this.jedisUtil.KEYS.expired(user.getAccountname(), this.timeOut);
 			
@@ -377,9 +389,10 @@ public class UserService {
 	 * 获取登录用户信息
 	 * @return
 	 */
-	public User getLoginUserInfo(){
-		User result = new User();
-		//TODO
+	public UserLogin getLoginUserInfo(){
+		UserLogin result = new UserLogin();
+		
+		
 		
 		return result;
 	}

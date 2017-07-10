@@ -2,8 +2,10 @@ package com.fashionsuperman.fs.game.facet.biz.message;
 
 public class StatusCode {
 	/**
-	 * 0失败
 	 * 1成功
+	 * 2未登录失败 (提示用户登录)
+	 * 3登录失败 (提示用户12小时后赠送,或者可以购买)
+	 * 
 	 */
 	private String status;
 	private String message;

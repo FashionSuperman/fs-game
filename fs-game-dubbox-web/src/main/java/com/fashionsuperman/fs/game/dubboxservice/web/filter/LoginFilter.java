@@ -33,12 +33,13 @@ import redis.clients.jedis.JedisPoolConfig;
  */
 public class LoginFilter implements Filter {
 	private Logger logger = LogManager.getLogger(LoginFilter.class);
-//	private String loginUrl = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx324313fc147c74e2&redirect_uri=http%3a%2f%2fwww.fashionsuperman.top%2fifyoudog%2ffs-game-service%2fUser%2floginwx&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect";
+	// private String loginUrl =
+	// "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx324313fc147c74e2&redirect_uri=http%3a%2f%2fwww.fashionsuperman.top%2fifyoudog%2ffs-game-service%2fUser%2floginwx&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect";
 	private String loginUrl = "";
 
 	private JedisUtil jedisUtil;
 	private JedisPool jedisPool;
-	
+
 	private Properties propertiesRedis;
 	private Properties propertiesUtil;
 
@@ -63,13 +64,12 @@ public class LoginFilter implements Filter {
 
 		jedisPool = new JedisPool(jedisPoolConfig, propertiesRedis.getProperty("redis.hostname"),
 				Integer.parseInt(propertiesRedis.getProperty("redis.port")), 60000);
-		
-		
+
 		this.loginUrl = this.propertiesUtil.getProperty("loginUrl");
 		String appid = this.propertiesUtil.getProperty("appid");
 		String redirect_uri = this.propertiesUtil.getProperty("redirect_uri");
-		
-		this.loginUrl = String.format(this.loginUrl, appid,redirect_uri);
+
+		this.loginUrl = String.format(this.loginUrl, appid, redirect_uri);
 
 	}
 
@@ -81,22 +81,28 @@ public class LoginFilter implements Filter {
 
 		String requestUri = httpServletRequest.getRequestURI();
 		logger.info("请求路径: " + requestUri);
-		//登录接口 不拦截
+
+		// 测试接口 不拦截
+		if (requestUri.contains("Test")) {
+			chain.doFilter(request, response);
+			return;
+		}
+
+		// 登录接口 不拦截
 		if (requestUri.contains("loginwx")) {
 			chain.doFilter(request, response);
 			return;
 		}
-		//微信支付回调通知  不拦截
-		if(requestUri.contains("WXPay/payCallback")){
+		// 微信支付回调通知 不拦截
+		if (requestUri.contains("WXPay/payCallback")) {
 			chain.doFilter(request, response);
 			return;
 		}
-		//判断试玩次数不拦截
-		if(requestUri.contains("judgeCanPlay")){
+		// 判断试玩次数不拦截
+		if (requestUri.contains("judgeCanPlay")) {
 			chain.doFilter(request, response);
 			return;
 		}
-		
 
 		Cookie[] cookies = httpServletRequest.getCookies();
 		if (cookies == null || cookies.length == 0) {
@@ -116,7 +122,7 @@ public class LoginFilter implements Filter {
 			// 跳转登录
 			httpServletResponse.sendRedirect(loginUrl);
 			return;
-		}else{
+		} else {
 			chain.doFilter(request, response);
 			return;
 		}

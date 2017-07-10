@@ -1,5 +1,6 @@
 package com.fashionsuperman.fs.game.facet.user;
 
+import java.io.IOException;
 import java.util.List;
 
 import com.fashionSuperman.fs.core.exception.BizException;
@@ -7,6 +8,7 @@ import com.fashionsuperman.fs.game.dao.entity.User;
 import com.fashionsuperman.fs.game.dao.entity.UserRelationshipKey;
 import com.fashionsuperman.fs.game.dao.entity.custom.UserCustom;
 import com.fashionsuperman.fs.game.facet.user.message.MesUserAddFriendByAccountName;
+import com.fashionsuperman.fs.game.facet.user.message.UserLogin;
 
 /**
  * 用户接口定义
@@ -61,11 +63,11 @@ public interface UserI {
 	 * @return
 	 * @throws BizException
 	 */
-	public User loginwx() throws BizException;
+	public User loginwx() throws BizException , IOException;
 	
 	/**
 	 * 获取登录用户信息
 	 * @return
 	 */
-	public User getLoginUserInfo() throws BizException;
+	public UserLogin getLoginUserInfo() throws BizException;
 }

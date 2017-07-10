@@ -1,5 +1,7 @@
 package com.fashionsuperman.fs.game.facet.biz;
 
+import java.io.IOException;
+
 import com.fashionSuperman.fs.core.exception.BizException;
 import com.fashionsuperman.fs.game.facet.biz.message.MesApplyWXPay;
 import com.fashionsuperman.fs.game.facet.biz.message.MesJudgeCanPlay;
@@ -21,7 +23,7 @@ public interface DogBizServiceI {
 	 * @param mesJudgeCanPlay
 	 * @return
 	 */
-	StatusCode judgeCanPlay(MesJudgeCanPlay mesJudgeCanPlay) throws BizException;
+	StatusCode judgeCanPlay(MesJudgeCanPlay mesJudgeCanPlay) throws BizException , IOException;
 	/**
 	 * 签名 
 	 * @param mesSign
