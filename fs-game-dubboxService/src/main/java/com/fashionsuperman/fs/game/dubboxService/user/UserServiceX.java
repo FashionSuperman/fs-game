@@ -123,7 +123,6 @@ public class UserServiceX implements UserI {
 		Rank rank = rankService.getUserRankByAccountName(userLogin.getAccountname());
 		
 		userLogin.setScore(rank.getScore());
-		
 		return userLogin;
 		
 	}

@@ -12,9 +12,11 @@ import org.springframework.stereotype.Service;
 
 import com.alibaba.dubbo.rpc.protocol.rest.support.ContentType;
 import com.fashionSuperman.fs.core.exception.BizException;
+import com.fashionsuperman.fs.game.dubboxService.common.DubboxCookieComponent;
 import com.fashionsuperman.fs.game.facet.trade.OrderI;
 import com.fashionsuperman.fs.game.facet.trade.message.MesGenerateUserOrder;
 import com.fashionsuperman.fs.game.facet.trade.message.ResGenerateUserOrder;
+import com.fashionsuperman.fs.game.facet.user.message.UserLogin;
 import com.fashionsuperman.fs.game.service.trade.OrderService;
 @Path("/Order")
 @Service("OrderServiceX")
@@ -22,6 +24,9 @@ import com.fashionsuperman.fs.game.service.trade.OrderService;
 public class OrderServiceX implements OrderI {
 	@Autowired
 	private OrderService orderService;
+	
+	@Autowired
+	private DubboxCookieComponent dubboxCookieComponent;
 
 	@Override
 	@POST
@@ -29,6 +34,10 @@ public class OrderServiceX implements OrderI {
 	@Consumes(MediaType.APPLICATION_JSON)
 	public ResGenerateUserOrder generateUserOrder(MesGenerateUserOrder mesGenerateUserOrder) throws BizException {
 		ResGenerateUserOrder result = null;
+		
+		UserLogin userLogin = dubboxCookieComponent.getLoginUser();
+		
+		mesGenerateUserOrder.setUserid(userLogin.getUserid());
 		
 		result = orderService.generateUserOrder(mesGenerateUserOrder);
 		return result;
