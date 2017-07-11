@@ -83,4 +83,17 @@ public class RankService {
 		
 	}
 	
+	/**
+	 * 获取用户分数
+	 * @param userid
+	 * @return
+	 */
+	public Rank getUserRankByAccountName(String accountname){
+		Rank result = null;
+		
+		result = rankMapper.selectByAccountName(accountname);
+		
+		return result;
+	}
+	
 }

@@ -13,6 +13,8 @@ public class UserLogin {
 	private String password;
 	
 	private String headimgurl;
+	
+	private Float score;
 
 	public Long getUserid() {
 		return userid;
@@ -84,6 +86,14 @@ public class UserLogin {
 
 	public void setHeadimgurl(String headimgurl) {
 		this.headimgurl = headimgurl;
+	}
+
+	public Float getScore() {
+		return score;
+	}
+
+	public void setScore(Float score) {
+		this.score = score;
 	}
 	
 	

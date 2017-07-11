@@ -19,6 +19,7 @@ import org.springframework.stereotype.Service;
 import com.alibaba.dubbo.rpc.RpcContext;
 import com.alibaba.dubbo.rpc.protocol.rest.support.ContentType;
 import com.fashionSuperman.fs.core.exception.BizException;
+import com.fashionsuperman.fs.game.dao.entity.Rank;
 import com.fashionsuperman.fs.game.dao.entity.User;
 import com.fashionsuperman.fs.game.dao.entity.UserRelationshipKey;
 import com.fashionsuperman.fs.game.dao.entity.custom.UserCustom;
@@ -26,6 +27,7 @@ import com.fashionsuperman.fs.game.facet.user.UserI;
 import com.fashionsuperman.fs.game.facet.user.message.MesUserAddFriendByAccountName;
 import com.fashionsuperman.fs.game.facet.user.message.UserLogin;
 import com.fashionsuperman.fs.game.service.common.UtilConstant;
+import com.fashionsuperman.fs.game.service.rank.RankService;
 import com.fashionsuperman.fs.game.service.user.UserService;
 
 @Path("/User")
@@ -36,6 +38,8 @@ public class UserServiceX implements UserI {
 	private UserService userService;
 	@Autowired
 	private UtilConstant UtilConstant;
+	@Autowired
+	private RankService rankService;
 	
 	@Autowired
 	private com.fashionsuperman.fs.game.dubboxService.common.DubboxCookieComponent dubboxCookieComponent;
@@ -114,6 +118,11 @@ public class UserServiceX implements UserI {
 	@Consumes(MediaType.APPLICATION_JSON)
 	public UserLogin getLoginUserInfo() throws BizException {
 		UserLogin userLogin = dubboxCookieComponent.getLoginUser();
+		
+		//获取用户最高分
+		Rank rank = rankService.getUserRankByAccountName(userLogin.getAccountname());
+		
+		userLogin.setScore(rank.getScore());
 		
 		return userLogin;
 		

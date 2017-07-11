@@ -55,4 +55,6 @@ public interface RankMapper {
     int updateByPrimaryKey(Rank record);
 
 	List<RankUser> getUserList();
+
+	Rank selectByAccountName(String accountname);
 }
