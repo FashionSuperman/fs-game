@@ -23,6 +23,7 @@ import com.fashionsuperman.fs.game.dao.entity.Rank;
 import com.fashionsuperman.fs.game.dao.entity.User;
 import com.fashionsuperman.fs.game.dao.entity.UserRelationshipKey;
 import com.fashionsuperman.fs.game.dao.entity.custom.UserCustom;
+import com.fashionsuperman.fs.game.dao.mapper.UserMapper;
 import com.fashionsuperman.fs.game.facet.user.UserI;
 import com.fashionsuperman.fs.game.facet.user.message.MesUserAddFriendByAccountName;
 import com.fashionsuperman.fs.game.facet.user.message.UserLogin;
@@ -43,6 +44,8 @@ public class UserServiceX implements UserI {
 	
 	@Autowired
 	private com.fashionsuperman.fs.game.dubboxService.common.DubboxCookieComponent dubboxCookieComponent;
+	@Autowired
+	private UserMapper userMapper;
 	
 	@POST
 	@Path("/registeUser")
@@ -123,6 +126,15 @@ public class UserServiceX implements UserI {
 		Rank rank = rankService.getUserRankByAccountName(userLogin.getAccountname());
 		
 		userLogin.setScore(rank.getScore());
+		
+		
+		//获取用户资产 
+		User user = userMapper.selectByForeignId(userLogin.getForeighid());
+		
+		
+		userLogin.setFunds(user.getFunds());
+		
+		
 		return userLogin;
 		
 	}

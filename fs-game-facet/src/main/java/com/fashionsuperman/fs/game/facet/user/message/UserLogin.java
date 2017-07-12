@@ -15,6 +15,7 @@ public class UserLogin {
 	private String headimgurl;
 	
 	private Float score;
+	
 
 	public Long getUserid() {
 		return userid;
