@@ -122,16 +122,24 @@ public class UserServiceX implements UserI {
 	public UserLogin getLoginUserInfo() throws BizException {
 		UserLogin userLogin = dubboxCookieComponent.getLoginUser();
 		
+		if(userLogin == null){
+			return new UserLogin();
+		}
+		
 		//获取用户最高分
 		Rank rank = rankService.getUserRankByAccountName(userLogin.getAccountname());
 		
-		userLogin.setScore(rank.getScore());
+		if(rank == null){
+			userLogin.setScore(0f);
+		}else{
+			userLogin.setScore(rank.getScore());
+		}
+		
+		
 		
 		
 		//获取用户资产 
 		User user = userMapper.selectByForeignId(userLogin.getForeighid());
-		
-		
 		userLogin.setFunds(user.getFunds());
 		
 		

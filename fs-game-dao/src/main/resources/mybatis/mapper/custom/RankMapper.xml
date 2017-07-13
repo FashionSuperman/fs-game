@@ -23,8 +23,10 @@
   
   <select id="selectByAccountName" resultMap="BaseResultMap" parameterType="java.lang.String">
   	select 
-    <include refid="Base_Column_List" />
-    from rank t1 left join User t2 on t1.UserId = t2.UserId
+    t1.UserId, 
+    t1.NickName, 
+    t1.Score
+    from rank t1 left join user t2 on t1.UserId = t2.UserId
     where t2.AccountName = #{value,jdbcType=VARCHAR}
   </select>
 </mapper>

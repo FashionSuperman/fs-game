@@ -103,6 +103,12 @@ public class LoginFilter implements Filter {
 			chain.doFilter(request, response);
 			return;
 		}
+		
+		//获取用户登录信息接口不拦截
+		if(requestUri.contains("getLoginUserInfo")){
+			chain.doFilter(request, response);
+			return;
+		}
 
 		Cookie[] cookies = httpServletRequest.getCookies();
 		if (cookies == null || cookies.length == 0) {
