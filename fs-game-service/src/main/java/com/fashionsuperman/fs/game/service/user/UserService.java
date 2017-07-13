@@ -377,7 +377,8 @@ public class UserService {
 			this.jedisUtil.STRINGS.set(user.getAccountname(), userString);
 			this.jedisUtil.KEYS.expired(user.getAccountname(), this.timeOut);
 			
-			
+			//输出用户信息
+			logger.debug("用户信息 : " + userLogin.toString());
 			
 		} catch (IOException e) {
 			e.printStackTrace();

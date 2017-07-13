@@ -96,6 +96,13 @@ public class UserLogin {
 	public void setScore(Float score) {
 		this.score = score;
 	}
+
+	@Override
+	public String toString() {
+		return "UserLogin [userid=" + userid + ", accountname=" + accountname + ", nickname=" + nickname
+				+ ", foreighid=" + foreighid + ", foreightype=" + foreightype + ", funds=" + funds + ", createdate="
+				+ createdate + ", password=" + password + ", headimgurl=" + headimgurl + ", score=" + score + "]";
+	}
 	
 	
 	

@@ -13,6 +13,8 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -46,6 +48,8 @@ public class UserServiceX implements UserI {
 	private com.fashionsuperman.fs.game.dubboxService.common.DubboxCookieComponent dubboxCookieComponent;
 	@Autowired
 	private UserMapper userMapper;
+	
+	private Logger Logger = LogManager.getLogger(UserServiceX.class);
 	
 	@POST
 	@Path("/registeUser")
@@ -102,6 +106,8 @@ public class UserServiceX implements UserI {
 		String code = httpServletRequest.getParameter("code");
 		
 		result = userService.loginwx(code);
+		
+//		Logger.info("用户微信信息: " + result.);
 		
 		//回写cookie
 		Cookie cookie = new Cookie("sessionId", result.getAccountname());
