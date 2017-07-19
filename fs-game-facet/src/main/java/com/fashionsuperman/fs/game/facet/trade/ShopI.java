@@ -1,5 +1,7 @@
 package com.fashionsuperman.fs.game.facet.trade;
 
+import java.io.IOException;
+
 import com.fashionSuperman.fs.core.common.PageInfo;
 import com.fashionSuperman.fs.core.exception.BizException;
 import com.fashionsuperman.fs.game.facet.trade.message.MesBuyShopCommodity;
@@ -17,5 +19,5 @@ public interface ShopI {
 	 * 购买商店商品
 	 * @param param
 	 */
-	public MesBuyShopCommodity buyShopCommodity(MesBuyShopCommodity param) throws BizException;
+	public MesBuyShopCommodity buyShopCommodity(MesBuyShopCommodity param) throws BizException , IOException;
 }

@@ -358,11 +358,13 @@ public class UserService {
 			user.setNickname(getUserinfoResponse.getNickname());
 			user.setForeighid(getUserinfoResponse.getOpenid());
 			this.registeUser(user);
-			result = user;
+			
 			
 			//查询该user 获取userId
 			User userInDb = userMapper.selectByForeignId(user.getForeighid());
 			user.setUserid(userInDb.getUserid());
+			
+			result = user;
 			
 			//4保存基本信息到redis
 			UserLogin userLogin = new UserLogin();
