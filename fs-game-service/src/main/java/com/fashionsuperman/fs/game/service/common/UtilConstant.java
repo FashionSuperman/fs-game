@@ -36,4 +36,19 @@ public class UtilConstant {
 	 */
 	@Value("#{utilProperties.shouldLogin}")
 	public String shouldLogin;
+	
+	
+	@Value("#{utilProperties.canPlayCommodityId}")
+	public Long canPlayCommodityId;
+	@Value("#{utilProperties.permanentCommodityId}")
+	public Long permanentCommodityId;
+	@Value("#{utilProperties.shareAwardNum}")
+	public Integer shareAwardNum;
+	
+	@Value("#{utilProperties.getwxInterfaceToken}")
+	public String getwxInterfaceToken;
+	@Value("#{utilProperties.indexUrl}")
+	public String indexUrl;
+	@Value("#{utilProperties.getticketUrl}")
+	public String getticketUrl;
 }

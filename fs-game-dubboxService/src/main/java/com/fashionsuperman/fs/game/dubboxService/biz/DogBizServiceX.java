@@ -36,9 +36,13 @@ import com.fashionsuperman.fs.game.dao.mapper.UserMapper;
 import com.fashionsuperman.fs.game.dubboxService.common.DubboxCookieComponent;
 import com.fashionsuperman.fs.game.facet.biz.DogBizServiceI;
 import com.fashionsuperman.fs.game.facet.biz.message.MesApplyWXPay;
+import com.fashionsuperman.fs.game.facet.biz.message.MesGetWxConfigParam;
 import com.fashionsuperman.fs.game.facet.biz.message.MesJudgeCanPlay;
+import com.fashionsuperman.fs.game.facet.biz.message.MesShareSuccess;
 import com.fashionsuperman.fs.game.facet.biz.message.MesSign;
 import com.fashionsuperman.fs.game.facet.biz.message.ResApplyWXPay;
+import com.fashionsuperman.fs.game.facet.biz.message.ResGetWxConfigParam;
+import com.fashionsuperman.fs.game.facet.biz.message.ResShareSuccess;
 import com.fashionsuperman.fs.game.facet.biz.message.ResSign;
 import com.fashionsuperman.fs.game.facet.biz.message.StatusCode;
 import com.fashionsuperman.fs.game.facet.user.message.UserLogin;
@@ -312,5 +316,31 @@ public class DogBizServiceX implements DogBizServiceI{
 		ResApplyWXPay result = new ResApplyWXPay();
 		result = dogBizService.applyWXPay(mesApplyWXPay);
 		return result;
+	}
+	
+	@POST
+	@Path("/getWxConfigParam")
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Override
+	public ResGetWxConfigParam getWxConfigParam(MesGetWxConfigParam param){
+		return dogBizService.getWxConfigParam();
+	}
+	
+	@POST
+	@Path("/shareSuccess")
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Override
+	public ResShareSuccess shareSuccess(MesShareSuccess param){
+		//获取登录信息
+		UserLogin user = dubboxCookieComponent.getLoginUser();
+		if(user == null){
+			ResShareSuccess result = new ResShareSuccess();
+			result.setStatus("2");
+			return result;
+		}
+		
+		param.setUserId(user.getUserid());
+		
+		return dogBizService.shareSuccess(param);
 	}
 }

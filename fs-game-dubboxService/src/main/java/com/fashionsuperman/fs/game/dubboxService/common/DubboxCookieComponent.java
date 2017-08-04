@@ -10,6 +10,7 @@ import org.springframework.stereotype.Component;
 
 import com.alibaba.dubbo.rpc.RpcContext;
 import com.fashionSuperman.fs.core.util.JedisUtil;
+import com.fashionSuperman.fs.core.util.StringUtil;
 import com.fashionsuperman.fs.game.facet.user.message.UserLogin;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -47,6 +48,10 @@ public class DubboxCookieComponent {
 		
 		String sessionId = cookie.getValue();
 		String userInRedis = this.jedisUtil.STRINGS.get(sessionId);
+		
+		if(StringUtil.isNullOrEmpty(userInRedis)){
+			return null;
+		}
 		
 		ObjectMapper mapper = new ObjectMapper();
 		mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);

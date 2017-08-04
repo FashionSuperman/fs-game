@@ -109,6 +109,11 @@ public class LoginFilter implements Filter {
 			chain.doFilter(request, response);
 			return;
 		}
+		
+		if(requestUri.contains("DogBiz/getWxConfigParam")){
+			chain.doFilter(request, response);
+			return;
+		}
 
 		Cookie[] cookies = httpServletRequest.getCookies();
 		if (cookies == null || cookies.length == 0) {

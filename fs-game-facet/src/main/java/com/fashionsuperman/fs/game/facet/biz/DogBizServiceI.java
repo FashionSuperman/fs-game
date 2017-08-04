@@ -4,9 +4,13 @@ import java.io.IOException;
 
 import com.fashionSuperman.fs.core.exception.BizException;
 import com.fashionsuperman.fs.game.facet.biz.message.MesApplyWXPay;
+import com.fashionsuperman.fs.game.facet.biz.message.MesGetWxConfigParam;
 import com.fashionsuperman.fs.game.facet.biz.message.MesJudgeCanPlay;
+import com.fashionsuperman.fs.game.facet.biz.message.MesShareSuccess;
 import com.fashionsuperman.fs.game.facet.biz.message.MesSign;
 import com.fashionsuperman.fs.game.facet.biz.message.ResApplyWXPay;
+import com.fashionsuperman.fs.game.facet.biz.message.ResGetWxConfigParam;
+import com.fashionsuperman.fs.game.facet.biz.message.ResShareSuccess;
 import com.fashionsuperman.fs.game.facet.biz.message.ResSign;
 import com.fashionsuperman.fs.game.facet.biz.message.StatusCode;
 
@@ -39,4 +43,8 @@ public interface DogBizServiceI {
 	 * @throws BizException
 	 */
 	public ResApplyWXPay applyWXPay(MesApplyWXPay mesApplyWXPay) throws BizException;
+	
+	public ResGetWxConfigParam getWxConfigParam(MesGetWxConfigParam param) throws BizException;
+	
+	public ResShareSuccess shareSuccess(MesShareSuccess param) throws BizException;
 }

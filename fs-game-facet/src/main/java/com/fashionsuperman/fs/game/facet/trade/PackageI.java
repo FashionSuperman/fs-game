@@ -1,5 +1,7 @@
 package com.fashionsuperman.fs.game.facet.trade;
 
+import java.io.IOException;
+
 import com.fashionSuperman.fs.core.common.PageInfo;
 import com.fashionSuperman.fs.core.exception.BizException;
 import com.fashionsuperman.fs.game.facet.trade.message.MesGetUserPackageList;
@@ -15,5 +17,5 @@ public interface PackageI {
 	 * @param param
 	 * @return
 	 */
-	PageInfo getUserPackageList(MesGetUserPackageList param) throws BizException;
+	PageInfo getUserPackageList(MesGetUserPackageList param) throws BizException, IOException;
 }
