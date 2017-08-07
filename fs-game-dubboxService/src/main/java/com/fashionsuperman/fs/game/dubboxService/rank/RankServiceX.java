@@ -11,8 +11,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.alibaba.dubbo.rpc.protocol.rest.support.ContentType;
+import com.fashionsuperman.fs.game.dubboxService.common.DubboxCookieComponent;
 import com.fashionsuperman.fs.game.facet.rank.RankServiceI;
 import com.fashionsuperman.fs.game.facet.rank.message.MesUpdateUserScore;
+import com.fashionsuperman.fs.game.facet.user.message.UserLogin;
 import com.fashionsuperman.fs.game.service.rank.RankService;
 
 @Path("/Rank")
@@ -21,6 +23,8 @@ import com.fashionsuperman.fs.game.service.rank.RankService;
 public class RankServiceX implements RankServiceI{
 	@Autowired
 	private RankService rankService;
+	@Autowired
+	private DubboxCookieComponent dubboxCookieComponent;
 	/**
 	 * 更新用户分数
 	 */
@@ -29,7 +33,12 @@ public class RankServiceX implements RankServiceI{
 	@Path("/updateUserScore")
 	@Consumes(MediaType.APPLICATION_JSON)
 	public MesUpdateUserScore updateUserScore(MesUpdateUserScore mes){
-		rankService.updateUserScore(mes);
+		UserLogin user = dubboxCookieComponent.getLoginUser();
+		if(user != null){
+			mes.setUserid(user.getUserid());
+			rankService.updateUserScore(mes);
+		}
+		
 		return mes;
 	}
 }
