@@ -229,7 +229,7 @@ public class ShopService {
 			throw new BizException(StatusCode.FAILURE_AUTHENTICATE, "该用户不存在");
 		}
 		Float funds = user.getFunds();
-		if(funds == null || funds < price){
+		if(funds == null || funds < price * number){
 			throw new BizException(StatusCode.FAILURE_AUTHENTICATE, "您的资产不足,请先充值");
 		}
 		
@@ -254,7 +254,7 @@ public class ShopService {
 		//减资产
 		User userUpdate = new User();
 		userUpdate.setUserid(userid);
-		userUpdate.setFunds(funds - price);
+		userUpdate.setFunds(funds - price*number);
 		userMapper.updateByPrimaryKeySelective(userUpdate);
 		
 	}
